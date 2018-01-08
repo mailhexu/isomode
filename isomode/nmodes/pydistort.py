@@ -1,84 +1,7 @@
 #!/usr/bin/env python
 import re
-
 import requests
 from bs4 import BeautifulSoup as BS
-
-class isocif(object):
-    def __init__(self, fname):
-        self.fname=fname
-    def upload_cif(self):
-        data = {'input': 'uploadcif'}
-        files = {'toProcess': open(self.fname, 'rb')}
-        ret = requests.post(
-            "http://stokes.byu.edu/iso/isocifuploadfile.php",
-            data=data,
-            files=files,
-            allow_redirects=True)
-        text = str(ret.text)
-
-        soup = BS(text,'lxml')
-        inputs = soup.find_all('input')
-        #print(inputs)
-        data = {}
-        for i in inputs:
-            try:
-                name = i.get('name')
-                value = i.get('value')
-                t = i.get('type')
-                if t == 'hidden':
-                    data[name] = value
-            except:
-                pass
-        ret = requests.post(
-            "http://stokes.byu.edu/iso/isocifform.php", data=data)
-        text = ret.text
-        self.upload_cif_text = text
-
-    def findsym(self):
-        soup = BS(self.upload_cif_text, 'lxml')
-        inputs = soup.find_all('input')
-        data = {}
-        for inp in inputs:
-            try:
-                name = inp.get('name')
-                value = inp.get('value')
-                t = inp.get('type')
-                data[name] = value
-            except:
-                pass
-        # select basis options. eg.
-        data["input"] = "findsym"
-        ret = requests.post(
-            "http://stokes.byu.edu/iso/isocifform.php", data=data)
-        text = ret.text
-        self.upload_cif_text = text
-
-    def save_cif(self, fname):
-        soup = BS(self.upload_cif_text, 'lxml')
-        inputs = soup.find_all('input')
-        data = {}
-        for inp in inputs:
-            try:
-                name = inp.get('name')
-                value = inp.get('value')
-                t = inp.get('type')
-                data[name] = value
-            except:
-                pass
-        # select basis options. eg.
-        data["input"] = "savecif"
-        data["nonstandardsetting"]='false'
-        ret = requests.post(
-            "http://stokes.byu.edu/iso/isocifform.php", data=data)
-        text = ret.text
-        self.upload_cif_text = text
-        if fname is not None:
-            with open(fname, 'w') as myfile:
-                myfile.write(text)
-        return text
-
-
 
 class isodistort(object):
     def __init__(
@@ -241,17 +164,9 @@ class isodistort(object):
                 myfile.write(text)
         return text
 
-def test_isocif(fname='nmodes/primitive.cif'):
-    iso = isocif(fname)
-    iso.upload_cif()
-    iso.findsym()
-    iso.save_cif(fname='save.cif')
-
-def test(parent_cif='save.cif', distorted_cif='nmodes/A_0.cif', mode_detail_file='mode_detail.txt'):
+def test(parent_cif='primitive.cif', distorted_cif='A_0.cif', mode_detail_file='mode_detail.txt'):
     iso = isodistort(parent_cif=parent_cif, distorted_cif=distorted_cif)
     ampt = iso.get_mode_amplitude_text()
     iso.get_mode_amplitude_text()
-    mode_details=iso.get_mode_details(save_fname='mode_detail.txt')
-
-#test_isocif()
-#test()
+    mode_details=iso.get_mode_details(save_fname=mode_detail_file)
+test()

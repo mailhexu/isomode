@@ -9,6 +9,7 @@ import re
 from itertools import combinations
 import copy
 import json
+import pickle
 
 
 def parse_mode_name_line(line=None):
@@ -118,6 +119,11 @@ def read_mode_amplitudes(filename='mtable.org',
                          randomize=False,
                          use_abs=False,
                          use_max=False):
+    """
+    detail_mode_amplitude_dict:  {fullname: amp}
+    total_mode_dict: {shortname: amp} Note: sqrt(sum(amp_detail**2))
+    total_mode_definitions: shortname: {fullname: amp}. Normalized to norm(amp_shortname)
+    """
     detail_mode_amplitude_dict = defaultdict(float)
     total_mode_dict = defaultdict(float)
     total_mode_definitions = dict()
@@ -144,9 +150,10 @@ def read_mode_amplitudes(filename='mtable.org',
                 if randomize:
                     amp = amp * (1.0 + (random.random() - 1.0) * 0.03)
                 detail_mode_amplitude_dict[fullname] += amp
-                total_mode_dict[shortname] += amp
+                total_mode_dict[shortname] += amp**2 # **2 because amp= sqrt(sum(amp_i**2))
                 if shortname not in total_mode_definitions:
                     total_mode_definitions[shortname] = defaultdict(float)
+                    total_mode_definitions[shortname][fullname] += amp
                 else:
                     total_mode_definitions[shortname][fullname] += amp
             #print(m['label'], m['direction'], m['amp'])
@@ -157,6 +164,13 @@ def read_mode_amplitudes(filename='mtable.org',
             total_mode_definitions_max[key] = dict(
                 [max(val.items(), key=lambda x: abs(x[1]))])
         total_mode_definitions = total_mode_definitions_max
+
+    # normalization:
+    for shortname in total_mode_dict:
+        total_mode_dict[shortname]=np.sqrt(total_mode_dict[shortname])
+        for fullname in total_mode_definitions[shortname]:
+            total_mode_definitions[shortname][fullname]=total_mode_definitions[shortname][fullname]/total_mode_dict[shortname]
+
     return detail_mode_amplitude_dict, total_mode_dict, total_mode_definitions
 
 
@@ -344,12 +358,12 @@ class Isomode(object):
             fname = self.fname
         (self.detail_mode_amplitude_dict, self.total_mode_dict,
          self.total_mode_definitions) = read_mode_amplitudes(
-             fname, use_max=True)
+             fname, use_max=False)
         #print(self.total_mode_definitions)
         #print(self.total_mode_dict)
 
     def prepare_structure_single(self,
-                                 json_file_name=None,
+                                 pickle_file_name=None,
                                  amp=None,
                                  cif_dir=None,
                                  primitive=False):
@@ -365,7 +379,7 @@ class Isomode(object):
                 (label, 'a') not in self.total_mode_definitions):
                 if amp is not None:
                     for fullname in mode_dict:
-                        mode_dict[fullname] = amp
+                        mode_dict[fullname] *= amp
                 distorted_structure = self.get_distorted_structure(
                     mode_dict, primitive=primitive)
                 #print(distorted_structure)
@@ -378,11 +392,11 @@ class Isomode(object):
                 if cif_dir is not None:
                     cif_fname = os.path.join(cif_dir, filename)
                     write(cif_fname, distorted_structure)
-        if json_file_name is not None:
-            json_file = open(json_file_name, 'w')
-            json_list = tuple(item[:-1] for item in structure_list)
-            json.dump(json_list, json_file, indent=4)
-            json_file.close()
+        if pickle_file_name is not None:
+            #pickle_file = open(pickle_file_name, 'w')
+            #pickle_list = tuple(item[:-1] for item in structure_list)
+            with open(pickle_file_name, 'wb') as pickle_file:
+                pickle.dump(structure_list, pickle_file)
         return structure_list
 
 def read_unstable_modes(fname='./mtable.org'):
@@ -614,16 +628,18 @@ def test():
 
 
 def test_parser():
-    myparser = Isomode('./isodistort_modes.txt')
+    myparser = Isomode('./A_0.txt')
     #print(myparser.get_all_mode_fullname())
     print(myparser.symbols)
     myparser.substitute_element({'Cs':'K'})
     #print(myparser.get_mode_displacement("[0,0,1/2]Z5-[O9:g:dsp]E(a)"))
-    myparser.read_mode_amplitudes('./mtable.org')
+    myparser.read_mode_amplitudes('./total.txt')
     myparser.prepare_structure_single(
         primitive=True,
         cif_dir='single_mode',
-        json_file_name='single_mode.json')
+        pickle_file_name='single_mode.pickle',
+        amp=0.1,
+        )
 
 
 test_parser()
