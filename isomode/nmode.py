@@ -38,7 +38,6 @@ def displacement_cart_to_evec(displ_cart,
         evec /= np.linalg.norm(evec)
     return evec
 
-
 def rotate_evecs(evecs, theta):
     length = len(evecs)
     if length==3:
@@ -232,7 +231,6 @@ class phonon_distort_generator(object):
 
             for i in range(self.nbranch):
                 freq = freqs[i]
-
                 if freq < 0 or (not unstable_only):
                     evec = nevecs[i]
                     scell = distorted_cell(self.atoms, supercell_matrix=supercell_matrix)
