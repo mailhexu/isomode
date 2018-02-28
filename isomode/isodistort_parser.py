@@ -638,7 +638,7 @@ def test_parser():
         primitive=True,
         cif_dir='single_mode',
         pickle_file_name='single_mode.pickle',
-        amp=0.1,
+        amp=0.3,
         )
 
 
