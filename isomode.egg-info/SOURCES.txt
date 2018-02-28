@@ -1,0 +1,12 @@
+README.md
+setup.py
+isomode/__init__.py
+isomode/gen_all.py
+isomode/isodistort_parser.py
+isomode/phonmode.py
+isomode/pydistort.py
+isomode.egg-info/PKG-INFO
+isomode.egg-info/SOURCES.txt
+isomode.egg-info/dependency_links.txt
+isomode.egg-info/requires.txt
+isomode.egg-info/top_level.txt

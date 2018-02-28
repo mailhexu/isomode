@@ -1,0 +1,30 @@
+# ANADB input for phonon bands and DOS
+ ndivsm 2
+ nqpath 8
+ qpath
+    0.0    0.0    0.0 # Gamma
+    0.0    0.5    0.0 # Xy
+    0.5    0.0    0.0 # Xx
+    0.5    0.5    0.0 # M
+    0.5    0.0    0.5 # Rx
+    0.0    0.5    0.5 # Ry
+    0.5    0.5    0.5 # A
+    0.0    0.0    0.5 # Z
+ asr 2
+ ngqpt 2 2 2
+ chneut 1
+ dipdip 0
+ ifcflag 1
+ nqshft 1
+ q1shft 0 0 0
+
+
+        #'Gamma': [0.0, 0.0, 0.0],
+        #'Xy': [0, 0.5, 0],
+        #'Xx': [0.5, 0.0, 0],
+        #        'M': [0.5, 0.5, 0],
+        #                'Rx': [0.5, 0.0, 0.5],
+        #                        #'Ry': [0.0, 0.5, 0.5],
+        #                                'A': [0.5, 0.5, 0.5],
+        #                                        'Z': [0, 0, 0.5]
+        #
