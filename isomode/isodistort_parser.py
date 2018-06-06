@@ -108,7 +108,8 @@ def split_symnum(symnum):
     """
     try:
         a = re.search('[A-Za-z]+', symnum).group()
-        b = int(symnum[len(a):])
+        b = re.findall('[0-9]+', symnum)[-1]
+        #b = int(symnum[len(afull):])
         return a, b
     except AttributeError:
         raise AttributeError('%s is not a good symbol_number' % symnum)
@@ -642,4 +643,4 @@ def test_parser():
         )
 
 
-test_parser()
+#test_parser()

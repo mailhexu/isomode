@@ -38,9 +38,10 @@ def displacement_cart_to_evec(displ_cart,
         evec /= np.linalg.norm(evec)
     return evec
 
+
 def rotate_evecs(evecs, theta):
     length = len(evecs)
-    if length==3:
+    if length == 3:
         print(length)
     if length != 2:
         return evecs
@@ -87,8 +88,8 @@ def align_degenerate_modes(modes):
     nmodes = len(modes)
     func = partial(rfunc, modes=modes)
     res = minimize_scalar(func, tol=1e-19)  #, bounds=[0, np.pi])
-    theta=res.x
-    new_modes=rotate_evecs(modes, theta)
+    theta = res.x
+    new_modes = rotate_evecs(modes, theta)
     #print("theta: ", theta / np.pi)
     for i in range(len(modes)):
         mi = modes[i] / np.linalg.norm(modes[i])
@@ -152,8 +153,8 @@ def align_all_modes(evals, evecs, tol=1e-7):
             elif len(multi_modes) > 1:  # multi, align and save
                 for e in align_degenerate_modes(multi_modes):
                     new_evecs.append(e)
-                if len(multi_modes) ==3:  # multi, align and save 
-                    print(evals[i-1], evec)
+                if len(multi_modes) == 3:  # multi, align and save
+                    print(evals[i - 1], evec)
             # clean multi_modes and save new
             multi_modes = []
             multi_modes.append(evec)
@@ -161,12 +162,13 @@ def align_all_modes(evals, evecs, tol=1e-7):
             multi_modes.append(evec)
     return new_evecs
 
+
 class phonon_distort_generator(object):
     def __init__(self, fname, qdict):
-        self.fname=fname
-        self.qdict=qdict
+        self.fname = fname
+        self.qdict = qdict
         self.read_phbst_file()
-        self.distorted_structures=[]
+        self.distorted_structures = []
 
     def read_phbst_file(self):
         self.phbst = abiopen(self.fname)
@@ -177,14 +179,19 @@ class phonon_distort_generator(object):
         self.scaled_positions = self.atoms.get_scaled_positions()
 
     def generate_primitive_structure(self, path=None):
-        self.atoms.set_pbc([1,1,1])
+        self.atoms.set_pbc([1, 1, 1])
         if path is not None:
             if not os.path.exists(path):
                 os.makedirs(path)
             write(os.path.join(path, 'primitive.cif'), self.atoms)
         return self.atoms
 
-    def generate_distorted_structures(self, supercell_matrix=np.eye(3) * 2, amplitude=1.0, unstable_only=True, path=None):
+    def generate_combined_mode_distorted_structures(
+            self,
+            supercell_matrix=np.eye(3) * 2,
+            amplitude_list=[0, 0.1, 0.2],
+            max_freq=0.0,
+            path=None):
         """
         qname, qpoint, ibranch, freq, structure, spacegroup
         """
@@ -192,9 +199,97 @@ class phonon_distort_generator(object):
             os.makedirs(path)
         for qname, qpt in self.qdict.items():
             displ_carts = [
-                self.phbst.get_phmode(qpt, i).displ_cart for i in range(self.nbranch)
+                self.phbst.get_phmode(qpt, i).displ_cart
+                for i in range(self.nbranch)
             ]
-            freqs = [self.phbst.get_phmode(qpt, i).freq for i in range(self.nbranch)]
+            freqs = [
+                self.phbst.get_phmode(qpt, i).freq
+                for i in range(self.nbranch)
+            ]
+            align_evecs = False
+            align_disp = True
+            if align_evecs:
+                evecs = [
+                    displacement_cart_to_evec(
+                        displ_cart,
+                        masses=self.masses,
+                        scaled_positions=self.scaled_positions,
+                        qpoint=qpt,
+                        add_phase=True) for displ_cart in displ_carts
+                ]
+
+                nevecs = align_all_modes(freqs, evecs)
+            elif align_disp:
+                ndispl_carts = align_all_modes(freqs, displ_carts)
+                nevecs = [
+                    displacement_cart_to_evec(
+                        displ_cart,
+                        masses=self.masses,
+                        scaled_positions=self.scaled_positions,
+                        qpoint=qpt,
+                        add_phase=True) for displ_cart in ndispl_carts
+                ]
+            else:
+                ndispl_carts = displ_carts
+                nevecs = [
+                    displacement_cart_to_evec(
+                        displ_cart,
+                        masses=self.masses,
+                        scaled_positions=self.scaled_positions,
+                        qpoint=qpt,
+                        add_phase=True) for displ_cart in ndispl_carts
+                ]
+
+            for i in range(self.nbranch):
+                freq = freqs[i]
+                if freq < max_freq or (not unstable_only):
+                    evec = nevecs[i]
+                    scell = distorted_cell(
+                        self.atoms, supercell_matrix=supercell_matrix)
+                    disp = scell._get_displacements(
+                        evec, qpt, amplitude=amplitude, argument=0)
+                    newcell = scell._get_cell_with_modulation(disp)
+                    newcell = Atoms(newcell)
+                    spacegroup = spglib.get_spacegroup(newcell, symprec=1e-3)
+                    if path is not None:
+                        newcell.set_pbc([1, 1, 1])
+                        write(
+                            os.path.join(path, '%s_%s.cif' % (qname, i)),
+                            newcell)
+                    self.distorted_structures.append({
+                        'qname': qname,
+                        'qpoint': qpt,
+                        'ibranch': i,
+                        'evec': evec,
+                        'amplitude': amplitude,
+                        'spacegroup': spacegroup,
+                        'atoms': newcell
+                    })
+        if path is not None:
+            pfname = os.path.join(path, 'phmodes.pickle')
+            with open(pfname, 'wb') as myfile:
+                pickle.dump(self.distorted_structures, myfile)
+        return self.distorted_structures
+
+    def generate_distorted_structures(self,
+                                      supercell_matrix=np.eye(3) * 2,
+                                      amplitude=1.0,
+                                      unstable_only=True,
+                                      path=None):
+        """
+        qname, qpoint, ibranch, freq, structure, spacegroup
+        """
+        if not os.path.exists(path):
+            os.makedirs(path)
+        for qname, qpt in self.qdict.items():
+            displ_carts = [
+                self.phbst.get_phmode(qpt, i).displ_cart
+                for i in range(self.nbranch)
+            ]
+            freqs = [
+                self.phbst.get_phmode(qpt, i).freq
+                for i in range(self.nbranch)
+            ]
             align_evecs = False
             align_disp = True
             if align_evecs:
@@ -233,27 +328,29 @@ class phonon_distort_generator(object):
                 freq = freqs[i]
                 if freq < 0 or (not unstable_only):
                     evec = nevecs[i]
-                    scell = distorted_cell(self.atoms, supercell_matrix=supercell_matrix)
+                    scell = distorted_cell(
+                        self.atoms, supercell_matrix=supercell_matrix)
                     disp = scell._get_displacements(
                         evec, qpt, amplitude=amplitude, argument=0)
                     newcell = scell._get_cell_with_modulation(disp)
                     newcell = Atoms(newcell)
                     spacegroup = spglib.get_spacegroup(newcell, symprec=1e-3)
                     if path is not None:
-                        newcell.set_pbc([1,1,1])
-                        write(os.path.join(path,'%s_%s.cif' % (qname, i)), newcell)
-                    self.distorted_structures.append(
-                        {'qname':qname,
-                         'qpoint':qpt,
-                         'ibranch':i,
-                         'evec': evec,
-                         'amplitude': amplitude,
-                         'spacegroup': spacegroup,
-                         'atoms': newcell
-                        }
-                    )
+                        newcell.set_pbc([1, 1, 1])
+                        write(
+                            os.path.join(path, '%s_%s.cif' % (qname, i)),
+                            newcell)
+                    self.distorted_structures.append({
+                        'qname': qname,
+                        'qpoint': qpt,
+                        'ibranch': i,
+                        'evec': evec,
+                        'amplitude': amplitude,
+                        'spacegroup': spacegroup,
+                        'atoms': newcell
+                    })
         if path is not None:
-            pfname=os.path.join(path, 'phmodes.pickle')
+            pfname = os.path.join(path, 'phmodes.pickle')
             with open(pfname, 'wb') as myfile:
                 pickle.dump(self.distorted_structures, myfile)
         return self.distorted_structures
@@ -270,8 +367,14 @@ def test_phbst_modes(fname='../data/DionJ/phonon/run.abo_PHBST.nc'):
         'A': [0.5, 0.5, 0.5],
         'Z': [0, 0, 0.5]
     }
-    dg=phonon_distort_generator(fname, qdict)
+    dg = phonon_distort_generator(fname, qdict)
     dg.generate_primitive_structure(path='nmodes')
-    ds=dg.generate_distorted_structures(supercell_matrix=np.eye(3) * 2, amplitude=0.4, unstable_only=True, path='nmodes')
+    ds = dg.generate_distorted_structures(
+        supercell_matrix=np.eye(3) * 2,
+        amplitude=0.4,
+        unstable_only=True,
+        path='nmodes')
     print(ds)
+
+
 #test_phbst_modes()
