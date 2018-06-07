@@ -5,10 +5,13 @@
 * spglib (for space group)
 * abipy (for reading netcdf files)
 * request  (for interacting with the findsym and isodistort server)
+* bs4 (for parsing the html pages)
 * optional:
   * anaddb compiled with netcdf (not needed by the package but it's needed for generating the *PHBST.nc file) 
 
 ## Installation
+
+* Dependencies should be automatically installed if pip works, otherwise they need to be installed manually.  Abipy could be difficult though...
 
 * download or git clone package 
 
@@ -30,18 +33,21 @@
 
    (which could be useful if you want to update the package through git and don't want to reinstall every time)
 
+  ​
+
 
 
 ## Usage
 
 ### Generating distorted structures
 
-1. prepare the phonon band structure netcdf file, in which the qpoints are the zone-center and high-symmetry points. 
+* prepare the phonon band structure netcdf file, in which the qpoints are the zone-center and high-symmetry points. 
 
-    Note:
+Note:
 
-   -  that symmetry equivalent qpoints are needed. 
-   - do not add points between them. (set ndivsm to 2)
+​           (a) that symmetry equivalent qpoints are needed. 
+
+​	    (b) do not add points between them. (set ndivsm to 2)
 
    Here's an example of the anaddb input for Dion-Jacobson structure.
 
@@ -68,6 +74,50 @@
    ```
 
    The (prefix)_PHBST.nc file is the one will be needed. (which has the phonon eigen vectors.)
+
+* Make a copy of gen_all.py from the template directory or here, and modify them to your needs. The meaning of the parameters are in the comments.
+
+  ```python
+  #!/usr/bin/env python
+  import numpy as np
+  import os
+  from isomode.gen_all import run_all
+
+  if __name__=="__main__":
+      run_all(
+          fname='./run.abo_PHBST.nc',  # phonon band netcdf file
+          qdict={
+              'Gamma': [0.0, 0.0, 0.0],
+              'Xy': [0, 0.5, 0],
+              'Xx': [0.5, 0.0, 0],
+              'M': [0.5, 0.5, 0],
+              'Rx': [0.5, 0.0, 0.5],
+              'Ry': [0.0, 0.5, 0.5],
+              'A': [0.5, 0.5, 0.5],
+              'Z': [0, 0, 0.5]
+          },  # qpoints in netcdf file
+          path='tmp',  # temporary directory, but perhaps you may find things useful in it?
+          supercell_matrix=np.eye(3) * 2,  # supercell matrix
+          max_freq=0.0,  # maximum frequency. use 0.0 if only unstable mode is required
+          amp=0.03,  # amplitude of each mode
+          pickle_fname='all_modes.pickle',  # output to this pickle file
+          cif_dir='all_modes',  # output cif to this directory
+          primitive=True  # whether to make it primitve
+  )
+
+  ```
+
+* Run gen_all.py
+
+  ```
+  python gen_all.py
+  ```
+
+  You will get:
+
+  - tmp/primitive.cif : the primitve cell cif file. 
+  - all_modes.pickle : which contains the structure (in ase atoms format) of all the distorted structures, and the amplitudes of  modes, the irreps labels, spacegroups for each of them.
+  - all_modes directory with all the cif files of the distorted structure.
 
 ### Identify symmetry adapted modes from a high symmetry structure and a low symmetry structure.
 
