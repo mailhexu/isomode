@@ -1,8 +1,54 @@
 #!/usr/bin/env python
 import re
-
 import requests
 from bs4 import BeautifulSoup as BS
+from collections import OrderedDict
+
+
+from ase.io import read, write
+try:
+    import spglib
+except Exception:
+    pass
+import tempfile
+import os
+
+
+def tocif(fname, outfname):
+    atoms = read(fname)
+    atoms.set_pbc([True, True, True])
+    write(outfname, atoms)
+
+
+def view_distort(parent_fname, distorted_fname, out_fname):
+    # temp directory
+    tmpdir = tempfile.mkdtemp()
+
+    # convert file to cif
+    parent_cif = os.path.join(tmpdir, 'parent.cif')
+    tocif(parent_fname, outfname=parent_cif)
+
+    # convert highsym_fname
+    isosym = isocif(parent_cif)
+    isosym.upload_cif()
+    isosym.findsym()
+    parent_sym_cif = os.path.join(tmpdir, 'parent_sym.cif')
+    isosym.save_cif(fname=parent_sym_cif)
+
+    distorted_cif = os.path.join(tmpdir, 'distorted.cif')
+    tocif(distorted_fname, outfname=distorted_cif)
+
+    iso = isodistort(parent_cif=parent_sym_cif, distorted_cif=distorted_cif)
+    ampt = iso.get_mode_amplitude_text()
+    #iso.get_mode_amplitude_text()
+    mode_details = iso.get_mode_details(save_fname=out_fname)
+    return mode_details
+
+def view_spacegroup(filename='POSCAR',symprec=1e-3):
+    atoms=read(filename)
+    print("%20s: %s"%('SPACEGROUP', spglib.get_spacegroup(atoms,symprec=symprec)))
+
+
 
 class isocif(object):
     def __init__(self, fname):
@@ -241,6 +287,25 @@ class isodistort(object):
                 myfile.write(text)
         return text
 
+def get_summary(text, remove0=True):
+    modes=OrderedDict()
+    for line in text.splitlines():
+        if 'all' in line:
+            if 'Overall' in line:
+                total=(float(line.strip().split()[1]),float(line.strip().split()[2]))
+            else:
+                s=line.strip().split()
+                if remove0==False or abs(float(s[2]))>0.00001:
+                     modes[s[0]]=(float(s[2]), float(s[3]))
+    return total, modes
+
+def print_summary(text):
+    total, modes = get_summary(text)
+    for m in sorted(modes.keys(), key=lambda x: modes[x][0], reverse=True):
+        v=modes[m]
+        print("%20s:  %.4f  %.4f"%(m, v[0],  v[1]))
+    print("%20s:  %.4f  %.4f"%('Total',total[0], total[1]))
+
 def test_isocif(fname='nmodes/primitive.cif'):
     iso = isocif(fname)
     iso.upload_cif()
@@ -250,7 +315,6 @@ def test_isocif(fname='nmodes/primitive.cif'):
 def test(parent_cif='save.cif', distorted_cif='nmodes/A_0.cif', mode_detail_file='mode_detail.txt'):
     iso = isodistort(parent_cif=parent_cif, distorted_cif=distorted_cif)
     ampt = iso.get_mode_amplitude_text()
-    iso.get_mode_amplitude_text()
     mode_details=iso.get_mode_details(save_fname='mode_detail.txt')
 
 #test_isocif()

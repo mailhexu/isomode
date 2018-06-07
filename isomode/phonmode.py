@@ -98,44 +98,6 @@ def align_degenerate_modes(modes):
     return new_modes
 
 
-#
-#a= [array([  2.53101288e-02,  -3.82088317e-02,  -4.86461363e-17]), array([  2.46900913e-01,  -3.72728069e-01,  -6.32567296e-18]), array([  2.46900913e-01,  -3.72728069e-01,  -3.08602526e-17]), array([ -7.22928661e-14,  -4.24936302e-02,   1.09275770e-16]), array([  2.13773443e-13,   1.25572159e-01,   1.92532429e-16]), array([  2.13905282e-13,   1.25572159e-01,   2.64991722e-16]), array([  1.45509166e-33,  -3.69736624e-33,  -1.68011693e-32]), array([ -5.86725440e-33,   2.72840948e-33,   2.03582253e-32]), array([ -6.60305144e-13,  -3.87737190e-01,   4.33930585e-17]), array([ -6.59999833e-13,  -3.87737190e-01,   4.13339061e-17]), array([ -4.71852214e-33,  -1.41947245e-32,  -8.36661187e-18]), array([ -1.55464941e-32,   9.19108395e-33,  -1.55779057e-17]), array([  2.25675740e-32,   4.41022949e-32,   8.36661187e-18]), array([  5.47739548e-32,  -1.94551410e-32,   1.55779057e-17]), array([  3.75366405e-13,   2.20589524e-01,   7.57601251e-17]), array([  3.75727227e-13,   2.20589524e-01,   1.29228876e-16])]
-
-# a = [
-#     array([-1.87833463e-18, -3.03705925e-19, 7.35475461e-33]),
-#     array([-1.29429689e-01, -1.76264658e-02, -8.63292537e-17]),
-#     array([1.29429689e-01, 1.76264658e-02, -9.54443562e-18]),
-#     array([8.56027336e-18, 1.28764580e-16, 1.19290208e-16]),
-#     array([1.25554614e-03, 9.21937203e-03, -3.31492986e-17]),
-#     array([-1.25554614e-03, -9.21937203e-03, 5.42249759e-17]),
-#     array([-4.28399726e-33, 8.79432863e-34, 3.40156914e-17]),
-#     array([6.91766327e-34, 1.94798870e-32, 7.25285576e-18]),
-#     array([-6.08154119e-02, -4.46562568e-01, 7.35384259e-17]),
-#     array([6.08154119e-02, 4.46562568e-01, -1.10793322e-17]),
-#     array([-1.83865500e-16, 5.59979131e-17, 1.78471407e-01]),
-#     array([-1.09030103e-16, 3.16500949e-16, 2.43052440e-02]),
-#     array([8.37074694e-16, -1.80417162e-17, -1.78471407e-01]),
-#     array([4.34089995e-17, -4.88475679e-16, -2.43052440e-02]),
-#     array([5.01347561e-03, 3.68135391e-02, -3.35885475e-17]),
-#     array([-5.01347561e-03, -3.68135391e-02, 1.25226772e-17])
-# ]
-# a=[[1,1,0],
-#    [1,-1,0]]
-# #a = np.array(a).flatten()
-# print(a)
-# print(rotate_evecs(a, theta=np.pi/4))
-# print(align_degenerate_modes(a))
-# test_align(a)
-
-# #a=np.array([1,1,0, 1,-1,0],dtype=float)
-# #test_align()
-# #print(rotate_evec(a, np.pi/4))
-# #print(project_to_x(rotate_evec(a, np.pi/4)))
-# #print(rotate_evec(a, 0.774))
-# #print(a.reshape(16, 3))
-# #print(align_one_mode(a))
-
-
 def align_all_modes(evals, evecs, tol=1e-7):
     """
     Here we assum evals are already sorted.
@@ -189,14 +151,18 @@ class phonon_distort_generator(object):
     def generate_combined_mode_distorted_structures(
             self,
             supercell_matrix=np.eye(3) * 2,
-            amplitude_list=[0, 0.1, 0.2],
+            amplitude=1.0,
             max_freq=0.0,
-            path=None):
+            path=None,
+            align_evecs=False,
+            align_disp=False, ):
         """
         qname, qpoint, ibranch, freq, structure, spacegroup
         """
         if not os.path.exists(path):
             os.makedirs(path)
+
+        disp=0.0
         for qname, qpt in self.qdict.items():
             displ_carts = [
                 self.phbst.get_phmode(qpt, i).displ_cart
@@ -206,8 +172,6 @@ class phonon_distort_generator(object):
                 self.phbst.get_phmode(qpt, i).freq
                 for i in range(self.nbranch)
             ]
-            align_evecs = False
-            align_disp = True
             if align_evecs:
                 evecs = [
                     displacement_cart_to_evec(
@@ -242,34 +206,18 @@ class phonon_distort_generator(object):
 
             for i in range(self.nbranch):
                 freq = freqs[i]
-                if freq < max_freq or (not unstable_only):
+                if freq < max_freq:
                     evec = nevecs[i]
                     scell = distorted_cell(
                         self.atoms, supercell_matrix=supercell_matrix)
-                    disp = scell._get_displacements(
+                    disp += scell._get_displacements(
                         evec, qpt, amplitude=amplitude, argument=0)
-                    newcell = scell._get_cell_with_modulation(disp)
-                    newcell = Atoms(newcell)
-                    spacegroup = spglib.get_spacegroup(newcell, symprec=1e-3)
-                    if path is not None:
-                        newcell.set_pbc([1, 1, 1])
-                        write(
-                            os.path.join(path, '%s_%s.cif' % (qname, i)),
-                            newcell)
-                    self.distorted_structures.append({
-                        'qname': qname,
-                        'qpoint': qpt,
-                        'ibranch': i,
-                        'evec': evec,
-                        'amplitude': amplitude,
-                        'spacegroup': spacegroup,
-                        'atoms': newcell
-                    })
-        if path is not None:
-            pfname = os.path.join(path, 'phmodes.pickle')
-            with open(pfname, 'wb') as myfile:
-                pickle.dump(self.distorted_structures, myfile)
-        return self.distorted_structures
+            newcell = scell._get_cell_with_modulation(disp)
+            newcell = Atoms(newcell)
+            spacegroup = spglib.get_spacegroup(newcell, symprec=1e-3)
+            if path is not None:
+                newcell.set_pbc([1, 1, 1])
+                write(os.path.join(path, 'combined_modes.cif'), newcell)
 
     def generate_distorted_structures(self,
                                       supercell_matrix=np.eye(3) * 2,
