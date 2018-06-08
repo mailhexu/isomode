@@ -22,6 +22,7 @@
   ​
 
 * run setup.py
+
   ```
   python setup.py setup --user
   ```
