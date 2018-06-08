@@ -482,11 +482,12 @@ class Isomode(object):
         single_modes = sorted(self.get_total_modes().keys())
         Xa = Xa_modes(single_modes)
         Xab = Xab_modes(single_modes)
+        XaYa = XaYa_modes(single_modes)
         XaYb = XaYb_modes(single_modes)
         XabYa = XabYa_modes(single_modes)
         XabYab = XabYab_modes(single_modes)
         ret=OrderedDict()
-        for ms in [Xa, Xab, XaYb, XabYa, XabYab]:
+        for ms in [Xa, XaYa, Xab, XaYb, XabYa, XabYab]:
             for m in ms:
                 print(m)
                 name=name_modes(m)
@@ -704,6 +705,15 @@ def get_XY_combinations(single_modes):
     Xlist = set(m[0] for m in single_modes)
     return tuple(combinations(Xlist, 2))
 
+def XaYa_modes(single_modes):
+    nmodes = len(single_modes)
+    XY_comb = get_XY_combinations(single_modes)
+    ret = []
+    for X, Y in XY_comb:
+        if (X, 'a') in single_modes and (Y, 'a') in single_modes:
+            ret.append(((X, 'a'), (Y, 'a')))
+    return ret
+
 
 def XaYb_modes(single_modes):
     nmodes = len(single_modes)
@@ -755,12 +765,13 @@ def test_parser():
     #    amp=0.1, )
     single_modes = sorted(myparser.get_total_modes().keys())
     Xa = Xa_modes(single_modes)
+    XaYa = XaYa_modes(single_modes)
     Xab = Xab_modes(single_modes)
     XaYb = XaYb_modes(single_modes)
     XabYa = XabYa_modes(single_modes)
     XabYab = XabYab_modes(single_modes)
     #print(get_XY_combinations(single_modes))
-    for ms in [Xa, Xab, XaYb, XabYa, XabYab]:
+    for ms in [Xa, XaYa, Xab, XaYb, XabYa, XabYab]:
         for m in ms:
             #print(name_modes(m))
             pass

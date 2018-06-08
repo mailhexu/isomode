@@ -203,7 +203,8 @@ class phonon_distort_generator(object):
                         qpoint=qpt,
                         add_phase=True) for displ_cart in ndispl_carts
                 ]
-
+            scell = distorted_cell(
+                        self.atoms, supercell_matrix=supercell_matrix)
             for i in range(self.nbranch):
                 freq = freqs[i]
                 if freq < max_freq:
