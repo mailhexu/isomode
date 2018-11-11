@@ -172,8 +172,7 @@ def read_mode_amplitudes(filename='mtable.org',
         total_mode_dict[shortname] = np.sqrt(total_mode_dict[shortname])
         for fullname in total_mode_definitions[shortname]:
             total_mode_definitions[shortname][
-                fullname] = total_mode_definitions[shortname][
-                    fullname] / total_mode_dict[shortname]
+                fullname] = total_mode_definitions[shortname][fullname] / total_mode_dict[shortname]
 
     return detail_mode_amplitude_dict, total_mode_dict, total_mode_definitions
 
@@ -207,6 +206,12 @@ class Isomode(object):
         inside = False
         sympos = []
         iatom = 0
+
+        # First time: read atoms, the atoms are in order of file
+
+        symdict = {}
+        symbols = []
+        positions = []
         for iline, line in enumerate(self.lines):
             if line.strip().startswith('Undistorted superstructure'):
                 inside = True
@@ -230,17 +235,26 @@ class Isomode(object):
                     occ = float(occ)
                     displ = float(displ)
                     sympos.append([symnum, x, y, z])
-                    self.symbols.append(sym)
-                    self.positions.append(np.array([x, y, z]))
-                    self.symdict[symnum] = iatom
+                    symbols.append(sym)
+                    positions.append(np.array([x, y, z]))
+                    symdict[symnum] = iatom
                     iatom = iatom + 1
 
+        atoms = Atoms(
+            symbols=symbols, scaled_positions=positions, cell=self.cellpars)
+        self.natom = len(atoms)
+        self.cell = atoms.get_cell()
+
+        # reorder, by symbol_number
+        self.positions=np.zeros((self.natom,3))
+        self.symdict = symbol_number(atoms)
+        for sn, iatom in symdict.items():
+            self.positions[self.symdict[sn]] = positions[iatom]
+
         self.atoms = Atoms(
-            symbols=self.symbols,
+            symbols=symbols,
             scaled_positions=self.positions,
             cell=self.cellpars)
-        self.natom = len(self.atoms)
-        self.cell = self.atoms.get_cell()
 
     def set_supercell_cellpar(self, cell, supercell_matrix=np.eye(3)):
         self.cell = np.dot(cell, supercell_matrix)
@@ -337,11 +351,14 @@ class Isomode(object):
     def get_total_mode_info(self):
         pass
 
-    def get_distorted_structure(self, mode_dict, primitive=True, amp_multiplier=1.0):
+    def get_distorted_structure(self,
+                                mode_dict,
+                                primitive=True,
+                                amp_multiplier=1.0):
         distorted_structure = self.atoms.copy()
         scaled_positions = distorted_structure.get_scaled_positions()
         for fullname in mode_dict:
-            amp = mode_dict[fullname]*amp_multiplier
+            amp = mode_dict[fullname] * amp_multiplier
             normfactor = self.mode_definitions[fullname]['mode_info'][
                 'normfactor']
             disp = [
@@ -456,7 +473,10 @@ class Isomode(object):
         self.structure_list_ab = structure_list
         return structure_list
 
-    def generate_distorted_structure_from_modelist(self, modelist, amp=0.2, primitive=False):
+    def generate_distorted_structure_from_modelist(self,
+                                                   modelist,
+                                                   amp=0.2,
+                                                   primitive=False):
         """
         modelist: eg. (('X3+','a'), ('GM5-', 'b'))
         """
@@ -465,20 +485,24 @@ class Isomode(object):
 
         #        label1, direction1 = key1
         #        label2, direction2 = key2
-                # Note sometimes 'b' without 'a'
+        # Note sometimes 'b' without 'a'
         mode_dict = defaultdict(float)
         for m in modelist:
             for key in m:
-                mode_detail=self.total_mode_definitions[m]
+                mode_detail = self.total_mode_definitions[m]
                 #for mdetail in mode_detail:
                 mode_dict.update(mode_detail)
         print(mode_dict)
-        
+
         distorted_structure = self.get_distorted_structure(
-                        mode_dict, primitive=primitive, amp_multiplier=amp)
+            mode_dict, primitive=primitive, amp_multiplier=amp)
         return distorted_structure
 
-    def prepare_structure(self, pickle_fname='all_modes01.pickle', cif_dir='all_modes0.03', amp=0.03, primitive=True):
+    def prepare_structure(self,
+                          pickle_fname='all_modes01.pickle',
+                          cif_dir='all_modes0.03',
+                          amp=0.03,
+                          primitive=True):
         single_modes = sorted(self.get_total_modes().keys())
         Xa = Xa_modes(single_modes)
         Xab = Xab_modes(single_modes)
@@ -486,24 +510,25 @@ class Isomode(object):
         XaYb = XaYb_modes(single_modes)
         XabYa = XabYa_modes(single_modes)
         XabYab = XabYab_modes(single_modes)
-        ret=OrderedDict()
+        ret = OrderedDict()
         for ms in [Xa, XaYa, Xab, XaYb, XabYa, XabYab]:
             for m in ms:
                 print(m)
-                name=name_modes(m)
-                atoms=self.generate_distorted_structure_from_modelist(m, amp=amp, primitive=primitive)
+                name = name_modes(m)
+                atoms = self.generate_distorted_structure_from_modelist(
+                    m, amp=amp, primitive=primitive)
                 spgroup = spglib.get_spacegroup(atoms, symprec=1e-4)
                 #myfile.write('|%s|%s|%s|%s|\n' % (label, n_direction, spgroup, name))
-                ret[name]=atoms
+                ret[name] = atoms
                 if cif_dir is not None:
                     if not os.path.exists(cif_dir):
                         os.makedirs(cif_dir)
-                    fname=os.path.join(cif_dir, name+'.cif')
+                    fname = os.path.join(cif_dir, name + '.cif')
                     atoms.set_pbc([True, True, True])
                     write(fname, atoms)
         # print(ret)
         if pickle_fname is not None:
-            with open(pickle_fname,'wb') as myfile:
+            with open(pickle_fname, 'wb') as myfile:
                 pickle.dump(ret, myfile)
 
 
@@ -704,6 +729,7 @@ def Xab_modes(single_modes):
 def get_XY_combinations(single_modes):
     Xlist = set(m[0] for m in single_modes)
     return tuple(combinations(Xlist, 2))
+
 
 def XaYa_modes(single_modes):
     nmodes = len(single_modes)

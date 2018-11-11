@@ -1,5 +1,6 @@
 numpy
 requests
+bs4
 ase
 spglib
 abipy
