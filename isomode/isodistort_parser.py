@@ -3,7 +3,7 @@ import os
 import spglib
 from ase import Atoms
 from ase.io import read, write
-from pyDFTutils.ase_utils import symbol_number, symnum_to_sym, vesta_view
+from isomode.symbol import symbol_number, symnum_to_sym #, vesta_view
 from collections import OrderedDict, defaultdict
 import re
 from itertools import combinations
