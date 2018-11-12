@@ -1,0 +1,2057 @@
+
+.Version 8.11.1 of ANADDB 
+.(sequential version, prepared for a x86_64_darwin18.0.0_gnu8.2 computer) 
+
+.Copyright (C) 1998-2018 ABINIT group . 
+ ANADDB comes with ABSOLUTELY NO WARRANTY.
+ It is free software, and you are welcome to redistribute it
+ under certain conditions (GNU General Public License,
+ see ~abinit/COPYING or http://www.gnu.org/copyleft/gpl.txt).
+
+ ABINIT is a project of the Universite Catholique de Louvain,
+ Corning Inc. and other collaborators, see ~abinit/doc/developers/contributors.txt .
+ Please read https://docs.abinit.org/theory/acknowledgments for suggested
+ acknowledgments of the ABINIT effort.
+ For more information, see https://www.abinit.org .
+
+.Starting date : Sat 10 Nov 2018.
+- ( at 23h25 )
+  
+  Give name for formatted input file: 
+-   /Users/hexu/projects/isomode/tests/YAlO3/phbst/run.abi
+  Give name for formatted output file: 
+-   /Users/hexu/projects/isomode/tests/YAlO3/phbst/run.abo
+  Give name for input derivative database: 
+-   /Users/hexu/projects/isomode/tests/YAlO3/DDB
+  Give name for output molecular dynamics: 
+-   MD_FILE_DOES_NOT_EXIST
+  Give name for input elphon matrix elements (GKK file): 
+-   GKK_FILE_DOES_NOT_EXIST
+  Give root name for elphon output files: 
+-   /Users/hexu/projects/isomode/tests/YAlO3/phbst/outdata/out
+  Give name for file containing ddk filenames for elphon/transport: 
+-   DDK_FILE_DOES_NOT_EXIST
+ Opening DDB file: /Users/hexu/projects/isomode/tests/YAlO3/DDB
+  inprep8 : nband(1)=          16
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+-instrng: 23 lines of input have been read from file /Users/hexu/projects/isomode/tests/YAlO3/phbst/run.abi
+
+
+================================================================================
+
+ -outvars_anaddb: echo values of input variables ----------------------
+
+ Flags :
+     ifcflag         1
+ Miscellaneous information :
+         asr         2
+      chneut         1
+ Interatomic Force Constants Inputs :
+      dipdip         0
+      ifcana         0
+      ifcout         0
+ Description of grid 1 :
+        brav         1
+       ngqpt         4         4         4
+      nqshft         1
+      q1shft
+                     0.00000000E+00  0.00000000E+00  0.00000000E+00
+ Phonon DOS information :
+   dosdeltae  4.55633525E-06
+    dossmear  2.27816763E-05
+ Description of grid 2 (Fourier interp. or BZ sampling):
+      ng2qpt        10        10        10
+      ngrids         4
+      q2shft         0.00000000E+00  0.00000000E+00  0.00000000E+00
+
+================================================================================
+
+ read the DDB information and perform some checks
+
+ Opening DDB file: /Users/hexu/projects/isomode/tests/YAlO3/DDB
+  inprep8 : nband(1)=          16
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+ Opening DDB file: /Users/hexu/projects/isomode/tests/YAlO3/DDB
+  inprep8 : nband(1)=          16
+        occ  0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01  0.20000000000000D+01  0.20000000000000D+01
+             0.20000000000000D+01
+ About to open file /Users/hexu/projects/isomode/tests/YAlO3/DDB
+ Unit cell volume ucvol=  3.3430560E+02 bohr^3
+ Angles (23,13,12)=  9.00000000E+01  9.00000000E+01  9.00000000E+01 degrees
+
+
+ rdddb9: read 10 blocks from the input DDB
+ Now the whole DDB is in central memory
+
+================================================================================
+
+ Dielectric Tensor and Effective Charges 
+
+
+ anaddb : Zero the imaginary part of the Dynamical Matrix at Gamma,
+   and impose the ASR on the effective charges 
+
+ Now, the imaginary part of the dynamical matrix is zeroed
+ Dielectric Tensor     4.648632E+00   -0.000000E+00   -0.000000E+00   -0.000000E+00    4.648632E+00   -0.000000E+00   -0.000000E+00   -0.000000E+00    4.648632E+00
+ Effectives Charges
+ atom    1    4.336728E+00    0.000000E+00    0.000000E+00    0.000000E+00    4.336728E+00    0.000000E+00    0.000000E+00    0.000000E+00    4.336728E+00
+ atom    2    2.769308E+00    0.000000E+00    0.000000E+00    0.000000E+00    2.769308E+00    0.000000E+00    0.000000E+00    0.000000E+00    2.769308E+00
+ atom    3   -2.368743E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.368743E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.368550E+00
+ atom    4   -2.368550E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.368743E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.368743E+00
+ atom    5   -2.368743E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.368550E+00    0.000000E+00    0.000000E+00    0.000000E+00   -2.368743E+00
+
+================================================================================
+
+ Calculation of the interatomic forces 
+
+-begin at tcpu      0.032  and twall      0.032 sec
+ Canonical Atomic Coordinates
+ atom    1    0.00000000E+00    0.00000000E+00    0.00000000E+00
+ atom    2    1.83633686E+00    1.83633686E+00    1.83633686E+00
+ atom    3    1.83633686E+00    1.83633686E+00    0.00000000E+00
+ atom    4    0.00000000E+00    1.83633686E+00    1.83633686E+00
+ atom    5    1.83633686E+00    0.00000000E+00    1.83633686E+00
+
+ The interatomic forces have been obtained
+ ifc_init: cpu:   0.07, wall:   0.07
+ ==== Info on the ifc% object ====
+ Real(R)+Recip(G) space primitive vectors, cartesian coordinates (Bohr,Bohr^-1):
+ R(1)=  3.6726737  0.0000000  0.0000000  G(1)=  0.2722812  0.0000000  0.0000000
+ R(2)=  0.0000000  3.6726737  0.0000000  G(2)=  0.0000000  0.2722812  0.0000000
+ R(3)=  0.0000000  0.0000000  3.6726737  G(3)=  0.0000000  0.0000000  0.2722812
+ acell: [   1.8897E+00,   1.8897E+00,   1.8897E+00]
+ Acoustic Sum Rule option (asr): 2
+ Option for the sampling of the BZ (brav): 1
+ Symmetrization flag (symdynmat): 1
+ Dipole-dipole interaction flag (dipdip): 0
+ Dielectric tensor: [      4.65,     -0.00,     -0.00,     -0.00,      4.65,     -0.00,     -0.00,     -0.00,      4.65]
+ Effective charges:
+[      4.34,      0.00,      0.00,      0.00,      4.34,      0.00,      0.00,      0.00,      4.34]
+[      2.77,      0.00,      0.00,      0.00,      2.77,      0.00,      0.00,      0.00,      2.77]
+[     -2.37,      0.00,      0.00,      0.00,     -2.37,      0.00,      0.00,      0.00,     -2.37]
+[     -2.37,      0.00,      0.00,      0.00,     -2.37,      0.00,      0.00,      0.00,     -2.37]
+[     -2.37,      0.00,      0.00,      0.00,     -2.37,      0.00,      0.00,      0.00,     -2.37]
+ Mass of the atoms (atomic mass unit): [   8.8906E+01,   2.6982E+01,   1.5999E+01]
+ Number of real-space points for IFC(R): 125
+
+ Q-mesh:
+ ngqpt: [4,4,4] , nqshft: 1
+[ 0.0000E+00,  0.0000E+00,  0.0000E+00]
+
+================================================================================
+
+ Calculation of phonon density of states 
+
+
+ mkphdos: calculating phonon DOS using tetrahedron method
+ Average speed of sound partial sums:     0.2829704600E-02 (at units)
+-                                   =           6.1905 [km/s]
+
+ Debye frequency from partial sums:     0.1589193846E-02 (Ha)
+-                                 =     0.1045639320E+02 (THz)
+-Debye temperature from partial sums:     0.5018271306E+03 (K)
+
+ mkphdos completed. cpu:    1.78, wall:    1.79
+ Average speed of sound:     0.5736307214E-04 (at units) 
+-                      =           0.1255 [km/s]
+
+ Debye frequency from DOS:     0.3221574481E-04 (Ha) 
+-                        =     0.2119694181E+00 (THz)
+-Debye temperature from DOS:     0.1017291554E+02 (K)
+
+ phdos_print_thermo : thermodynamic functions calculated from prtdos DOS (not histogram)
+     see THERMO output file ...
+
+ Total number of points in the path: 172
+ Number of divisions for each segment of the normalized path:
+ 0.00000 0.00000 0.00000 ==>  0.00000 0.50000 0.00000 ( ndivs : 20 )
+ 0.00000 0.50000 0.00000 ==>  0.50000 0.50000 0.00000 ( ndivs : 20 )
+ 0.50000 0.50000 0.00000 ==>  0.00000 0.00000 0.00000 ( ndivs : 28 )
+ 0.00000 0.00000 0.00000 ==>  0.50000 0.50000 0.50000 ( ndivs : 35 )
+ 0.50000 0.50000 0.50000 ==>  0.00000 0.50000 0.00000 ( ndivs : 28 )
+ 0.00000 0.50000 0.00000 ==>  0.50000 0.50000 0.00000 ( ndivs : 20 )
+ 0.50000 0.50000 0.00000 ==>  0.50000 0.50000 0.50000 ( ndivs : 20 )
+
+
+
+================================================================================
+
+ Treat the first list of vectors 
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.00 0.00 1.00
+ -3.737952972E-04 -3.737952972E-04 -3.737952972E-04  0.000000000E+00  0.000000000E+00
+  0.000000000E+00  9.773367586E-04  9.773367586E-04  9.773367586E-04  1.967692731E-03
+  1.967692731E-03  1.967692731E-03  3.652663571E-03  3.652663571E-03  3.652663571E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.335846646E-03
+
+ Analysis of degeneracies and characters (maximum tolerance=1.00E-06 a.u.)
+ Symmetry characters of vibration mode #   1
+       degenerate with vibration modes #   2 to    3
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+ -0.0  0.0 -0.0  0.0  0.0 -0.0  0.0 -0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+ -0.0  0.0  0.0 -0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ Symmetry characters of vibration mode #   4
+       degenerate with vibration modes #   5 to    6
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+  0.0 -0.0 -0.0  0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+  0.0 -0.0  0.0 -0.0 -0.0  0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ Symmetry characters of vibration mode #   7
+       degenerate with vibration modes #   8 to    9
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0
+  0.0 -0.0  0.0 -0.0 -0.0  0.0 -0.0  0.0 -1.0  1.0  1.0 -1.0  1.0 -1.0 -1.0  1.0
+  0.0 -0.0 -0.0  0.0 -0.0  0.0  0.0 -0.0 -1.0  1.0 -1.0  1.0  1.0 -1.0  1.0 -1.0
+ Symmetry characters of vibration mode #  10
+       degenerate with vibration modes #  11 to   12
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+ -0.0  0.0 -0.0  0.0  0.0 -0.0  0.0 -0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+ -0.0  0.0  0.0 -0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ Symmetry characters of vibration mode #  13
+       degenerate with vibration modes #  14 to   15
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+  0.0 -0.0 -0.0  0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+  0.0 -0.0  0.0 -0.0 -0.0  0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.03 0.00 1.00
+ -3.702439706E-04 -3.702439706E-04 -2.855419484E-04  5.507435331E-05  5.507435331E-05
+  9.360674267E-05  9.795232951E-04  9.795232951E-04  9.804855126E-04  1.967309622E-03
+  1.967309622E-03  1.981089627E-03  3.652535205E-03  3.652535205E-03  3.654527725E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.496282335E-03
+ Speed of sound for this q and mode:
+   in atomic units:     0.2433384551E-02
+   in units km/s:              5.32349
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1366616084E-02
+   in SI units K  :            431.54272
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2433384551E-02
+   in units km/s:              5.32349
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1366616084E-02
+   in SI units K  :            431.54272
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.4135885177E-02
+   in units km/s:              9.04804
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2322759551E-02
+   in SI units K  :            733.46858
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.05 0.00 1.00
+ -3.601275366E-04 -3.601275366E-04  1.116392627E-04  1.116392627E-04  1.686243220E-04
+  3.008989606E-04  9.860429134E-04  9.860429134E-04  9.897673426E-04  1.966159943E-03
+  1.966159943E-03  2.020639544E-03  3.652152916E-03  3.652152916E-03  3.660125160E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.925895163E-03
+ Speed of sound for this q and mode:
+   in atomic units:     0.2466313636E-02
+   in units km/s:              5.39553
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1385109429E-02
+   in SI units K  :            437.38245
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2466313636E-02
+   in units km/s:              5.39553
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1385109429E-02
+   in SI units K  :            437.38245
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3725216869E-02
+   in units km/s:              8.14962
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2092123618E-02
+   in SI units K  :            660.63960
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.07 0.00 1.00
+ -3.450014227E-04 -3.450014227E-04  1.707270833E-04  1.707270833E-04  2.640703501E-04
+  5.837035417E-04  9.967761075E-04  9.967761075E-04  1.004709208E-03  1.964242900E-03
+  1.964242900E-03  2.084216863E-03  3.651525092E-03  3.651525092E-03  3.669462771E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.024135113E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2514447118E-02
+   in units km/s:              5.50083
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1412141732E-02
+   in SI units K  :            445.91856
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2514447118E-02
+   in units km/s:              5.50083
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1412141732E-02
+   in SI units K  :            445.91856
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3889195071E-02
+   in units km/s:              8.50836
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2184215618E-02
+   in SI units K  :            689.71992
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.10 0.00 1.00
+ -3.270902595E-04 -3.270902595E-04  2.323944584E-04  2.323944584E-04  3.507462691E-04
+  8.025123803E-04  1.011525176E-03  1.011525176E-03  1.024584861E-03  1.961558035E-03
+  1.961558035E-03  2.167711837E-03  3.650665604E-03  3.650665604E-03  3.682517502E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.054308944E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2567007376E-02
+   in units km/s:              5.61582
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1441660164E-02
+   in SI units K  :            455.23973
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2567007376E-02
+   in units km/s:              5.61582
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1441660164E-02
+   in SI units K  :            455.23973
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3874310369E-02
+   in units km/s:              8.47579
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2175856202E-02
+   in SI units K  :            687.08023
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.12 0.00 1.00
+ -3.085098453E-04 -3.085098453E-04  2.955285497E-04  2.955285497E-04  4.335636570E-04
+  9.827073170E-04  1.030016126E-03  1.030016126E-03  1.048491781E-03  1.958106586E-03
+  1.958106586E-03  2.264670559E-03  3.649593620E-03  3.649593620E-03  3.699158474E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.083903093E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2611504499E-02
+   in units km/s:              5.71317
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1466650247E-02
+   in SI units K  :            463.13097
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2611504499E-02
+   in units km/s:              5.71317
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1466650247E-02
+   in SI units K  :            463.13097
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3831282770E-02
+   in units km/s:              8.38166
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2151691420E-02
+   in SI units K  :            679.44960
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.15 0.00 1.00
+ -2.905653768E-04 -2.905653768E-04  3.583462493E-04  3.583462493E-04  5.121158228E-04
+  1.051900764E-03  1.051900764E-03  1.075433478E-03  1.131492679E-03  1.953893484E-03
+  1.953893484E-03  2.366744420E-03  3.648333335E-03  3.648333335E-03  3.718995034E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.112429917E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2638839358E-02
+   in units km/s:              5.77297
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1482001811E-02
+   in SI units K  :            467.97860
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2638839358E-02
+   in units km/s:              5.77297
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1482001811E-02
+   in SI units K  :            467.97860
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3771188876E-02
+   in units km/s:              8.25020
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2117942014E-02
+   in SI units K  :            668.79240
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.17 0.00 1.00
+ -2.737089270E-04 -2.737089270E-04  4.191460891E-04  4.191460891E-04  5.856475219E-04
+  1.076758626E-03  1.076758626E-03  1.104393898E-03  1.254234849E-03  1.948930112E-03
+  1.948930112E-03  2.465176805E-03  3.646913598E-03  3.646913598E-03  3.741144420E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.139333825E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2645627635E-02
+   in units km/s:              5.78782
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1485814184E-02
+   in SI units K  :            469.18245
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2645627635E-02
+   in units km/s:              5.78782
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1485814184E-02
+   in SI units K  :            469.18245
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3696575749E-02
+   in units km/s:              8.08697
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2076038444E-02
+   in SI units K  :            655.56031
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.20 0.00 1.00
+ -2.579313312E-04 -2.579313312E-04  4.766850315E-04  4.766850315E-04  6.533848114E-04
+  1.104098782E-03  1.104098782E-03  1.134396255E-03  1.355960205E-03  1.943237965E-03
+  1.943237965E-03  2.552674118E-03  3.645367418E-03  3.645367418E-03  3.763981990E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.164165656E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2632709059E-02
+   in units km/s:              5.75955
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1478558966E-02
+   in SI units K  :            466.89144
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2632709059E-02
+   in units km/s:              5.75955
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1478558966E-02
+   in SI units K  :            466.89144
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3608613652E-02
+   in units km/s:              7.89453
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2026637942E-02
+   in SI units K  :            639.96089
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.23 0.00 1.00
+ -2.431013356E-04 -2.431013356E-04  5.301729695E-04  5.301729695E-04  7.146863777E-04
+  1.133362169E-03  1.133362169E-03  1.164543982E-03  1.441039679E-03  1.936853386E-03
+  1.936853386E-03  2.624739091E-03  3.643731343E-03  3.643731343E-03  3.785029700E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.186603795E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2602773716E-02
+   in units km/s:              5.69407
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1461746942E-02
+   in SI units K  :            461.58263
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2602773716E-02
+   in units km/s:              5.69407
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1461746942E-02
+   in SI units K  :            461.58263
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3508603845E-02
+   in units km/s:              7.67574
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1970471312E-02
+   in SI units K  :            622.22489
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.25 0.00 1.00
+ -2.291169608E-04 -2.291169608E-04  5.791463890E-04  5.791463890E-04  7.691973460E-04
+  1.163925627E-03  1.163925627E-03  1.194045166E-03  1.512883077E-03  1.929833560E-03
+  1.929833560E-03  2.680045201E-03  3.642044705E-03  3.642044705E-03  3.801153239E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.206449533E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.28 0.00 1.00
+ -2.159425154E-04 -2.159425154E-04  6.233578537E-04  6.233578537E-04  8.170036529E-04
+  1.195108628E-03  1.195108628E-03  1.222223508E-03  1.573833030E-03  1.922263925E-03
+  1.922263925E-03  2.720003367E-03  3.640348747E-03  3.640348747E-03  3.809092152E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.223621449E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.30 0.00 1.00
+ -2.036043144E-04 -2.036043144E-04  6.627020212E-04  6.627020212E-04  8.587328335E-04
+  1.226182822E-03  1.226182822E-03  1.248519229E-03  1.625177933E-03  1.914266970E-03
+  1.914266970E-03  2.747926530E-03  3.638685622E-03  3.638685622E-03  3.806140462E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.238148161E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.33 0.00 1.00
+ -1.921781398E-04 -1.921781398E-04  6.971663868E-04  6.971663868E-04  8.955222781E-04
+  1.256383352E-03  1.256383352E-03  1.272482955E-03  1.667272939E-03  1.906012045E-03
+  1.906012045E-03  2.768138160E-03  3.637097316E-03  3.637097316E-03  3.790732022E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.250155514E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.35 0.00 1.00
+ -1.817781945E-04 -1.817781945E-04  7.267959575E-04  7.267959575E-04  9.287888214E-04
+  1.284920555E-03  1.284920555E-03  1.293765071E-03  1.699836305E-03  1.897725030E-03
+  1.897725030E-03  2.785145634E-03  3.635624504E-03  3.635624504E-03  3.762801986E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.259845676E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.38 0.00 1.00
+ -1.725482472E-04 -1.725482472E-04  7.516666772E-04  7.516666772E-04  9.597930270E-04
+  1.310991864E-03  1.310991864E-03  1.312102468E-03  1.722478227E-03  1.889695351E-03
+  1.889695351E-03  2.802818424E-03  3.634305394E-03  3.634305394E-03  3.723949323E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.267468177E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.40 0.00 1.00
+ -1.646528559E-04 -1.646528559E-04  7.718656371E-04  7.718656371E-04  9.890858836E-04
+  1.327304201E-03  1.333796526E-03  1.333796526E-03  1.735401056E-03  1.882275904E-03
+  1.882275904E-03  2.823508708E-03  3.633174593E-03  3.633174593E-03  3.677502561E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.273286101E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.42 0.00 1.00
+ -1.582661058E-04 -1.582661058E-04  7.874770745E-04  7.874770745E-04  1.016025921E-03
+  1.339237267E-03  1.352559061E-03  1.352559061E-03  1.740023460E-03  1.875869416E-03
+  1.875869416E-03  2.847204362E-03  3.628577557E-03  3.632262055E-03  3.632262055E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.277543578E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.45 0.00 1.00
+ -1.535560982E-04 -1.535560982E-04  7.985731460E-04  7.985731460E-04  1.038628173E-03
+  1.347813518E-03  1.366568718E-03  1.366568718E-03  1.739159483E-03  1.870894518E-03
+  1.870894518E-03  2.870996828E-03  3.584082003E-03  3.631592136E-03  3.631592136E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.280441242E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.47 0.00 1.00
+ -1.506653898E-04 -1.506653898E-04  8.052083169E-04  8.052083169E-04  1.054008793E-03
+  1.352978556E-03  1.375238299E-03  1.375238299E-03  1.736460051E-03  1.867729356E-03
+  1.867729356E-03  2.889406401E-03  3.552225141E-03  3.631182822E-03  3.631182822E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.282123287E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.50 0.00 1.00
+ -1.496904205E-04 -1.496904205E-04  8.074162516E-04  8.074162516E-04  1.059502139E-03
+  1.354703269E-03  1.378174531E-03  1.378174531E-03  1.735129622E-03  1.866641847E-03
+  1.866641847E-03  2.896450569E-03  3.540533477E-03  3.631045144E-03  3.631045144E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.282674689E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.03 0.50 0.00 1.00
+ -1.486404582E-04 -1.475795887E-04  8.108617166E-04  8.119805250E-04  1.054816170E-03
+  1.296673390E-03  1.378884881E-03  1.424095207E-03  1.741162904E-03  1.866155286E-03
+  1.873133442E-03  2.895317155E-03  3.524791467E-03  3.630902345E-03  3.644367007E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.282846072E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.05 0.50 0.00 1.00
+ -1.458389398E-04 -1.411572528E-04  8.204484593E-04  8.254445404E-04  1.041782262E-03
+  1.218027294E-03  1.380997718E-03  1.466324879E-03  1.759258366E-03  1.864690422E-03
+  1.892035995E-03  2.891940992E-03  3.490926613E-03  3.630477115E-03  3.670996034E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.283317725E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.07 0.50 0.00 1.00
+ -1.424629135E-04 -1.301005754E-04  8.335343988E-04  8.471600343E-04  1.023703458E-03
+  1.129395105E-03  1.384458825E-03  1.494778187E-03  1.788577447E-03  1.862231863E-03
+  1.921840812E-03  2.886392640E-03  3.450468119E-03  3.629778921E-03  3.699477506E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.283961691E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.10 0.50 0.00 1.00
+ -1.409333558E-04 -1.136291977E-04  8.441470606E-04  8.761593824E-04  1.007257926E-03
+  1.031149198E-03  1.389179229E-03  1.511108183E-03  1.826559859E-03  1.858754442E-03
+  1.960565431E-03  2.878784367E-03  3.406897105E-03  3.628823386E-03  3.726456565E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284563979E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.12 0.50 0.00 1.00
+ -1.455722359E-04 -8.971473813E-05  8.420227090E-04  9.112836468E-04  9.227887117E-04
+  1.003189379E-03  1.395037367E-03  1.518408311E-03  1.854223973E-03  1.869791397E-03
+  2.006179505E-03  2.869262949E-03  3.361536758E-03  3.627632061E-03  3.750791381E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284843059E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.15 0.50 0.00 1.00
+ -1.631750924E-04 -5.030019451E-05  8.033297110E-04  8.204718413E-04  9.513038896E-04
+  1.018350251E-03  1.401882195E-03  1.519533005E-03  1.848598383E-03  1.915374326E-03
+  2.056844865E-03  2.858001089E-03  3.315141672E-03  3.626232084E-03  3.771968666E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284677835E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.17 0.50 0.00 1.00
+ -2.033936989E-04  5.864466196E-05  6.723507496E-04  7.839506626E-04  9.950143096E-04
+  1.048172868E-03  1.409537276E-03  1.516535875E-03  1.841829293E-03  1.961375576E-03
+  2.110988857E-03  2.845188763E-03  3.268282586E-03  3.624655728E-03  3.789725419E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.286142946E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.20 0.50 0.00 1.00
+ -2.797181346E-04  9.825441013E-05  5.352110021E-04  7.390149309E-04  1.041291325E-03
+  1.085809254E-03  1.417805760E-03  1.510795220E-03  1.833864213E-03  2.006637750E-03
+  2.167286074E-03  2.831025881E-03  3.221461812E-03  3.622939817E-03  3.803941574E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.281781044E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.23 0.50 0.00 1.00
+ -4.004643456E-04  1.261719813E-04  4.164918768E-04  6.894518638E-04  1.089122927E-03
+  1.127090218E-03  1.426476117E-03  1.503259753E-03  1.824649596E-03  2.050490943E-03
+  2.224606818E-03  2.815717662E-03  3.175154571E-03  3.621125015E-03  3.814608031E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.275197651E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.25 0.50 0.00 1.00
+ -5.390731848E-04  1.485246780E-04  3.430752423E-04  6.372570067E-04  1.137616250E-03
+  1.169617504E-03  1.435328334E-03  1.494626384E-03  1.814135200E-03  2.092541255E-03
+  2.281961812E-03  2.799473974E-03  3.129825532E-03  3.619254985E-03  3.821820095E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.269299253E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.28 0.50 0.00 1.00
+ -6.637406642E-04  1.671012543E-04  3.041611187E-04  5.836253407E-04  1.185990598E-03
+  1.211820282E-03  1.444140299E-03  1.485442738E-03  1.802280544E-03  2.132537094E-03
+  2.338454222E-03  2.782513772E-03  3.085935406E-03  3.617375410E-03  3.825780232E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.265170882E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.30 0.50 0.00 1.00
+ -7.679890376E-04  1.827133928E-04  2.814232313E-04  5.294088858E-04  1.233560485E-03
+  1.252532770E-03  1.452694009E-03  1.476160574E-03  1.789064874E-03  2.170283756E-03
+  2.393241714E-03  2.765075719E-03  3.043942618E-03  3.615532906E-03  3.826803353E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.262222463E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.33 0.50 0.00 1.00
+ -8.540986040E-04  1.958203435E-04  2.656225180E-04  4.753366871E-04  1.279709869E-03
+  1.290809873E-03  1.460781310E-03  1.467161537E-03  1.774503302E-03  2.205582909E-03
+  2.445508334E-03  2.747436128E-03  3.004302152E-03  3.613773848E-03  3.825320364E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.259878528E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.35 0.50 0.00 1.00
+ -9.248315082E-04  2.067221859E-04  2.528573294E-04  4.221549214E-04  1.323854576E-03
+  1.325839498E-03  1.458768577E-03  1.468208945E-03  1.758674343E-03  2.238182264E-03
+  2.494444336E-03  2.729935405E-03  2.967464111E-03  3.612143123E-03  3.821876043E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.257814707E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.38 0.50 0.00 1.00
+ -9.822390144E-04  2.156344974E-04  2.416087067E-04  3.707619805E-04  1.356899389E-03
+  1.365383554E-03  1.451250884E-03  1.474802768E-03  1.741769328E-03  2.267727091E-03
+  2.539228352E-03  2.713013525E-03  2.933878671E-03  3.610682880E-03  3.817116853E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.255875973E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.40 0.50 0.00 1.00
+ -1.027740117E-03  2.227206400E-04  2.314990806E-04  3.223894806E-04  1.383339604E-03
+  1.403558196E-03  1.444826713E-03  1.480411077E-03  1.724184945E-03  2.293711765E-03
+  2.578996409E-03  2.697251787E-03  2.904024901E-03  3.609431288E-03  3.811763867E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.254018482E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.42 0.50 0.00 1.00
+ -1.062303770E-03  2.227460815E-04  2.281064119E-04  2.788722866E-04  1.404583302E-03
+  1.437329673E-03  1.439666285E-03  1.484907115E-03  1.706699136E-03  2.315441258E-03
+  2.612762709E-03  2.683408194E-03  2.878500864E-03  3.608421387E-03  3.806566808E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.252285387E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.45 0.50 0.00 1.00
+ -1.086581933E-03  2.158614984E-04  2.318866883E-04  2.429952988E-04  1.420141511E-03
+  1.435895477E-03  1.465023055E-03  1.488190844E-03  1.690781562E-03  2.332034881E-03
+  2.639242005E-03  2.672412506E-03  2.858226326E-03  3.607680047E-03  3.802238340E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.250801405E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.47 0.50 0.00 1.00
+ -1.100993179E-03  2.114259623E-04  2.186394452E-04  2.341282842E-04  1.429636874E-03
+  1.433600028E-03  1.483971454E-03  1.490190114E-03  1.678955358E-03  2.342530842E-03
+  2.656619829E-03  2.665261421E-03  2.844709505E-03  3.607227116E-03  3.799374141E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.249763860E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.00 1.00
+ -1.105771774E-03  2.098907747E-04  2.098907747E-04  2.348710617E-04  1.432829486E-03
+  1.432829486E-03  1.490861389E-03  1.490861389E-03  1.674448883E-03  2.346134514E-03
+  2.662770399E-03  2.662770399E-03  2.839870223E-03  3.607074771E-03  3.798372611E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.249385219E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.48 0.48 0.00 1.00
+ -1.100920826E-03  2.019886661E-04  2.275086049E-04  2.341133146E-04  1.429970534E-03
+  1.433209343E-03  1.484354003E-03  1.489636847E-03  1.679061045E-03  2.342438296E-03
+  2.658746484E-03  2.663045472E-03  2.844830574E-03  3.607230375E-03  3.799403348E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.249730804E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.46 0.46 0.00 1.00
+ -1.086592157E-03  1.771679547E-04  2.318286823E-04  2.721857549E-04  1.421411525E-03
+  1.434310746E-03  1.466441190E-03  1.485968886E-03  1.691293804E-03  2.331462956E-03
+  2.647424934E-03  2.663779456E-03  2.858874956E-03  3.607694774E-03  3.802455440E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.250285445E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.45 0.45 0.00 1.00
+ -1.063443847E-03  1.300195472E-04  2.279819558E-04  3.298235645E-04  1.407223937E-03
+  1.436014564E-03  1.440228503E-03  1.479874634E-03  1.708058324E-03  2.313515385E-03
+  2.630299992E-03  2.664732572E-03  2.880264748E-03  3.608460792E-03  3.807416855E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.250023576E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.43 0.43 0.00 1.00
+ -1.032522169E-03 -2.794790659E-05  2.225107623E-04  3.905494596E-04  1.387576981E-03
+  1.408196648E-03  1.438109912E-03  1.471383086E-03  1.726901365E-03  2.289016627E-03
+  2.608582544E-03  2.665598501E-03  2.907431886E-03  3.609516635E-03  3.814124576E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.243951445E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.41 0.41 0.00 1.00
+ -9.951734146E-04 -1.377934542E-04  2.153190819E-04  4.488122604E-04  1.362784453E-03
+  1.371840060E-03  1.440285413E-03  1.460535780E-03  1.746366124E-03  2.258416582E-03
+  2.582992976E-03  2.666093275E-03  2.939258860E-03  3.610846142E-03  3.822387777E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.239648596E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.39 0.39 0.00 1.00
+ -9.528830002E-04 -1.852922000E-04  2.062658051E-04  5.015909277E-04  1.331997658E-03
+  1.333330892E-03  1.442132322E-03  1.447387768E-03  1.765660700E-03  2.222132917E-03
+  2.554002090E-03  2.666018335E-03  2.974929267E-03  3.612429125E-03  3.832000889E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.237585175E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.38 0.38 0.00 1.00
+ -9.069875182E-04 -2.077528639E-04  1.951444914E-04  5.473229168E-04  1.289147728E-03
+  1.299866220E-03  1.432008881E-03  1.443166024E-03  1.784362296E-03  2.180523266E-03
+  2.522084741E-03  2.665283424E-03  3.013766548E-03  3.614241792E-03  3.842737006E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.235745748E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.36 0.36 0.00 1.00
+ -8.582144293E-04 -2.057814897E-04  1.816458286E-04  5.853565013E-04  1.243576779E-03
+  1.263174904E-03  1.414485310E-03  1.442864747E-03  1.802247314E-03  2.133886578E-03
+  2.487866338E-03  2.663886574E-03  3.055157734E-03  3.616257233E-03  3.854318401E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.234036416E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.34 0.34 0.00 1.00
+ -8.061199067E-04 -1.741190574E-04  1.652820496E-04  6.156372793E-04  1.195468150E-03
+  1.224136213E-03  1.394921497E-03  1.440716013E-03  1.819201662E-03  2.082485190E-03
+  2.452167200E-03  2.661853516E-03  3.098535729E-03  3.618445968E-03  3.866368711E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.232749011E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.32 0.32 0.00 1.00
+ -7.487028410E-04 -8.790415523E-05  1.452144684E-04  6.385003453E-04  1.144948583E-03
+  1.183691258E-03  1.373442350E-03  1.436257075E-03  1.835173056E-03  2.026578629E-03
+  2.415971404E-03  2.659143979E-03  3.143379791E-03  3.620776525E-03  3.878358919E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.233241469E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.30 0.30 0.00 1.00
+ -6.824861482E-04  1.197731278E-04  1.509501583E-04  6.545167764E-04  1.092113396E-03
+  1.142823285E-03  1.350195750E-03  1.429097612E-03  1.850144778E-03  1.966459902E-03
+  2.380343356E-03  2.655539792E-03  3.189208190E-03  3.623216044E-03  3.889564894E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.240573046E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.29 0.29 0.00 1.00
+ -6.029097095E-04  8.451162317E-05  2.400167269E-04  6.643664077E-04  1.037040564E-03
+  1.102548104E-03  1.325355313E-03  1.418918750E-03  1.864120620E-03  1.902485261E-03
+  2.346308983E-03  2.650537157E-03  3.235554395E-03  3.625730874E-03  3.899056723E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.239682090E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.27 0.27 0.00 1.00
+ -5.042206726E-04 -2.165754745E-05  3.053985047E-04  6.687167267E-04  9.797989030E-04
+  1.063908135E-03  1.299123345E-03  1.405447892E-03  1.835089984E-03  1.877115911E-03
+  2.314715149E-03  2.643268330E-03  3.281931694E-03  3.628287153E-03  3.905737913E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.234133071E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.25 0.25 0.00 1.00
+ -3.768205710E-04 -9.182229358E-05  3.567474253E-04  6.680994688E-04  9.204531363E-04
+  1.027967046E-03  1.271733869E-03  1.388411713E-03  1.764785922E-03  1.889151978E-03
+  2.286083571E-03  2.632474290E-03  3.327798891E-03  3.630851356E-03  3.908444867E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.230218033E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.23 0.23 0.00 1.00
+ -1.860908736E-04 -1.291822515E-04  3.987670822E-04  6.627944200E-04  8.590675097E-04
+  9.958096304E-04  1.243455557E-03  1.367470613E-03  1.692140356E-03  1.900252662E-03
+  2.260484500E-03  2.616542729E-03  3.372541632E-03  3.633390787E-03  3.906103982E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.229677417E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.21 0.21 0.00 1.00
+ -1.587073235E-04  2.342534309E-04  4.381674363E-04  6.527455883E-04  7.957092861E-04
+  9.685604347E-04  1.214594334E-03  1.342137351E-03  1.617738911E-03  1.910442095E-03
+  2.237467044E-03  2.593621609E-03  3.415480554E-03  3.635874014E-03  3.897926372E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.239800557E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.20 0.20 0.00 1.00
+ -1.841008114E-04  3.313620984E-04  4.831988489E-04  6.375385212E-04  7.304537130E-04
+  9.474256782E-04  1.185495310E-03  1.311677268E-03  1.542139879E-03  1.919743294E-03
+  2.216087433E-03  2.561822124E-03  3.455909903E-03  3.638271235E-03  3.883601842E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.233031317E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.18 0.18 0.00 1.00
+ -2.068564655E-04  3.601360787E-04  5.250872670E-04  6.164557153E-04  6.633931223E-04
+  9.336539153E-04  1.156543594E-03  1.274964750E-03  1.465847126E-03  1.928177304E-03
+  2.195062281E-03  2.519532596E-03  3.493160493E-03  3.640554575E-03  3.863439547E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.221457595E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.16 0.16 0.00 1.00
+ -2.278245960E-04  3.596495663E-04  5.463521665E-04  5.886048049E-04  5.946552266E-04
+  9.280638498E-04  1.128163423E-03  1.230194199E-03  1.389406519E-03  1.935762728E-03
+  2.173038102E-03  2.465860833E-03  3.526672104E-03  3.642698311E-03  3.838401695E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.205984947E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2860590365E-02
+   in units km/s:              6.25809
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1606539666E-02
+   in SI units K  :            507.30450
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2889995116E-02
+   in units km/s:              6.32242
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1623053705E-02
+   in SI units K  :            512.51922
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3508603845E-02
+   in units km/s:              7.67574
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1970471312E-02
+   in SI units K  :            622.22489
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.14 0.14 0.00 1.00
+ -2.476368508E-04  3.433095780E-04  5.244403125E-04  5.406386244E-04  5.530916833E-04
+  9.300398137E-04  1.100814901E-03  1.174194168E-03  1.313898945E-03  1.942515520E-03
+  2.148924674E-03  2.401180557E-03  3.556056007E-03  3.644679037E-03  3.809999062E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.186807302E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2867348354E-02
+   in units km/s:              6.27287
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1610335029E-02
+   in SI units K  :            508.50298
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3023998136E-02
+   in units km/s:              6.61557
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1698311305E-02
+   in SI units K  :            536.28366
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3508603845E-02
+   in units km/s:              7.67574
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1970471312E-02
+   in SI units K  :            622.22489
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.12 0.12 0.00 1.00
+ -2.668674075E-04  3.158187812E-04  4.530938577E-04  5.078842232E-04  5.091972836E-04
+  9.371938069E-04  1.074987581E-03  1.101400353E-03  1.241847297E-03  1.948448975E-03
+  2.122211045E-03  2.327653442E-03  3.581130680E-03  3.646475775E-03  3.780065046E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.164027037E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.1973396216E-02
+   in units km/s:              4.31718
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1108281471E-02
+   in SI units K  :            349.96719
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2831160645E-02
+   in units km/s:              6.19371
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1590011605E-02
+   in SI units K  :            502.08536
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3181723357E-02
+   in units km/s:              6.96063
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1786891560E-02
+   in SI units K  :            564.25506
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.11 0.11 0.00 1.00
+ -2.860646325E-04  2.788075242E-04  3.812327100E-04  4.493223358E-04  4.565153253E-04
+  9.465532332E-04  1.004575342E-03  1.051190119E-03  1.176597649E-03  1.953573864E-03
+  2.093182191E-03  2.249447605E-03  3.601922110E-03  3.648070031E-03  3.750478963E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.137770219E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2032486256E-02
+   in units km/s:              4.44645
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1141467101E-02
+   in SI units K  :            360.44637
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2779158294E-02
+   in units km/s:              6.07994
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1560806501E-02
+   in SI units K  :            492.86313
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3327962999E-02
+   in units km/s:              7.28056
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1869021385E-02
+   in SI units K  :            590.18957
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.09 0.09 0.00 1.00
+ -3.056135832E-04  2.302513633E-04  3.099048911E-04  3.653639371E-04  3.950091647E-04
+  8.779294462E-04  9.558449348E-04  1.029935441E-03  1.119645940E-03  1.957898656E-03
+  2.062977953E-03  2.172299792E-03  3.618630678E-03  3.649445828E-03  3.722931522E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.108122798E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2014218516E-02
+   in units km/s:              4.40649
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1131207733E-02
+   in SI units K  :            357.20673
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2711020516E-02
+   in units km/s:              5.93088
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1522539560E-02
+   in SI units K  :            480.77940
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3455505158E-02
+   in units km/s:              7.55958
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1940650493E-02
+   in SI units K  :            612.80823
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.07 0.07 0.00 1.00
+ -3.253510319E-04  1.442617465E-04  2.406181012E-04  2.615647355E-04  3.248987645E-04
+  7.171075280E-04  9.638039586E-04  1.011721294E-03  1.071082313E-03  1.961429797E-03
+  2.033472516E-03  2.102315958E-03  3.631574967E-03  3.650589700E-03  3.698794470E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.074394241E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2631132275E-02
+   in units km/s:              5.75611
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1477673426E-02
+   in SI units K  :            466.61181
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2860181400E-02
+   in units km/s:              6.25719
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1606309987E-02
+   in SI units K  :            507.23197
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3552731990E-02
+   in units km/s:              7.77228
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1995254174E-02
+   in SI units K  :            630.05069
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.05 0.05 0.00 1.00
+ -3.441057880E-04 -1.816106177E-04  1.749093488E-04  1.778751806E-04  2.457487837E-04
+  5.154820044E-04  9.699214938E-04  9.970068174E-04  1.031455019E-03  1.964172019E-03
+  2.006993757E-03  2.044521733E-03  3.641126037E-03  3.651490681E-03  3.679095964E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.028704122E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2550152464E-02
+   in units km/s:              5.57895
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1432194256E-02
+   in SI units K  :            452.25064
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2593393854E-02
+   in units km/s:              5.67355
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1456479106E-02
+   in SI units K  :            459.91918
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3582980960E-02
+   in units km/s:              7.83846
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2012242335E-02
+   in SI units K  :            635.41512
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.04 0.04 0.00 1.00
+ -3.597765134E-04 -2.973320996E-04  1.134833162E-04  1.159559435E-04  1.329066363E-04
+  2.513668045E-04  9.741281467E-04  9.861867258E-04  1.001881660E-03  1.966128636E-03
+  1.985940102E-03  2.002044970E-03  3.647644109E-03  3.652140278E-03  3.664559531E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.918629123E-03
+ Speed of sound for this q and mode:
+   in atomic units:     0.2481854977E-02
+   in units km/s:              5.42953
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1393837620E-02
+   in SI units K  :            440.13859
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2535930787E-02
+   in units km/s:              5.54783
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1424207202E-02
+   in SI units K  :            449.72853
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3582980960E-02
+   in units km/s:              7.83846
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2012242335E-02
+   in SI units K  :            635.41512
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.02 0.02 0.00 1.00
+ -3.701665054E-04 -3.554694630E-04 -3.018705596E-04  5.572062946E-05  5.778422770E-05
+  9.331641318E-05  9.765502206E-04  9.795657605E-04  9.835521557E-04  1.967301804E-03
+  1.972376752E-03  1.976296117E-03  3.651425476E-03  3.652532447E-03  3.655659296E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.497287386E-03
+ Speed of sound for this q and mode:
+   in atomic units:     0.2437195636E-02
+   in units km/s:              5.33183
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1368756433E-02
+   in SI units K  :            432.21858
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2527456508E-02
+   in units km/s:              5.52929
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1419447952E-02
+   in SI units K  :            448.22568
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.4081618553E-02
+   in units km/s:              8.92932
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2292282806E-02
+   in SI units K  :            723.84480
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.00 0.00 1.00
+ -3.737952972E-04 -3.737952972E-04 -3.737952972E-04  0.000000000E+00  0.000000000E+00
+  0.000000000E+00  9.773367586E-04  9.773367586E-04  9.773367586E-04  1.967692731E-03
+  1.967692731E-03  1.967692731E-03  3.652663571E-03  3.652663571E-03  3.652663571E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.335846646E-03
+
+ Analysis of degeneracies and characters (maximum tolerance=1.00E-06 a.u.)
+ Symmetry characters of vibration mode #   1
+       degenerate with vibration modes #   2 to    3
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+ -0.0  0.0 -0.0  0.0  0.0 -0.0  0.0 -0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+ -0.0  0.0  0.0 -0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ Symmetry characters of vibration mode #   4
+       degenerate with vibration modes #   5 to    6
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+  0.0 -0.0 -0.0  0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+  0.0 -0.0  0.0 -0.0 -0.0  0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ Symmetry characters of vibration mode #   7
+       degenerate with vibration modes #   8 to    9
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0
+  0.0 -0.0  0.0 -0.0 -0.0  0.0 -0.0  0.0 -1.0  1.0  1.0 -1.0  1.0 -1.0 -1.0  1.0
+  0.0 -0.0 -0.0  0.0 -0.0  0.0  0.0 -0.0 -1.0  1.0 -1.0  1.0  1.0 -1.0  1.0 -1.0
+ Symmetry characters of vibration mode #  10
+       degenerate with vibration modes #  11 to   12
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+ -0.0  0.0 -0.0  0.0  0.0 -0.0  0.0 -0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+ -0.0  0.0  0.0 -0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ Symmetry characters of vibration mode #  13
+       degenerate with vibration modes #  14 to   15
+  3.0 -3.0 -1.0  1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0  1.0 -1.0 -1.0  1.0
+  0.0 -0.0 -0.0  0.0  0.0 -0.0 -0.0  0.0  1.0 -1.0 -1.0  1.0 -1.0  1.0  1.0 -1.0
+  0.0 -0.0  0.0 -0.0 -0.0  0.0 -0.0  0.0  1.0 -1.0  1.0 -1.0 -1.0  1.0 -1.0  1.0
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.01 0.01 0.01 1.00
+ -3.609780670E-04 -3.609780670E-04 -3.105783661E-04  5.578699922E-05  5.578699922E-05
+  9.116146098E-05  9.753004645E-04  9.820286802E-04  9.820286802E-04  1.970568068E-03
+  1.970568068E-03  1.974327232E-03  3.651828866E-03  3.651828866E-03  3.655890715E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.492285299E-03
+ Speed of sound for this q and mode:
+   in atomic units:     0.2490415226E-02
+   in units km/s:              5.44826
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1398645152E-02
+   in SI units K  :            441.65668
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2490415226E-02
+   in units km/s:              5.44826
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1398645152E-02
+   in SI units K  :            441.65668
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.4069584197E-02
+   in units km/s:              8.90299
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2285524176E-02
+   in SI units K  :            721.71060
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.03 0.03 0.03 1.00
+ -3.218354249E-04 -3.218354249E-04  8.698819876E-05  1.115419426E-04  1.115419426E-04
+  2.278247433E-04  9.691441950E-04  9.958866433E-04  9.958866433E-04  1.978912427E-03
+  1.978912427E-03  1.994326715E-03  3.649278077E-03  3.649278077E-03  3.665475493E-03
+ Zero Point Motion energy (sum of freqs/2)=  9.885663338E-03
+ Speed of sound for this q and mode:
+   in atomic units:     0.2489699716E-02
+   in units km/s:              5.44669
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1398243314E-02
+   in SI units K  :            441.52979
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2489699716E-02
+   in units km/s:              5.44669
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1398243314E-02
+   in SI units K  :            441.52979
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.5085218935E-02
+   in units km/s:             11.12489
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.2855916048E-02
+   in SI units K  :            901.82589
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.04 0.04 0.04 1.00
+ -2.535897455E-04 -2.535897455E-04  1.686713946E-04  1.686713946E-04  2.349993452E-04
+  4.776568317E-04  9.587331426E-04  1.018285657E-03  1.018285657E-03  1.991924847E-03
+  1.991924847E-03  2.027784314E-03  3.644878020E-03  3.644878020E-03  3.681124003E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.026031899E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2509914586E-02
+   in units km/s:              5.49092
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1409596212E-02
+   in SI units K  :            445.11475
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2509914586E-02
+   in units km/s:              5.49092
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1409596212E-02
+   in SI units K  :            445.11475
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3496907615E-02
+   in units km/s:              7.65015
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1963902578E-02
+   in SI units K  :            620.15065
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.06 0.06 0.06 1.00
+ -1.462940064E-04 -1.462940064E-04  2.318534243E-04  2.318534243E-04  3.173402815E-04
+  6.745718912E-04  9.438646232E-04  1.048277719E-03  1.048277719E-03  2.008411107E-03
+  2.008411107E-03  2.074236381E-03  3.638428788E-03  3.638428788E-03  3.702332748E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.063684999E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2587571056E-02
+   in units km/s:              5.66081
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1453208957E-02
+   in SI units K  :            458.88655
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2587571056E-02
+   in units km/s:              5.66081
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1453208957E-02
+   in SI units K  :            458.88655
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3541636401E-02
+   in units km/s:              7.74801
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1989022767E-02
+   in SI units K  :            628.08297
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.07 0.07 0.07 1.00
+  1.163629137E-04  1.163629137E-04  3.044936810E-04  3.044936810E-04  3.913726719E-04
+  8.332869892E-04  9.242928511E-04  1.084721711E-03  1.084721711E-03  2.026973222E-03
+  2.026973222E-03  2.131942476E-03  3.629694362E-03  3.629694362E-03  3.728368628E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.116687770E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2718610823E-02
+   in units km/s:              5.94748
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1526802361E-02
+   in SI units K  :            482.12548
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2718610823E-02
+   in units km/s:              5.94748
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1526802361E-02
+   in SI units K  :            482.12548
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3494292486E-02
+   in units km/s:              7.64443
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1962433892E-02
+   in SI units K  :            619.68688
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.09 0.09 0.09 1.00
+  1.937612820E-04  1.937612820E-04  3.756612642E-04  3.756612642E-04  4.582556202E-04
+  8.997490959E-04  9.619872268E-04  1.126430599E-03  1.126430599E-03  2.046230435E-03
+  2.046230435E-03  2.197472280E-03  3.618440257E-03  3.618440257E-03  3.758249078E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.149838049E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2795013608E-02
+   in units km/s:              6.11463
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1569711023E-02
+   in SI units K  :            495.67495
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2795013608E-02
+   in units km/s:              6.11463
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1569711023E-02
+   in SI units K  :            495.67495
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3409536241E-02
+   in units km/s:              7.45901
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1914833834E-02
+   in SI units K  :            604.65598
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.10 0.10 0.10 1.00
+  2.339774931E-04  2.339774931E-04  4.341811310E-04  4.341811310E-04  5.172442206E-04
+  8.699463506E-04  1.066865704E-03  1.172295571E-03  1.172295571E-03  2.065030091E-03
+  2.065030091E-03  2.266079196E-03  3.604472814E-03  3.604472814E-03  3.790741537E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.176539560E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.3298650992E-02
+   in units km/s:              7.21643
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1852559433E-02
+   in SI units K  :            584.99131
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2795013608E-02
+   in units km/s:              6.11463
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1569711023E-02
+   in SI units K  :            495.67495
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3409536241E-02
+   in units km/s:              7.45901
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1914833834E-02
+   in SI units K  :            604.65598
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.11 0.11 0.11 1.00
+  2.591319031E-04  2.591319031E-04  4.774736773E-04  4.774736773E-04  5.674181800E-04
+  8.345579925E-04  1.154210309E-03  1.221356040E-03  1.221356040E-03  2.082606351E-03
+  2.082606351E-03  2.332776923E-03  3.587673552E-03  3.587673552E-03  3.824408879E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.198492767E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.3166299708E-02
+   in units km/s:              6.92689
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1778229466E-02
+   in SI units K  :            561.51979
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2795013608E-02
+   in units km/s:              6.11463
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1569711023E-02
+   in SI units K  :            495.67495
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3409536241E-02
+   in units km/s:              7.45901
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1914833834E-02
+   in SI units K  :            604.65598
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.13 0.13 0.13 1.00
+  2.735985341E-04  2.735985341E-04  5.061852114E-04  5.061852114E-04  6.081115848E-04
+  7.931601689E-04  1.229881973E-03  1.272810403E-03  1.272810403E-03  2.098655937E-03
+  2.098655937E-03  2.393458039E-03  3.568021937E-03  3.568021937E-03  3.857718857E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.216043733E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.3016334691E-02
+   in units km/s:              6.59881
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1694007429E-02
+   in SI units K  :            534.92460
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2795013608E-02
+   in units km/s:              6.11463
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1569711023E-02
+   in SI units K  :            495.67495
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.3409536241E-02
+   in units km/s:              7.45901
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1914833834E-02
+   in SI units K  :            604.65598
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.14 0.14 0.14 1.00
+  2.779155389E-04  2.779155389E-04  5.219719903E-04  5.219719903E-04  6.391436167E-04
+  7.451247831E-04  1.298591766E-03  1.325985926E-03  1.325985926E-03  2.113320035E-03
+  2.113320035E-03  2.445490851E-03  3.545601768E-03  3.545601768E-03  3.889208029E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.229357478E-02
+ Speed of sound for this q and mode:
+   in atomic units:     0.2330161167E-02
+   in units km/s:              5.09767
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1308644673E-02
+   in SI units K  :            413.23681
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2330161167E-02
+   in units km/s:              5.09767
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1308644673E-02
+   in SI units K  :            413.23681
+
+ Speed of sound for this q and mode:
+   in atomic units:     0.2853232862E-02
+   in units km/s:              6.24199
+ Partial Debye temperature for this q and mode:
+   in atomic units:     0.1602407610E-02
+   in SI units K  :            505.99970
+
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.16 0.16 0.16 1.00
+  2.709442333E-04  2.709442333E-04  5.270771690E-04  5.270771690E-04  6.608974481E-04
+  6.894371848E-04  1.363590438E-03  1.380294186E-03  1.380294186E-03  2.127083891E-03
+  2.127083891E-03  2.487733599E-03  3.520589977E-03  3.520589977E-03  3.917658661E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.238564812E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.17 0.17 0.17 1.00
+  2.502379038E-04  2.502379038E-04  5.240901271E-04  5.240901271E-04  6.243709657E-04
+  6.742295277E-04  1.426767146E-03  1.435192866E-03  1.435192866E-03  2.140623978E-03
+  2.140623978E-03  2.520212756E-03  3.493231130E-03  3.493231130E-03  3.942234245E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.243728333E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.19 0.19 0.19 1.00
+  2.114312900E-04  2.114312900E-04  5.154808878E-04  5.154808878E-04  5.468141383E-04
+  6.802613872E-04  1.488972899E-03  1.490164259E-03  1.490164259E-03  2.154641971E-03
+  2.154641971E-03  2.543716123E-03  3.463804661E-03  3.463804661E-03  3.962535273E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.244667298E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.20 0.20 0.20 1.00
+  1.430181468E-04  1.430181468E-04  4.504858250E-04  5.030188674E-04  5.030188674E-04
+  6.801549128E-04  1.544711938E-03  1.544711938E-03  1.550386888E-03  2.169722737E-03
+  2.169722737E-03  2.559438941E-03  3.432593359E-03  3.432593359E-03  3.978569378E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.240258302E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.21 0.21 0.21 1.00
+ -9.273912075E-05 -9.273912075E-05  3.188721567E-04  4.875046226E-04  4.875046226E-04
+  6.749519488E-04  1.598371281E-03  1.598371281E-03  1.610816115E-03  2.186241624E-03
+  2.186241624E-03  2.568725827E-03  3.399860396E-03  3.399860396E-03  3.990658384E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.216125102E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.23 0.23 0.23 1.00
+ -2.025603624E-04 -2.025603624E-04 -6.849013584E-05  4.690646946E-04  4.690646946E-04
+  6.655051309E-04  1.650726578E-03  1.650726578E-03  1.669895333E-03  2.204329669E-03
+  2.204329669E-03  2.572903046E-03  3.365838873E-03  3.365838873E-03  3.999317529E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.190696490E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.24 0.24 0.24 1.00
+ -3.405140353E-04 -2.765744964E-04 -2.765744964E-04  4.478167676E-04  4.478167676E-04
+  6.524849459E-04  1.701426823E-03  1.701426823E-03  1.727200048E-03  2.223890392E-03
+  2.223890392E-03  2.573181303E-03  3.330733868E-03  3.330733868E-03  4.005139475E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.173603922E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.26 0.26 0.26 1.00
+ -4.812783533E-04 -3.411232055E-04 -3.411232055E-04  4.245742819E-04  4.245742819E-04
+  6.364318337E-04  1.750193746E-03  1.750193746E-03  1.782299681E-03  2.244652837E-03
+  2.244652837E-03  2.570610233E-03  3.294733658E-03  3.294733658E-03  4.008704477E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.163141525E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.27 0.27 0.27 1.00
+ -5.924157065E-04 -4.045693983E-04 -4.045693983E-04  4.012593251E-04  4.012593251E-04
+  6.178235252E-04  1.796818636E-03  1.796818636E-03  1.834775776E-03  2.266242936E-03
+  2.266242936E-03  2.566070234E-03  3.258025098E-03  3.258025098E-03  4.010524990E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.153616601E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.29 0.29 0.29 1.00
+ -6.876430829E-04 -4.713710992E-04 -4.713710992E-04  3.805793555E-04  3.805793555E-04
+  5.971359876E-04  1.841148208E-03  1.841148208E-03  1.884223574E-03  2.288257049E-03
+  2.288257049E-03  2.560290081E-03  3.220808142E-03  3.220808142E-03  4.011022487E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.144193618E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.30 0.30 0.30 1.00
+ -7.719987594E-04 -5.431165437E-04 -5.431165437E-04  3.648618489E-04  3.648618489E-04
+  5.748849557E-04  1.883063172E-03  1.883063172E-03  1.930249461E-03  2.310325213E-03
+  2.310325213E-03  2.553879225E-03  3.183305821E-03  3.183305821E-03  4.010528133E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.134721102E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.31 0.31 0.31 1.00
+ -8.478452515E-04 -6.191907509E-04 -6.191907509E-04  3.549427743E-04  3.549427743E-04
+  5.516417089E-04  1.922455253E-03  1.922455253E-03  1.972472779E-03  2.332155919E-03
+  2.332155919E-03  2.547363287E-03  3.145767977E-03  3.145767977E-03  4.009297108E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.125259599E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.33 0.33 0.33 1.00
+ -9.164467620E-04 -6.978775368E-04 -6.978775368E-04  3.501095525E-04  3.501095525E-04
+  5.280217130E-04  1.959208778E-03  1.959208778E-03  2.010537778E-03  2.353558332E-03
+  2.353558332E-03  2.541211271E-03  3.108468949E-03  3.108468949E-03  4.007527629E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.115889389E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.34 0.34 0.34 1.00
+ -9.785561863E-04 -7.772285593E-04 -7.772285593E-04  3.488721929E-04  3.488721929E-04
+  5.046493082E-04  1.993191635E-03  1.993191635E-03  2.044139180E-03  2.374441740E-03
+  2.374441740E-03  2.535844735E-03  3.071700914E-03  3.071700914E-03  4.005378577E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.106670573E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.36 0.36 0.36 1.00
+ -1.034670951E-03 -8.554361051E-04 -8.554361051E-04  3.497281764E-04  3.497281764E-04
+  4.821068272E-04  2.024257966E-03  2.024257966E-03  2.073061667E-03  2.394795253E-03
+  2.394795253E-03  2.531623392E-03  3.035765535E-03  3.035765535E-03  4.002982740E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.097666266E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.37 0.37 0.37 1.00
+ -1.085147855E-03 -9.309060776E-04 -9.309060776E-04  3.515380243E-04  3.515380243E-04
+  4.608819417E-04  2.052262061E-03  2.052262061E-03  2.097228128E-03  2.414652843E-03
+  2.414652843E-03  2.528809180E-03  3.000967075E-03  3.000967075E-03  4.000455209E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.088962723E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.39 0.39 0.39 1.00
+ -1.130249155E-03 -1.002235611E-03 -1.002235611E-03  3.535856525E-04  3.535856525E-04
+  4.413303386E-04  2.077080002E-03  2.077080002E-03  2.116743781E-03  2.434049545E-03
+  2.434049545E-03  2.527521181E-03  2.967610545E-03  2.967610545E-03  3.997898000E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.080671221E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.40 0.40 0.40 1.00
+ -1.170155013E-03 -1.068182490E-03 -1.068182490E-03  3.554953489E-04  3.554953489E-04
+  4.236687809E-04  2.098633349E-03  2.098633349E-03  2.131917194E-03  2.452973851E-03
+  2.452973851E-03  2.527702376E-03  2.936008739E-03  2.936008739E-03  3.995402441E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.072919669E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.41 0.41 0.41 1.00
+ -1.204963199E-03 -1.127646451E-03 -1.127646451E-03  3.571163980E-04  3.571163980E-04
+  4.080044058E-04  2.116907951E-03  2.116907951E-03  2.143242036E-03  2.471319310E-03
+  2.471319310E-03  2.529118465E-03  2.906502140E-03  2.906502140E-03  3.993050603E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.065842550E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.43 0.43 0.43 1.00
+ -1.234689398E-03 -1.179661473E-03 -1.179661473E-03  3.584226593E-04  3.584226593E-04
+  3.943919240E-04  2.131961738E-03  2.131961738E-03  2.151338107E-03  2.488835818E-03
+  2.488835818E-03  2.531395430E-03  2.879495117E-03  2.879495117E-03  3.990916359E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.059573007E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.44 0.44 0.44 1.00
+ -1.259275876E-03 -1.223395163E-03 -1.223395163E-03  3.594406505E-04  3.594406505E-04
+  3.828973672E-04  2.143918001E-03  2.143918001E-03  2.156868494E-03  2.505080311E-03
+  2.505080311E-03  2.534084075E-03  2.855508704E-03  2.855508704E-03  3.989066008E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.054237254E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.46 0.46 0.46 1.00
+ -1.278611064E-03 -1.258152435E-03 -1.258152435E-03  3.602061255E-04  3.602061255E-04
+  3.736421102E-04  2.152944630E-03  2.152944630E-03  2.160458014E-03  2.519373295E-03
+  2.519373295E-03  2.536730087E-03  2.835239982E-03  2.835239982E-03  3.987558090E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.049950022E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.47 0.47 0.47 1.00
+ -1.292558231E-03 -1.283381663E-03 -1.283381663E-03  3.607441757E-04  3.607441757E-04
+  3.668075362E-04  2.159223461E-03  2.159223461E-03  2.162631629E-03  2.530791585E-03
+  2.530791585E-03  2.538932226E-03  2.819591986E-03  2.819591986E-03  3.986442100E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.046809718E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.49 0.49 0.49 1.00
+ -1.300988155E-03 -1.298681827E-03 -1.298681827E-03  3.610657977E-04  3.610657977E-04
+  3.625971774E-04  2.162916206E-03  2.162916206E-03  2.163778137E-03  2.538269610E-03
+  2.538269610E-03  2.540382064E-03  2.809595863E-03  2.809595863E-03  3.985756240E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.044892838E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.50 1.00
+ -1.303809156E-03 -1.303809156E-03 -1.303809156E-03  3.611730846E-04  3.611730846E-04
+  3.611730846E-04  2.164133950E-03  2.164133950E-03  2.164133950E-03  2.540887100E-03
+  2.540887100E-03  2.540887100E-03  2.806142731E-03  2.806142731E-03  3.985524830E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.044248261E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.48 0.50 0.48 1.00
+ -1.301297578E-03 -1.298896319E-03 -1.297608925E-03  3.606787589E-04  3.618265440E-04
+  3.622751075E-04  2.162049232E-03  2.163275175E-03  2.164174250E-03  2.536305390E-03
+  2.538480564E-03  2.541917045E-03  2.808053643E-03  2.811401150E-03  3.985764640E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.044919934E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.46 0.50 0.46 1.00
+ -1.293753853E-03 -1.284212084E-03 -1.279116982E-03  3.591775345E-04  3.638269208E-04
+  3.655099857E-04  2.155734953E-03  2.160685742E-03  2.164256624E-03  2.523360231E-03
+  2.531501605E-03  2.545005295E-03  2.813615697E-03  2.826353542E-03  3.986460450E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.046920283E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.45 0.50 0.45 1.00
+ -1.281149273E-03 -1.259912784E-03 -1.248649637E-03  3.566182962E-04  3.672905452E-04
+  3.706814374E-04  2.145022418E-03  2.156328310E-03  2.164267650E-03  2.503827602E-03
+  2.520578660E-03  2.550145323E-03  2.822398646E-03  2.849156118E-03  3.987542191E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.050207275E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.43 0.50 0.43 1.00
+ -1.263430297E-03 -1.226237804E-03 -1.206700778E-03  3.529273511E-04  3.723993757E-04
+  3.775157190E-04  2.129668019E-03  2.150146935E-03  2.164025507E-03  2.479449966E-03
+  2.506518797E-03  2.557320640E-03  2.833888027E-03  2.877956321E-03  3.988895667E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.054717172E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.41 0.50 0.41 1.00
+ -1.240510235E-03 -1.183479592E-03 -1.153891355E-03  3.480237344E-04  3.793841940E-04
+  3.857294218E-04  2.109403857E-03  2.142075437E-03  2.163290820E-03  2.451496427E-03
+  2.490109140E-03  2.566497388E-03  2.847632624E-03  2.911337166E-03  3.990366104E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.060373257E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.39 0.50 0.39 1.00
+ -1.212257780E-03 -1.131945235E-03 -1.090896939E-03  3.418371666E-04  3.885033794E-04
+  3.951071977E-04  2.083995254E-03  2.132047136E-03  2.161781596E-03  2.420796282E-03
+  2.471992313E-03  2.577615882E-03  2.863310408E-03  2.948290276E-03  3.991762630E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.067096978E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.38 0.50 0.38 1.00
+ -1.178481953E-03 -1.071913622E-03 -1.018349753E-03  3.343260681E-04  4.000196689E-04
+  4.055848913E-04  2.053290884E-03  2.120004332E-03  2.159191393E-03  2.387899882E-03
+  2.452613356E-03  2.590582726E-03  2.880729502E-03  2.988063991E-03  3.992863381E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.074821237E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.36 0.50 0.36 1.00
+ -1.138912088E-03 -1.003595149E-03 -9.367055411E-04  3.254933445E-04  4.141776970E-04
+  4.173429953E-04  2.017252107E-03  2.105905947E-03  2.155209237E-03  2.353216132E-03
+  2.432216720E-03  2.605265151E-03  2.899798859E-03  3.030037485E-03  3.993421049E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.083506197E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.34 0.50 0.34 1.00
+ -1.093169849E-03 -9.271086173E-04 -8.460496111E-04  3.153985697E-04  4.309267506E-04
+  4.311848771E-04  1.975955636E-03  2.089732008E-03  2.149539313E-03  2.317102573E-03
+  2.410875188E-03  2.621488845E-03  2.920492816E-03  3.073644751E-03  3.993168902E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.093159108E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.32 0.50 0.32 1.00
+ -1.040727477E-03 -8.425106555E-04 -7.457713667E-04  3.041668762E-04  4.474204793E-04
+  4.511972401E-04  1.929574223E-03  2.071484194E-03  2.141918362E-03  2.279918325E-03
+  2.388535494E-03  2.639039910E-03  2.942820689E-03  3.118337390E-03  3.991827391E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.103861554E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.30 0.50 0.30 1.00
+ -9.808412644E-04 -7.499659751E-04 -6.338935191E-04  2.919979364E-04  4.687026013E-04
+  4.743104621E-04  1.878347002E-03  2.051182351E-03  2.132129121E-03  2.242052126E-03
+  2.365066913E-03  2.657670757E-03  2.966804607E-03  3.163572267E-03  3.989111574E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.115812348E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.29 0.50 0.29 1.00
+ -9.124385233E-04 -6.502587844E-04 -5.052650760E-04  2.791848205E-04  4.977325490E-04
+  5.005550114E-04  1.822551494E-03  2.028857522E-03  2.120008904E-03  2.203933743E-03
+  2.340303059E-03  2.677109054E-03  2.992465054E-03  3.208813455E-03  3.984739506E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.129414589E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.27 0.50 0.27 1.00
+ -8.339120885E-04 -5.459367456E-04 -3.442058315E-04  2.661686309E-04  5.298935632E-04
+  5.384735696E-04  1.762485119E-03  2.004542661E-03  2.105453296E-03  2.166033494E-03
+  2.314073101E-03  2.697068384E-03  3.019812212E-03  3.253541101E-03  3.978441609E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.145596604E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.25 0.50 0.25 1.00
+ -7.427159453E-04 -4.427730523E-04  8.548512855E-05  2.537044803E-04  5.622187218E-04
+  5.943260883E-04  1.698459357E-03  1.978262505E-03  2.088415759E-03  2.128852526E-03
+  2.286223895E-03  2.717259186E-03  3.048840993E-03  3.297262349E-03  3.969970778E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.176189638E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.23 0.50 0.23 1.00
+ -6.344902041E-04 -3.490534076E-04  2.434048388E-04  3.481526984E-04  5.973493994E-04
+  6.646745090E-04  1.630806843E-03  1.950024209E-03  2.068904582E-03  2.092905471E-03
+  2.256637157E-03  2.737398655E-03  3.079527996E-03  3.339521268E-03  3.959112723E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.199243837E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.21 0.50 0.21 1.00
+ -5.010054690E-04 -2.709854507E-04  2.398801109E-04  4.719625348E-04  6.350244902E-04
+  7.437533975E-04  1.559900939E-03  1.919810145E-03  2.046978934E-03  2.058696963E-03
+  2.225246109E-03  2.757218575E-03  3.111829178E-03  3.379906258E-03  3.945695831E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.216195627E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.20 0.50 0.20 1.00
+ -3.271364643E-04 -2.098792462E-04  2.620020584E-04  5.583456292E-04  6.748922295E-04
+  8.247627943E-04  1.486188077E-03  1.887573884E-03  2.022745985E-03  2.026694053E-03
+  2.192054888E-03  2.776470370E-03  3.145677627E-03  3.418054422E-03  3.929599731E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.233402302E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.18 0.50 0.18 1.00
+ -1.644019001E-04 -1.355632473E-04  3.736327507E-04  6.231524098E-04  7.164921716E-04
+  9.033713350E-04  1.410235328E-03  1.853239839E-03  1.996361024E-03  1.997297530E-03
+  2.157162563E-03  2.794927042E-03  3.180981165E-03  3.453653073E-03  3.910761831E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.253565146E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.16 0.50 0.16 1.00
+ -1.332483308E-04 -1.508472759E-05  5.337304101E-04  6.729274128E-04  7.592224816E-04
+  9.776800891E-04  1.332800120E-03  1.816706444E-03  1.968032596E-03  1.970816271E-03
+  2.120792347E-03  2.812382101E-03  3.217619737E-03  3.486438894E-03  3.889181409E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.270499863E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.14 0.50 0.14 1.00
+ -1.155886804E-04  2.274448665E-05  6.713629672E-04  7.112888658E-04  8.022724858E-04
+  1.047088155E-03  1.254941641E-03  1.777852141E-03  1.938035039E-03  1.947449350E-03
+  2.083325831E-03  2.828646153E-03  3.255442384E-03  3.516195305E-03  3.864921404E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.280298876E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.12 0.50 0.12 1.00
+ -1.098112962E-04 -4.974466906E-05  7.406224001E-04  7.892754236E-04  8.444533626E-04
+  1.111494195E-03  1.178239643E-03  1.736543031E-03  1.906732017E-03  1.927280103E-03
+  2.045341544E-03  2.843542293E-03  3.294263101E-03  3.542748594E-03  3.838108996E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.281954437E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.11 0.50 0.11 1.00
+ -1.126064888E-04 -8.058825720E-05  7.627040148E-04  8.836322795E-04  8.935102697E-04
+  1.105412054E-03  1.170881120E-03  1.692640710E-03  1.874617431E-03  1.910284311E-03
+  2.007656268E-03  2.856901824E-03  3.333853572E-03  3.565963205E-03  3.808937662E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.283689999E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.09 0.50 0.09 1.00
+ -1.200313423E-04 -1.032228906E-04  7.789617719E-04  9.140219282E-04  9.877435592E-04
+  1.043072143E-03  1.225083847E-03  1.646008935E-03  1.842385160E-03  1.896351499E-03
+  1.971364621E-03  2.868561913E-03  3.373927454E-03  3.585736559E-03  3.777676896E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284382103E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.07 0.50 0.07 1.00
+ -1.289488807E-04 -1.205011448E-04  7.905849141E-04  9.152862448E-04  1.012649753E-03
+  1.074227802E-03  1.273601347E-03  1.596518393E-03  1.811046081E-03  1.885315304E-03
+  1.937864837E-03  2.878366355E-03  3.414101107E-03  3.601993679E-03  3.744705559E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284340568E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.05 0.50 0.05 1.00
+ -1.373401196E-04 -1.334488151E-04  7.985607056E-04  8.800955514E-04  1.022817226E-03
+  1.154408612E-03  1.315378429E-03  1.544051336E-03  1.782111044E-03  1.876987085E-03
+  1.908843326E-03  2.886169904E-03  3.453781482E-03  3.614681929E-03  3.710618832E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.283885826E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.04 0.50 0.04 1.00
+ -1.440019337E-04 -1.425157172E-04  8.036770246E-04  8.422487135E-04  1.041265795E-03
+  1.229221088E-03  1.348561567E-03  1.488519916E-03  1.757812647E-03  1.871187189E-03
+  1.886169997E-03  2.891845624E-03  3.491784560E-03  3.623766146E-03  3.676605763E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.283307419E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.02 0.50 0.02 1.00
+ -1.482398822E-04 -1.479021932E-04  8.065111708E-04  8.164568900E-04  1.054708461E-03
+  1.299090083E-03  1.370444439E-03  1.430026740E-03  1.741142267E-03  1.867770088E-03
+  1.871651154E-03  2.895293821E-03  3.524711863E-03  3.629224472E-03  3.646070010E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.282847969E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.00 0.50 0.00 1.00
+ -1.496904205E-04 -1.496904205E-04  8.074162516E-04  8.074162516E-04  1.059502139E-03
+  1.354703269E-03  1.378174531E-03  1.378174531E-03  1.735129622E-03  1.866641847E-03
+  1.866641847E-03  2.896450569E-03  3.540533477E-03  3.631045144E-03  3.631045144E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.282674689E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.03 0.50 0.00 1.00
+ -1.486404582E-04 -1.475795887E-04  8.108617166E-04  8.119805250E-04  1.054816170E-03
+  1.296673390E-03  1.378884881E-03  1.424095207E-03  1.741162904E-03  1.866155286E-03
+  1.873133442E-03  2.895317155E-03  3.524791467E-03  3.630902345E-03  3.644367007E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.282846072E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.05 0.50 0.00 1.00
+ -1.458389398E-04 -1.411572528E-04  8.204484593E-04  8.254445404E-04  1.041782262E-03
+  1.218027294E-03  1.380997718E-03  1.466324879E-03  1.759258366E-03  1.864690422E-03
+  1.892035995E-03  2.891940992E-03  3.490926613E-03  3.630477115E-03  3.670996034E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.283317725E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.07 0.50 0.00 1.00
+ -1.424629135E-04 -1.301005754E-04  8.335343988E-04  8.471600343E-04  1.023703458E-03
+  1.129395105E-03  1.384458825E-03  1.494778187E-03  1.788577447E-03  1.862231863E-03
+  1.921840812E-03  2.886392640E-03  3.450468119E-03  3.629778921E-03  3.699477506E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.283961691E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.10 0.50 0.00 1.00
+ -1.409333558E-04 -1.136291977E-04  8.441470606E-04  8.761593824E-04  1.007257926E-03
+  1.031149198E-03  1.389179229E-03  1.511108183E-03  1.826559859E-03  1.858754442E-03
+  1.960565431E-03  2.878784367E-03  3.406897105E-03  3.628823386E-03  3.726456565E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284563979E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.12 0.50 0.00 1.00
+ -1.455722359E-04 -8.971473813E-05  8.420227090E-04  9.112836468E-04  9.227887117E-04
+  1.003189379E-03  1.395037367E-03  1.518408311E-03  1.854223973E-03  1.869791397E-03
+  2.006179505E-03  2.869262949E-03  3.361536758E-03  3.627632061E-03  3.750791381E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284843059E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.15 0.50 0.00 1.00
+ -1.631750924E-04 -5.030019451E-05  8.033297110E-04  8.204718413E-04  9.513038896E-04
+  1.018350251E-03  1.401882195E-03  1.519533005E-03  1.848598383E-03  1.915374326E-03
+  2.056844865E-03  2.858001089E-03  3.315141672E-03  3.626232084E-03  3.771968666E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.284677835E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.17 0.50 0.00 1.00
+ -2.033936989E-04  5.864466196E-05  6.723507496E-04  7.839506626E-04  9.950143096E-04
+  1.048172868E-03  1.409537276E-03  1.516535875E-03  1.841829293E-03  1.961375576E-03
+  2.110988857E-03  2.845188763E-03  3.268282586E-03  3.624655728E-03  3.789725419E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.286142946E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.20 0.50 0.00 1.00
+ -2.797181346E-04  9.825441013E-05  5.352110021E-04  7.390149309E-04  1.041291325E-03
+  1.085809254E-03  1.417805760E-03  1.510795220E-03  1.833864213E-03  2.006637750E-03
+  2.167286074E-03  2.831025881E-03  3.221461812E-03  3.622939817E-03  3.803941574E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.281781044E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.23 0.50 0.00 1.00
+ -4.004643456E-04  1.261719813E-04  4.164918768E-04  6.894518638E-04  1.089122927E-03
+  1.127090218E-03  1.426476117E-03  1.503259753E-03  1.824649596E-03  2.050490943E-03
+  2.224606818E-03  2.815717662E-03  3.175154571E-03  3.621125015E-03  3.814608031E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.275197651E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.25 0.50 0.00 1.00
+ -5.390731848E-04  1.485246780E-04  3.430752423E-04  6.372570067E-04  1.137616250E-03
+  1.169617504E-03  1.435328334E-03  1.494626384E-03  1.814135200E-03  2.092541255E-03
+  2.281961812E-03  2.799473974E-03  3.129825532E-03  3.619254985E-03  3.821820095E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.269299253E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.28 0.50 0.00 1.00
+ -6.637406642E-04  1.671012543E-04  3.041611187E-04  5.836253407E-04  1.185990598E-03
+  1.211820282E-03  1.444140299E-03  1.485442738E-03  1.802280544E-03  2.132537094E-03
+  2.338454222E-03  2.782513772E-03  3.085935406E-03  3.617375410E-03  3.825780232E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.265170882E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.30 0.50 0.00 1.00
+ -7.679890376E-04  1.827133928E-04  2.814232313E-04  5.294088858E-04  1.233560485E-03
+  1.252532770E-03  1.452694009E-03  1.476160574E-03  1.789064874E-03  2.170283756E-03
+  2.393241714E-03  2.765075719E-03  3.043942618E-03  3.615532906E-03  3.826803353E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.262222463E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.33 0.50 0.00 1.00
+ -8.540986040E-04  1.958203435E-04  2.656225180E-04  4.753366871E-04  1.279709869E-03
+  1.290809873E-03  1.460781310E-03  1.467161537E-03  1.774503302E-03  2.205582909E-03
+  2.445508334E-03  2.747436128E-03  3.004302152E-03  3.613773848E-03  3.825320364E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.259878528E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.35 0.50 0.00 1.00
+ -9.248315082E-04  2.067221859E-04  2.528573294E-04  4.221549214E-04  1.323854576E-03
+  1.325839498E-03  1.458768577E-03  1.468208945E-03  1.758674343E-03  2.238182264E-03
+  2.494444336E-03  2.729935405E-03  2.967464111E-03  3.612143123E-03  3.821876043E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.257814707E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.38 0.50 0.00 1.00
+ -9.822390144E-04  2.156344974E-04  2.416087067E-04  3.707619805E-04  1.356899389E-03
+  1.365383554E-03  1.451250884E-03  1.474802768E-03  1.741769328E-03  2.267727091E-03
+  2.539228352E-03  2.713013525E-03  2.933878671E-03  3.610682880E-03  3.817116853E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.255875973E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.40 0.50 0.00 1.00
+ -1.027740117E-03  2.227206400E-04  2.314990806E-04  3.223894806E-04  1.383339604E-03
+  1.403558196E-03  1.444826713E-03  1.480411077E-03  1.724184945E-03  2.293711765E-03
+  2.578996409E-03  2.697251787E-03  2.904024901E-03  3.609431288E-03  3.811763867E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.254018482E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.42 0.50 0.00 1.00
+ -1.062303770E-03  2.227460815E-04  2.281064119E-04  2.788722866E-04  1.404583302E-03
+  1.437329673E-03  1.439666285E-03  1.484907115E-03  1.706699136E-03  2.315441258E-03
+  2.612762709E-03  2.683408194E-03  2.878500864E-03  3.608421387E-03  3.806566808E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.252285387E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.45 0.50 0.00 1.00
+ -1.086581933E-03  2.158614984E-04  2.318866883E-04  2.429952988E-04  1.420141511E-03
+  1.435895477E-03  1.465023055E-03  1.488190844E-03  1.690781562E-03  2.332034881E-03
+  2.639242005E-03  2.672412506E-03  2.858226326E-03  3.607680047E-03  3.802238340E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.250801405E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.47 0.50 0.00 1.00
+ -1.100993179E-03  2.114259623E-04  2.186394452E-04  2.341282842E-04  1.429636874E-03
+  1.433600028E-03  1.483971454E-03  1.490190114E-03  1.678955358E-03  2.342530842E-03
+  2.656619829E-03  2.665261421E-03  2.844709505E-03  3.607227116E-03  3.799374141E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.249763860E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.00 1.00
+ -1.105771774E-03  2.098907747E-04  2.098907747E-04  2.348710617E-04  1.432829486E-03
+  1.432829486E-03  1.490861389E-03  1.490861389E-03  1.674448883E-03  2.346134514E-03
+  2.662770399E-03  2.662770399E-03  2.839870223E-03  3.607074771E-03  3.798372611E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.249385219E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.03 1.00
+ -1.107022506E-03  2.074298022E-04  2.074298022E-04  2.365623111E-04  1.379587120E-03
+  1.379587120E-03  1.538402166E-03  1.538402166E-03  1.679872508E-03  2.345143482E-03
+  2.662151306E-03  2.662151306E-03  2.839670971E-03  3.596860430E-03  3.805638953E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.248593347E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.05 1.00
+ -1.110741181E-03  1.994970410E-04  1.994970410E-04  2.414859233E-04  1.299148505E-03
+  1.299148505E-03  1.601630560E-03  1.601630560E-03  1.695950794E-03  2.342184737E-03
+  2.660303875E-03  2.660303875E-03  2.839077514E-03  3.569926730E-03  3.823771304E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.246140789E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.07 1.00
+ -1.116828404E-03  1.840502359E-04  1.840502359E-04  2.492245346E-04  1.209853270E-03
+  1.209853270E-03  1.661900073E-03  1.661900073E-03  1.722124292E-03  2.337302012E-03
+  2.657257565E-03  2.657257565E-03  2.838102705E-03  3.532467128E-03  3.846704413E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.241760948E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.10 1.00
+ -1.125122365E-03  1.555986744E-04  1.555986744E-04  2.591765168E-04  1.112146919E-03
+  1.112146919E-03  1.718306240E-03  1.718306240E-03  1.757517285E-03  2.330570380E-03
+  2.653061225E-03  2.653061225E-03  2.836767802E-03  3.488610955E-03  3.870523399E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.234813504E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.12 1.00
+ -1.135404312E-03  9.349499164E-05  9.349499164E-05  2.706536488E-04  1.005564833E-03
+  1.005564833E-03  1.770887361E-03  1.770887361E-03  1.801009440E-03  2.322099101E-03
+  2.647782697E-03  2.647782697E-03  2.835102206E-03  3.440634066E-03  3.893254022E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.223140397E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.15 1.00
+ -1.147405680E-03 -1.292907772E-04 -1.292907772E-04  2.829638328E-04  8.901859215E-04
+  8.901859215E-04  1.819808691E-03  1.819808691E-03  1.851314756E-03  2.312034845E-03
+  2.641508264E-03  2.641508264E-03  2.833143078E-03  3.389891092E-03  3.913931224E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.194014867E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.17 1.00
+ -1.160816454E-03 -2.463497523E-04 -2.463497523E-04  2.954671024E-04  7.687438927E-04
+  7.687438927E-04  1.865242820E-03  1.865242820E-03  1.907055856E-03  2.300564566E-03
+  2.634342019E-03  2.634342019E-03  2.830934787E-03  3.337326184E-03  3.932088543E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.174328927E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.20 1.00
+ -1.175294326E-03 -3.718189395E-04 -3.718189395E-04  3.076075070E-04  6.510396431E-04
+  6.510396431E-04  1.907343113E-03  1.907343113E-03  1.966826127E-03  2.287917278E-03
+  2.626405285E-03  2.626405285E-03  2.828528201E-03  3.283702439E-03  3.947527596E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.153637651E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.23 1.00
+ -1.190474269E-03 -5.133540208E-04 -5.133540208E-04  3.189289033E-04  5.545504975E-04
+  5.545504975E-04  1.946236652E-03  1.946236652E-03  2.029236938E-03  2.274363973E-03
+  2.617836335E-03  2.617836335E-03  2.825979775E-03  3.229703254E-03  3.960213668E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.132924558E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.25 1.00
+ -1.205978180E-03 -6.562586327E-04 -6.562586327E-04  3.290820262E-04  4.886059927E-04
+  4.886059927E-04  1.982021493E-03  1.982021493E-03  2.092950644E-03  2.260215035E-03
+  2.608790664E-03  2.608790664E-03  2.823350433E-03  3.175976304E-03  3.970226001E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.114607065E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.28 1.00
+ -1.221424371E-03 -7.867249054E-04 -7.867249054E-04  3.378273814E-04  4.467972920E-04
+  4.467972920E-04  2.014764091E-03  2.014764091E-03  2.156701790E-03  2.245814739E-03
+  2.599442096E-03  2.599442096E-03  2.820704259E-03  3.123150173E-03  3.977732305E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.099453171E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.30 1.00
+ -1.236436686E-03 -9.006595109E-04 -9.006595109E-04  3.450357168E-04  4.197512192E-04
+  4.197512192E-04  2.044495716E-03  2.044495716E-03  2.219308860E-03  2.231532719E-03
+  2.589984809E-03  2.589984809E-03  2.818106981E-03  3.071837641E-03  3.982973785E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.086975174E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.33 1.00
+ -1.250653129E-03 -9.984305485E-04 -9.984305485E-04  3.506857703E-04  4.014014990E-04
+  4.014014990E-04  2.071207881E-03  2.071207881E-03  2.217752674E-03  2.279676987E-03
+  2.580636091E-03  2.580636091E-03  2.815624307E-03  3.022634660E-03  3.986253772E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.076580244E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.35 1.00
+ -1.263733886E-03 -1.081248206E-03 -1.081248206E-03  3.548577187E-04  3.884177178E-04
+  3.884177178E-04  2.094847621E-03  2.094847621E-03  2.204858942E-03  2.336787854E-03
+  2.571639025E-03  2.571639025E-03  2.813320136E-03  2.976125120E-03  3.987925896E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.067872705E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.38 1.00
+ -1.275368647E-03 -1.150153389E-03 -1.150153389E-03  3.577202361E-04  3.789834509E-04
+  3.789834509E-04  2.115314431E-03  2.115314431E-03  2.193221887E-03  2.389664821E-03
+  2.563263523E-03  2.563263523E-03  2.811254721E-03  2.932907989E-03  3.988379082E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.060629806E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.40 1.00
+ -1.285283163E-03 -1.205873129E-03 -1.205873129E-03  3.595093741E-04  3.720795895E-04
+  3.720795895E-04  2.132461625E-03  2.132461625E-03  2.183183211E-03  2.437287024E-03
+  2.555803025E-03  2.555803025E-03  2.809482836E-03  2.893676734E-03  3.988017626E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.054740793E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.42 1.00
+ -1.293244951E-03 -1.248873619E-03 -1.248873619E-03  3.604986972E-04  3.671193559E-04
+  3.671193559E-04  2.146105688E-03  2.146105688E-03  2.175042266E-03  2.478406527E-03
+  2.549563460E-03  2.549563460E-03  2.808052044E-03  2.859399465E-03  3.987235763E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.050160979E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.45 1.00
+ -1.299068078E-03 -1.279436732E-03 -1.279436732E-03  3.609622214E-04  3.637616567E-04
+  3.637616567E-04  2.156046717E-03  2.156046717E-03  2.169044261E-03  2.511227763E-03
+  2.544841390E-03  2.544841390E-03  2.807001136E-03  2.831641705E-03  3.986387750E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.046881141E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.47 1.00
+ -1.302616968E-03 -1.297722032E-03 -1.297722032E-03  3.611343250E-04  3.618126201E-04
+  3.618126201E-04  2.162100121E-03  2.162100121E-03  2.165370939E-03  2.533087880E-03
+  2.541891223E-03  2.541891223E-03  2.806358819E-03  2.812892546E-03  3.985756415E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.044907391E-02
+ 
+ phonon wavelength (reduced coordinates) , norm, and energies in hartree
+  0.50 0.50 0.50 1.00
+ -1.303809156E-03 -1.303809156E-03 -1.303809156E-03  3.611730846E-04  3.611730846E-04
+  3.611730846E-04  2.164133950E-03  2.164133950E-03  2.164133950E-03  2.540887100E-03
+  2.540887100E-03  2.540887100E-03  2.806142731E-03  2.806142731E-03  3.985524830E-03
+ Zero Point Motion energy (sum of freqs/2)=  1.044248261E-02
+ Proc.   0 individual time (sec): cpu=          2.0  wall=          2.1
+
+================================================================================
+
++Total cpu time      2.040  and wall time      2.062 sec
+
+ anaddb : the run completed succesfully.
+--- !FinalSummary
+program: anaddb
+version: 8.11.1
+start_datetime: Sat Nov 10 23:25:54 2018
+end_datetime: Sat Nov 10 23:25:56 2018
+overall_cpu_time:           2.0
+overall_wall_time:           2.1
+mpi_procs: 1
+omp_threads: 1
+...

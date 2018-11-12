@@ -1,0 +1,23 @@
+# ANADB input for phonon bands and DOS
+ ifcflag 1
+ ng2qpt 10 10 10
+ prtdos 2
+
+
+ ndivsm 20
+ nqpath 8
+ qpath
+    0.0    0.0    0.0
+    0.0    0.5    0.0
+    0.5    0.5    0.0
+    0.0    0.0    0.0
+    0.5    0.5    0.5
+    0.0    0.5    0.0
+    0.5    0.5    0.0
+    0.5    0.5    0.5
+ ngqpt 4 4 4
+ q1shft 0 0 0
+ nqshft 1
+ asr 2
+ chneut 1
+ dipdip 0

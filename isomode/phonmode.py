@@ -2,7 +2,7 @@ import os
 import numpy as np
 from scipy.optimize import minimize_scalar
 from abipy.abilab import abiopen
-from pyDFTutils.perovskite.frozen_mode import distorted_cell
+from isomode.frozen_mode import distorted_cell
 from ase import Atoms
 from ase.io import write
 import spglib.spglib
