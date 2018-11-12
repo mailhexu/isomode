@@ -6,7 +6,7 @@ import numpy as np
 import copy
 import isomode.perovskite_mode as perovskite_mode
 import spglib.spglib
-from pyDFTutils.perovskite.cubic_perovskite import gen_primitive
+from cubic_perovskite import gen_primitive
 
 
 class distorted_cell():
