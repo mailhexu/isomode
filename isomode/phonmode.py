@@ -240,7 +240,7 @@ class phonon_distort_generator(object):
                 for i in range(self.nbranch)
             ]
             align_evecs = False
-            align_disp = True
+            align_disp = False
             if align_evecs:
                 evecs = [
                     displacement_cart_to_evec(
@@ -276,7 +276,9 @@ class phonon_distort_generator(object):
             for i in range(self.nbranch):
                 freq = freqs[i]
                 if freq < 0 or (not unstable_only):
-                    evec = nevecs[i]
+                    print(len(nevecs))
+                    evec = displ_carts[i]#nevecs[i]
+                    print(evec)
                     scell = distorted_cell(
                         self.atoms, supercell_matrix=supercell_matrix)
                     disp = scell._get_displacements(
