@@ -25,19 +25,23 @@ def view_distort(parent_fname, distorted_fname, out_fname):
     tmpdir = tempfile.mkdtemp()
 
     # convert file to cif
+    print("** Converting parent file to cif")
     parent_cif = os.path.join(tmpdir, 'parent.cif')
     tocif(parent_fname, outfname=parent_cif)
 
     # convert highsym_fname
+    print("** Converting parent cif file to high sym using findsym")
     isosym = isocif(parent_cif)
     isosym.upload_cif()
     isosym.findsym()
     parent_sym_cif = os.path.join(tmpdir, 'parent_sym.cif')
     isosym.save_cif(fname=parent_sym_cif)
 
+    print("** Converting distorted file to cif")
     distorted_cif = os.path.join(tmpdir, 'distorted.cif')
     tocif(distorted_fname, outfname=distorted_cif)
 
+    print("** get distortion mode details")
     iso = isodistort(parent_cif=parent_sym_cif, distorted_cif=distorted_cif)
     ampt = iso.get_mode_amplitude_text()
     #iso.get_mode_amplitude_text()
@@ -147,6 +151,7 @@ class isodistort(object):
             allow_redirects=True)
         text = str(ret.text)
 
+        print(text)
         fname = re.findall(r'/tmp.*isodistort_.*.iso', text)[0]
         data = {'input': 'uploadparentcif', 'filename': fname}
         ret = requests.post(

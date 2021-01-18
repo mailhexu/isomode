@@ -7,6 +7,8 @@ import copy
 import isomode.perovskite_mode as perovskite_mode
 import spglib.spglib
 
+def default_mod_func(R):
+    return 1.0
 
 class distorted_cell():
     def __init__(self, atoms, supercell_matrix=np.eye(3)):
@@ -38,7 +40,8 @@ class distorted_cell():
                            q,
                            amplitude,
                            argument,
-                           use_isotropy_amplitue=True):
+                           mod_func=default_mod_func,
+                           use_isotropy_amplitude=True):
         """
         displacements from eigvec, q, amplitude
         """
@@ -48,8 +51,9 @@ class distorted_cell():
         s2uu_map = [u2u_map[x] for x in s2u_map]
         spos = self._supercell.get_scaled_positions()
         dim = self._supercell.get_supercell_matrix()
+        r=np.dot(spos, dim.T)
         coefs = np.exp(2j * np.pi * np.dot(
-            np.dot(spos, dim.T), q))  # Here Do not use sqrt(m)/ np.sqrt(m)
+            r, q)) * mod_func(r)  # Here Do not use sqrt(m)/ np.sqrt(m)
         u = []
         for i, coef in enumerate(coefs):
             eig_index = s2uu_map[i] * 3
@@ -59,7 +63,7 @@ class distorted_cell():
         u = np.array(u) / np.linalg.norm(u)  #/np.sqrt(self._N)
         phase_factor = self._get_phase_factor(u, argument)
 
-        if use_isotropy_amplitue:
+        if use_isotropy_amplitude:
             amplitude = amplitude  #*self._N
         u *= phase_factor * amplitude
 
@@ -71,8 +75,8 @@ class distorted_cell():
         max_elem = u[index_max_elem]
         phase_for_zero = max_elem / abs(max_elem)
         phase_factor = np.exp(1j * np.pi * argument / 180) / phase_for_zero
-
         return phase_factor
+
 
 
 def get_supercell(unitcell, supercell_matrix, symprec=1e-5):

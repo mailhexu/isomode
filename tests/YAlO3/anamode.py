@@ -161,7 +161,6 @@ class LabelDDB(object):
 
 def test():
     l = LabelDDB('./phbst/run.abo_PHBST.nc', tmpdir='./tmp')
-    #l.run()
     l.write_result('result.txt')
 
 
