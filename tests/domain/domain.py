@@ -91,7 +91,7 @@ def gen_domain(
             G_G4x=(0.0, default_mod_func, 0.0),
             G_G4y=(0.0, default_mod_func, 0.0),
             G_G4z=(0.0, default_mod_func, 0.0),
-        )):
+        ), return_nondistorted=True):
     atoms = gen_primitive(name=name, mag_order='PM', latticeconstant=cell[0])
     spos = atoms.get_scaled_positions()
     atoms.set_cell(cell)
@@ -164,11 +164,15 @@ def gen_domain(
             mod_func=mod_func)
         disps += disp
 
+    nondistorted = dcell._supercell
+    nondistorted.set_pbc(True)
     newcell = dcell._get_cell_with_modulation(disps)
     newcell = Atoms(newcell)
     print(spglib.get_spacegroup(newcell))
-    #vesta_view(newcell)
-    return newcell
+    if return_nondistorted:
+        return newcell, nondistorted
+    else:
+        return newcell
 
 
 def isotropy_normfactor(scell, sc_mat, disps):
@@ -177,9 +181,6 @@ def isotropy_normfactor(scell, sc_mat, disps):
     sc_mat: primitive->supercell transform matrix. 3*3 matrix
     disps: list of vectors defining displacements.
     """
-    # Bs supercell
-    # Bs=np.dot(pcell, sc_mat)
-    # scell: supercell
     sum = 0.0
     for disp in disps:
         sum += (np.linalg.norm(np.dot(scell, disp)))**2
@@ -262,8 +263,7 @@ mod_func_z01 = partial(
 
 
 def antipolar_180_x():
-    # amplitude, mod_func
-    atoms = gen_domain(
+    atoms, orig = gen_domain(
         name='PbTiO3',
         cell=[3.7, 3.7, 3.7],
         supercell_matrix=[[16, 0, 0], [0, 2, 0], [0, 0, 2]],
@@ -278,12 +278,15 @@ def antipolar_180_x():
                      0.0))  # [Nd1:a:dsp]T1u(b), O , same as above
 
     )
+    atoms.set_pbc([True, True, True])
+    write('antipolar_180domain_x_nondistorted.cif', orig)
+    write('antipolar_180domain_x.cif', atoms)
     vesta_view(atoms)
 
 
 def antipolar_180_z():
     # amplitude, mod_func
-    atoms = gen_domain(
+    atoms, orig = gen_domain(
         name='PbTiO3',
         cell=[3.7, 3.7, 3.7],
         supercell_matrix=[[2, 0, 0], [0, 2, 0], [0, 0, 16]],
@@ -300,13 +303,17 @@ def antipolar_180_z():
                      0.0),  # [Nd1:a:dsp]T1u(a), O , Antiferro mode
             Z5_m_O2=(2.0, mod_func_z, 0.0),
 
-        ))  # [Nd1:a:dsp]T1u(b), O , same as above
+        ))  
+    atoms.set_pbc([True, True, True])
+
+    write('antipolar_180domain_z_nondistorted.cif', orig)
+    write('antipolar_180domain_z.cif', atoms)
     vesta_view(atoms)
 
 
 def polar_180_x_longi():
     # amplitude, mod_func
-    atoms = gen_domain(
+    atoms, orig = gen_domain(
         name='PbTiO3',
         cell=[3.901, 4.128, 3.901],
         supercell_matrix=[[16, 0, 0], [0, 1, 0], [0, 0, 1]],
@@ -328,18 +335,22 @@ def polar_180_x_longi():
             G_G4z=(0.0, default_mod_func, 0.0),
         ))
     atoms.set_pbc([True, True, True])
-    write('PbTiO3_180domain.cif', atoms)
+    write('polar_180domain_nondistored.cif', orig)
+    write('polar_180domain.cif', atoms)
     vesta_view(atoms)
 
 
 def polar_180_x_trans():
-    atoms = gen_domain(
+    atoms, orig = gen_domain(
         name='PbTiO3',
         cell=[3.901, 3.7, 3.7],
         supercell_matrix=[[16, 0, 0], [0, 2, 0], [0, 0, 2]],
         modes=dict(
             G_Sx=(3.0, mod_func_x, 0.0),
         ))
+    atoms.set_pbc(True)
+    write("polar_180_x_nondistorted.cif",atoms)
+    write("polar_180_x.cif",atoms)
     vesta_view(atoms)
 
 def polar_180_x_trans_phonon():
@@ -348,12 +359,14 @@ def polar_180_x_trans_phonon():
         supercell_matrix=[[16, 0, 0], [0, 2, 0], [0, 0, 2]],
         modes={((0.0,0.0,0.0), 1): (3.0, mod_func_x, 0.0)}
         )
+    atoms.set_pbc(True)
+    write("polar_180_x_phonon.cif",atoms)
     vesta_view(atoms)
 
 
 def polar_90_xy_trans():
     # amplitude, mod_func
-    atoms = gen_domain(
+    atoms, orig = gen_domain(
         name='PbTiO3',
         cell=[3.7, 3.7, 3.7],
         supercell_matrix=[[16, 0, 0], [0, 2, 0], [0, 0, 2]],
@@ -374,6 +387,9 @@ def polar_90_xy_trans():
             G_G4y=(0.0, default_mod_func, 0.0),
             G_G4z=(0.0, default_mod_func, 0.0),
         ))
+    atoms.set_pbc(True)
+    write("polar_90_nondistorted.cif", orig)
+    write("polar_90.cif", atoms)
     vesta_view(atoms)
 
 def cyc_func_xy(R):
@@ -386,7 +402,7 @@ def cyc_func_yx(R):
 
 def polar_cycle_xy():
     # amplitude, mod_func
-    atoms = gen_domain(
+    atoms, orig = gen_domain(
         name='PbTiO3',
         cell=[3.7, 3.7, 3.7],
         supercell_matrix=[[16, 0, 0], [0, 16, 0], [0, 0, 2]],
@@ -407,12 +423,14 @@ def polar_cycle_xy():
             G_G4y=(0.0, default_mod_func, 0.0),
             G_G4z=(0.0, default_mod_func, 0.0),
         ))
+    write("polar_cycle_nondistorted.cif", orig)
+    write("polar_cycle.cif", atoms)
     vesta_view(atoms)
 
 
 
-#antipolar_180_x()
-#antipolar_180_z()
+antipolar_180_x()
+antipolar_180_z()
 polar_180_x_longi()
-#polar_90_xy_trans()
-#polar_cycle_xy()
+polar_90_xy_trans()
+polar_cycle_xy()

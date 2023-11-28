@@ -21,17 +21,15 @@ class distorted_cell():
         """
         x=x+dx
         """
-        lattice = self._supercell.get_cell()
-        positions = self._supercell.get_positions()
+        lattice = copy.deepcopy(self._supercell.get_cell())
+        positions = copy.deepcopy(self._supercell.get_positions())
         masses = self._supercell.get_masses()
-        #magmoms = self._supercell.get_magnetic_moments()
         symbols = self._supercell.get_chemical_symbols()
         positions += modulation.real
         scaled_positions = np.dot(positions, np.linalg.inv(lattice))
         for p in scaled_positions:
             p -= np.floor(p)
-            #cell = self._supercell.copy()
-            cell = copy.copy(self._supercell)
+            cell = copy.deepcopy(self._supercell)
             cell.set_scaled_positions(scaled_positions)
         return cell
 

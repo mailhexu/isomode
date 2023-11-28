@@ -5,6 +5,8 @@ Generate domains and domain walls from phonon.
 
 from .frozen_mode import distorted_cell, default_mod_func
 from pyDFTutils.ase_utils import vesta_view
+from dataclasses import dataclass
+
 
 
 class DomainBuilder():
@@ -51,6 +53,11 @@ class DomainBuilder():
     def save_supercell(self):
         pass
 
+
+
 class DomainBuilderPhonon(DomainBuilder):
+    def __init__(self, phonon, supercell_matrix, mode_list=[]):
+        self.supercell=phonon.supercell
+
     def add_mode(self, phonon, imode, iq, amplitude, argument=0, modulation_function):
-        disp, 
+        pass

@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+view the amplitude of distortions with isotropy
+"""
 import re
 import requests
 from bs4 import BeautifulSoup as BS
@@ -23,6 +26,8 @@ def tocif(fname, outfname):
 def view_distort(parent_fname, distorted_fname, out_fname):
     # temp directory
     tmpdir = tempfile.mkdtemp()
+    print(f"tmpdir")
+    print(f"{tmpdir=}")
 
     # convert file to cif
     print("** Converting parent file to cif")
@@ -66,6 +71,7 @@ class isocif(object):
             files=files,
             allow_redirects=True)
         text = str(ret.text)
+        print(text)
 
         soup = BS(text,'lxml')
         inputs = soup.find_all('input')
@@ -84,6 +90,8 @@ class isocif(object):
             "http://stokes.byu.edu/iso/isocifform.php", data=data)
         text = ret.text
         self.upload_cif_text = text
+        print("after uploading")
+        print(text)
 
     def findsym(self):
         soup = BS(self.upload_cif_text, 'lxml')
