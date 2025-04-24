@@ -375,6 +375,10 @@ class Isomode(object):
             #print(distorted_structure)
         return distorted_structure
 
+
+    def get_distorted_structure_from_total_mode(self, mode_dict, primitive=False, amp_multiplier=1.0):
+        pass
+
     def read_mode_amplitudes(self, fname=None, use_direction=True, **kwargs):
         """
         it read amplitudes from a file.
@@ -399,7 +403,6 @@ class Isomode(object):
                                  amp=None,
                                  cif_dir=None,
                                  primitive=False):
-        #print(self.total_mode_definitions)
         structure_list = []
         if cif_dir is not None:
             if not os.path.exists(cif_dir):
@@ -475,7 +478,7 @@ class Isomode(object):
 
     def generate_distorted_structure_from_modelist(self,
                                                    modelist,
-                                                   amp=0.2,
+                                                   amp=0.25,
                                                    primitive=False):
         """
         modelist: eg. (('X3+','a'), ('GM5-', 'b'))
@@ -487,15 +490,16 @@ class Isomode(object):
         #        label2, direction2 = key2
         # Note sometimes 'b' without 'a'
         mode_dict = defaultdict(float)
-        for m in modelist:
-            for key in m:
-                mode_detail = self.total_mode_definitions[m]
-                #for mdetail in mode_detail:
-                mode_dict.update(mode_detail)
-        print(mode_dict)
+        for m, a in modelist.items():
+            mode_detail = self.total_mode_definitions[m]
+            #for mdetail in mode_detail:
+            for k, v in mode_detail.items():
+                print(k, v, a, v*a)
+                mode_dict[k]=v*a
+        print(f"{mode_dict=}")
 
         distorted_structure = self.get_distorted_structure(
-            mode_dict, primitive=primitive, amp_multiplier=amp)
+            mode_dict, primitive=False, amp_multiplier=amp)
         return distorted_structure
 
     def prepare_structure(self,
