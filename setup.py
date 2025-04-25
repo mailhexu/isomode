@@ -10,7 +10,7 @@ setup(
     license='MIT',
     packages=find_packages(),
     package_data={},
-    install_requires=['numpy', 'requests', 'bs4', 'ase', 'spglib', 'abipy'],
+    install_requires=['numpy<2.0.0', 'requests', 'bs4', 'ase', 'spglib', 'abipy', 'scipy', "lxml"],
     scripts=['scripts/view_distort.py', 'scripts/anamode.py'
         ],
     classifiers=[

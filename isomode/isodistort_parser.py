@@ -187,6 +187,7 @@ def test_read_mode_amplitudes():
 class Isomode(object):
     def __init__(self, fname):
         self.fname = fname
+        print(f'fname={fname}')
         with open(self.fname) as myfile:
             self.lines = myfile.readlines()
         self.atoms = None
@@ -239,9 +240,12 @@ class Isomode(object):
                     positions.append(np.array([x, y, z]))
                     symdict[symnum] = iatom
                     iatom = iatom + 1
-
+        print(self.cellpars)
+        # Convert cellpars from [a,b,c,alpha,beta,gamma] to 3x3 matrix
+        from ase.geometry import cellpar_to_cell
+        cell = cellpar_to_cell(self.cellpars)
         atoms = Atoms(
-            symbols=symbols, scaled_positions=positions, cell=self.cellpars)
+            symbols=symbols, scaled_positions=positions, cell=cell)
         self.natom = len(atoms)
         self.cell = atoms.get_cell()
 
