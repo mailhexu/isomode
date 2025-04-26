@@ -10,7 +10,7 @@ tmpdir = "./tmp"
 supercell = [2, 2, 2]  # Will be converted to diagonal matrix
 
 # Either specify a single q-point
-qpoint = { name = "M", coords = [0.5, 0.5, 0.0] }
+#qpoint = { name = "M", coords = [0.5, 0.5, 0.0] }
 
 # Or specify multiple q-points (comment out qpoint above to use this)
-# qpoints = { Gamma = [0.0, 0.0, 0.0], M = [0.5, 0.5, 0.0], R = [0.5, 0.5, 0.5] }
+qpoints = { Gamma = [0.0, 0.0, 0.0], M = [0.5, 0.5, 0.0], R = [0.5, 0.5, 0.5] }

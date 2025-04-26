@@ -4,13 +4,12 @@ from ase.io import read, write
 import os
 import tempfile
 try:
-    from .pydistort import isocif, isodistort
-    from .mock_isodistort import get_mode_details as mock_get_mode_details
+    from isomode.pydistort import isocif, isodistort
 except ImportError:
     print("Warning: pydistort not available")
 
-class LabelDDB:
-    def __init__(self, fname, tmpdir=None, use_mock=False):
+class LabelPhbst():
+    def __init__(self, fname, tmpdir=None):
         self.fname = fname
         self.mode_fname = None
         self.mode_info = {}
@@ -22,7 +21,6 @@ class LabelDDB:
         self.efreqs = {}
         self.edisps = {}
         self.idq = {}
-        self.use_mock = use_mock
         if tmpdir:
             self.tmpdir = tmpdir
         self.read_phonon()
@@ -72,18 +70,15 @@ class LabelDDB:
         write(self.parent_cif, self.parent_atoms)
 
     def _get_mode_details(self):
-        """Get mode details from ISODISTORT (or mock service)"""
-        if self.use_mock:
-            text = mock_get_mode_details()
-        else:
-            if not hasattr(self, 'parent_cif'):
-                self._write_cif()
-            isosym = isocif(self.parent_cif)
-            isosym.upload_cif()
-            isosym.findsym()
-            self.parent_sym_cif = os.path.join(self.tmpdir, 'parent_sym.cif')
-            iso = isodistort(parent_cif=self.parent_sym_cif)
-            text = iso.get_mode_details()
+        """Get mode details from ISODISTORT """
+        if not hasattr(self, 'parent_cif'):
+            self._write_cif()
+        isosym = isocif(self.parent_cif)
+        isosym.upload_cif()
+        isosym.findsym()
+        self.parent_sym_cif = os.path.join(self.tmpdir, 'parent_sym.cif')
+        iso = isodistort(parent_cif=self.parent_sym_cif)
+        text = iso.get_mode_details()
         return text
 
     def get_modes(self):
@@ -100,7 +95,7 @@ class LabelDDB:
 
 def test():
     """Test the module"""
-    l = LabelDDB('tests/YAlO3/phbst/run.abo_PHBST.nc', use_mock=True)
+    l = LabelPhbst('../tests/YAlO3/phbst/run.abo_PHBST.nc')
     print("\nStructure Information:")
     print(f"Number of atoms: {len(l.parent_atoms)}")
     print(f"Lattice parameters: {l.parent_atoms.cell.cellpar()}")
@@ -111,3 +106,6 @@ def test():
             print(f"\nQ-point {name} {qpt}:")
             freqs = l.efreqs[name]
             print(f"Frequencies (cm-1): {freqs}")
+
+if __name__ == "__main__":
+    test()

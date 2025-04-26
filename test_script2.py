@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Create test directory
-TEST_DIR = tempfile.mkdtemp()
+TEST_DIR = os.getcwd() #tempfile.mkdtemp()
 print(f"Using test directory: {TEST_DIR}")
 
 # Create a simple test structure - cubic perovskite
@@ -38,6 +38,7 @@ iso_finder.findsym()
 parent_sym_cif = os.path.join(TEST_DIR, 'parent_sym.cif')
 iso_finder.save_cif(fname=parent_sym_cif)
 
+
 # Create distorted structure
 print("\nCreating distorted structure...")
 distorted = atoms.copy()
@@ -49,23 +50,23 @@ print("\nStarting distortion analysis from high-symmetry parent...")
 iso = isodistort(parent_cif=parent_sym_cif, distorted_cif=distorted_cif)
 
 # After each step, print diagnostics
-print("\nParent upload response:")
-print(iso.upload_parent_cif_text[:500])
-time.sleep(2)
+#print("\nParent upload response:")
+#print(iso.upload_parent_cif_text[:500])
+#time.sleep(2)
 
-print("\nDistorted upload response:")
-print(iso.upload_distorted_cif_text[:500])
-time.sleep(2)
+#print("\nDistorted upload response:")
+#print(iso.upload_distorted_cif_text[:500])
+#time.sleep(2)
 
-print("\nBasis selection response:")
-print(iso.select_basis_text)
-time.sleep(2)
-
-
-if hasattr(iso, 'mode_details_text'):
-    print("\nMode details text:")
-    print(iso.mode_details_text[:500])
+#print("\nBasis selection response:")
+#print(iso.select_basis_text)
+#time.sleep(2)
 
 mode_details = iso.get_mode_details()
+
+#if hasattr(iso, 'mode_details_text'):
+    #print("\nMode details text:")
+    #print(iso.mode_details_text[:500])
+
 print("\nExtracted mode details:")
 print(mode_details)
