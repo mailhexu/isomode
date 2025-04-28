@@ -239,9 +239,11 @@ class Isomode(object):
                     positions.append(np.array([x, y, z]))
                     symdict[symnum] = iatom
                     iatom = iatom + 1
-
+        # Convert cellpars from [a,b,c,alpha,beta,gamma] to 3x3 matrix
+        from ase.geometry import cellpar_to_cell
+        cell = cellpar_to_cell(self.cellpars)
         atoms = Atoms(
-            symbols=symbols, scaled_positions=positions, cell=self.cellpars)
+            symbols=symbols, scaled_positions=positions, cell=cell)
         self.natom = len(atoms)
         self.cell = atoms.get_cell()
 

@@ -1,0 +1,16 @@
+#   qname     id  freq(cm-1)  label   symmetry
+   Gamma      0  -8.19476e+01   GM4-         Eu
+   Gamma      1  -8.19476e+01   GM4-         Eu
+   Gamma      2  -8.19476e+01   GM4-         Eu
+   Gamma      3  0.00000e+00   GM4-         Eu
+   Gamma      4  0.00000e+00   GM4-         Eu
+   Gamma      5  0.00000e+00   GM4-         Eu
+   Gamma      6  2.14263e+02   GM5-         Eu
+   Gamma      7  2.14263e+02   GM5-         Eu
+   Gamma      8  2.14263e+02   GM5-         Eu
+   Gamma      9  4.31380e+02   GM4-         Eu
+   Gamma     10  4.31380e+02   GM4-         Eu
+   Gamma     11  4.31380e+02   GM4-         Eu
+   Gamma     12  8.00778e+02   GM4-        A2u
+   Gamma     13  8.00778e+02   GM4-        A2u
+   Gamma     14  8.00778e+02   GM4-        A2u

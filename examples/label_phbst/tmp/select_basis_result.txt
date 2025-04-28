@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<HEAD>
+<meta charset="utf-8">
+<TITLE>ISODISTORT: distortion</TITLE>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="docs.css">
+<style>
+  body {
+	padding-top: 0px;
+  }
+  div.pad {
+	padding-right: 50px;
+	padding-left: 50px;
+  }
+</style>
+</HEAD>
+<body>
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+	 <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="isodistort.php">ISODISTORT</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+         <li><a href="isotropy.php">SUITE</a></li>
+                   <li><a href="isodistorthelp.php" TARGET="_blank">HELP</a></li>
+	         </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="pad">
+<H1>ISODISTORT: distortion</H1><p>
+Space Group: 221 Pm-3m      Oh-1,
+Lattice parameters: a= 3.67267, b= 3.67267, c= 3.67267, alpha= 90.00000, beta= 90.00000, gamma= 90.00000<br>
+Default space-group preferences: monoclinic axes a(b)c, monoclinic cell choice 1, orthorhombic axes abc, origin choice 2, hexagonal axes, SSG standard setting<br>
+Y1 1a (0,0,0),
+Al1 1b (1/2,1/2,1/2),
+O1 3c (0,1/2,1/2)<br>
+Include strain, displacive ALL distortions<br>
+Reading CIF file...
+<br>Done.<br>
+Distorted structure: 
+Space group:   1 P1         C1-1,
+Lattice parameters: a= 7.34535, b= 7.34535, c= 7.34535, alpha= 90.00000, beta= 90.00000, gamma= 90.00000
+Atomic positions: 
+Y1 1a (x,y,z), x= 0.00000, y= 0.00000, z= 0.00000,
+Y2 1a (x,y,z), x= 0.50000, y= 0.00000, z= 0.00000,
+Y3 1a (x,y,z), x= 0.00000, y= 0.50000, z= 0.00000,
+Y4 1a (x,y,z), x= 0.50000, y= 0.50000, z= 0.00000,
+Y5 1a (x,y,z), x= 0.00000, y= 0.00000, z= 0.50000,
+Y6 1a (x,y,z), x= 0.50000, y= 0.00000, z= 0.50000,
+Y7 1a (x,y,z), x= 0.00000, y= 0.50000, z= 0.50000,
+Y8 1a (x,y,z), x= 0.50000, y= 0.50000, z= 0.50000,
+Al1 1a (x,y,z), x= 0.25000, y= 0.25000, z= 0.25000,
+Al2 1a (x,y,z), x=-0.25000, y= 0.25000, z= 0.25000,
+Al3 1a (x,y,z), x= 0.25000, y=-0.25000, z= 0.25000,
+Al4 1a (x,y,z), x=-0.25000, y=-0.25000, z= 0.25000,
+Al5 1a (x,y,z), x= 0.25000, y= 0.25000, z=-0.25000,
+Al6 1a (x,y,z), x=-0.25000, y= 0.25000, z=-0.25000,
+Al7 1a (x,y,z), x= 0.25000, y=-0.25000, z=-0.25000,
+Al8 1a (x,y,z), x=-0.25000, y=-0.25000, z=-0.25000,
+O1 1a (x,y,z), x= 0.25000, y= 0.25000, z= 0.00000,
+O2 1a (x,y,z), x=-0.25000, y= 0.25000, z= 0.00000,
+O3 1a (x,y,z), x= 0.25000, y=-0.25000, z= 0.00000,
+O4 1a (x,y,z), x=-0.25000, y=-0.25000, z= 0.00000,
+O5 1a (x,y,z), x= 0.25000, y= 0.25000, z= 0.50000,
+O6 1a (x,y,z), x=-0.25000, y= 0.25000, z= 0.50000,
+O7 1a (x,y,z), x= 0.25000, y=-0.25000, z= 0.50000,
+O8 1a (x,y,z), x=-0.25000, y=-0.25000, z= 0.50000,
+O9 1a (x,y,z), x= 0.00000, y= 0.25000, z= 0.25000,
+O10 1a (x,y,z), x= 0.50000, y= 0.25000, z= 0.25000,
+O11 1a (x,y,z), x= 0.00000, y=-0.25000, z= 0.25000,
+O12 1a (x,y,z), x= 0.50000, y=-0.25000, z= 0.25000,
+O13 1a (x,y,z), x= 0.00000, y= 0.25000, z=-0.25000,
+O14 1a (x,y,z), x= 0.50000, y= 0.25000, z=-0.25000,
+O15 1a (x,y,z), x= 0.00000, y=-0.25000, z=-0.25000,
+O16 1a (x,y,z), x= 0.50000, y=-0.25000, z=-0.25000,
+O17 1a (x,y,z), x= 0.25000, y= 0.00000, z= 0.25000,
+O18 1a (x,y,z), x=-0.25000, y= 0.00000, z= 0.25000,
+O19 1a (x,y,z), x= 0.25000, y= 0.50000, z= 0.25000,
+O20 1a (x,y,z), x=-0.25000, y= 0.50000, z= 0.25000,
+O21 1a (x,y,z), x= 0.25000, y= 0.00000, z=-0.25000,
+O22 1a (x,y,z), x=-0.25000, y= 0.00000, z=-0.25000,
+O23 1a (x,y,z), x= 0.25000, y= 0.50000, z=-0.25000,
+O24 1a (x,y,z), x=-0.25000, y= 0.50000, z=-0.25000<br>
+<p>
+Subgroup:   1 P1, basis={(2,0,0),(0,2,0),(0,0,2)}, origin=(-1.00000,-1.00000,-1.00000), s=8, i=384<br>
+Lattice parameters of undistorted supercell: a=7.34534, b=7.34534, c=7.34534, alpha=90.00000, beta=90.00000, gamma=90.00000
+<FORM ACTION="isodistortform.php" METHOD="POST" target="_blank">
+<INPUT TYPE="hidden" NAME="input" VALUE="displaydistort">
+<INPUT TYPE="hidden" NAME="spacegroup" VALUE="221 Pm-3m      Oh-1">
+<INPUT TYPE="hidden" NAME="settingaxesm" VALUE="a(b)c               ">
+<INPUT TYPE="hidden" NAME="settingcell" VALUE="1">
+<INPUT TYPE="hidden" NAME="settingorigin" VALUE="2">
+<INPUT TYPE="hidden" NAME="settingaxesh" VALUE="h">
+<INPUT TYPE="hidden" NAME="settingaxeso" VALUE="abc                 ">
+<INPUT TYPE="hidden" NAME="settingssg" VALUE="standard">
+<INPUT TYPE="hidden" NAME="parentsetting" VALUE="323">
+<INPUT TYPE="hidden" NAME="parentsettingstring" VALUE="">
+<INPUT TYPE="hidden" NAME="lattparam" VALUE="a= 3.67267, b= 3.67267, c= 3.67267, alpha= 90.00000, beta= 90.00000, gamma= 90.00000">
+<INPUT TYPE="hidden" NAME="dlattparam" VALUE="   3.6726699999999997        3.6726699999999997        3.6726699999999997        90.000000000000000        90.000000000000000        90.000000000000000">
+<INPUT TYPE="hidden" NAME="wycount" VALUE="  3">
+<INPUT TYPE="hidden" NAME="wypointer001" VALUE="1626">
+<INPUT TYPE="hidden" NAME="wynumber001" VALUE=" 1">
+<INPUT TYPE="hidden" NAME="wytype001" VALUE=" 1">
+<INPUT TYPE="hidden" NAME="wyckoff001" VALUE="1a (0,0,0)">
+<INPUT TYPE="hidden" NAME="wyatom001" VALUE="Y1">
+<INPUT TYPE="hidden" NAME="wyatomtype001" VALUE="Y">
+<INPUT TYPE="hidden" NAME="wyparam001" VALUE="   0.0000000000000000        0.0000000000000000        0.0000000000000000">
+<INPUT TYPE="hidden" NAME="wyocc001" VALUE="   1.0000000000000000">
+<INPUT TYPE="hidden" NAME="wypointer002" VALUE="1627">
+<INPUT TYPE="hidden" NAME="wynumber002" VALUE=" 2">
+<INPUT TYPE="hidden" NAME="wytype002" VALUE=" 2">
+<INPUT TYPE="hidden" NAME="wyckoff002" VALUE="1b (1/2,1/2,1/2)">
+<INPUT TYPE="hidden" NAME="wyatom002" VALUE="Al1">
+<INPUT TYPE="hidden" NAME="wyatomtype002" VALUE="Al">
+<INPUT TYPE="hidden" NAME="wyparam002" VALUE="   0.0000000000000000        0.0000000000000000        0.0000000000000000">
+<INPUT TYPE="hidden" NAME="wyocc002" VALUE="   1.0000000000000000">
+<INPUT TYPE="hidden" NAME="wypointer003" VALUE="1628">
+<INPUT TYPE="hidden" NAME="wynumber003" VALUE=" 3">
+<INPUT TYPE="hidden" NAME="wytype003" VALUE=" 3">
+<INPUT TYPE="hidden" NAME="wyckoff003" VALUE="3c (0,1/2,1/2)">
+<INPUT TYPE="hidden" NAME="wyatom003" VALUE="O1">
+<INPUT TYPE="hidden" NAME="wyatomtype003" VALUE="O">
+<INPUT TYPE="hidden" NAME="wyparam003" VALUE="   0.0000000000000000        0.0000000000000000        0.0000000000000000">
+<INPUT TYPE="hidden" NAME="wyocc003" VALUE="   1.0000000000000000">
+<INPUT TYPE="hidden" NAME="includedisplacive001" VALUE="true">
+<INPUT TYPE="hidden" NAME="includedisplacive002" VALUE="true">
+<INPUT TYPE="hidden" NAME="includedisplacive003" VALUE="true">
+<INPUT TYPE="hidden" NAME="includestrain" VALUE="true">
+<INPUT TYPE="hidden" NAME="irrepcount" VALUE="0">
+<INPUT TYPE="hidden" NAME="basisorigin" VALUE="   2   0   0   0   2   0   0   0   2   0   0   0   1">
+<INPUT TYPE="hidden" NAME="isofilename" VALUE="            ">
+<INPUT TYPE="hidden" NAME="orderparam" VALUE="Subgroup:   1 P1, basis={(2,0,0),(0,2,0),(0,0,2)}, origin=(-1.00000,-1.00000,-1.00000), s=8, i=384">
+<INPUT TYPE="hidden" NAME="isosubgroup" VALUE="    0">
+<INPUT TYPE="hidden" NAME="subgroupsym" VALUE="     1">
+<INPUT TYPE="hidden" NAME="subgroupsetting" VALUE="   1">
+<INPUT TYPE="hidden" NAME="subgroupsettingstring" VALUE="">
+<INPUT TYPE="hidden" NAME="modesfilename" VALUE="isodistort_52156.iso ">
+<INPUT TYPE="hidden" NAME="atomsfilename" VALUE="isodistort_33648.iso ">
+<INPUT TYPE="hidden" NAME="lattparamsubstring" VALUE="a=7.34534, b=7.34534, c=7.34534, alpha=90.00000, beta=90.00000, gamma=90.00000">
+<INPUT TYPE="hidden" NAME="subgroupstring" VALUE="Space group:   1 P1         C1-1, Lattice parameters: a= 7.34535, b= 7.34535, c= 7.34535, alpha= 90.00000, beta= 90.00000, gamma= 90.00000, Atomic positions: Y1 1a (x,y,z), x= 0.00000, y= 0.00000, z= 0.00000, Y2 1a (x,y,z), x= 0.50000, y= 0.00000, z= 0.00000, Y3 1a (x,y,z), x= 0.00000, y= 0.50000, z= 0.00000, Y4 1a (x,y,z), x= 0.50000, y= 0.50000, z= 0.00000, Y5 1a (x,y,z), x= 0.00000, y= 0.00000, z= 0.50000, Y6 1a (x,y,z), x= 0.50000, y= 0.00000, z= 0.50000, Y7 1a (x,y,z), x= 0.00000, y= 0.50000, z= 0.50000, Y8 1a (x,y,z), x= 0.50000, y= 0.50000, z= 0.50000, Al1 1a (x,y,z), x= 0.25000, y= 0.25000, z= 0.25000, Al2 1a (x,y,z), x=-0.25000, y= 0.25000, z= 0.25000, Al3 1a (x,y,z), x= 0.25000, y=-0.25000, z= 0.25000, Al4 1a (x,y,z), x=-0.25000, y=-0.25000, z= 0.25000, Al5 1a (x,y,z), x= 0.25000, y= 0.25000, z=-0.25000, Al6 1a (x,y,z), x=-0.25000, y= 0.25000, z=-0.25000, Al7 1a (x,y,z), x= 0.25000, y=-0.25000, z=-0.25000, Al8 1a (x,y,z), x=-0.25000, y=-0.25000, z=-0.25000, O1 1a (x,y,z), x= 0.25000, y= 0.25000, z= 0.00000, O2 1a (x,y,z), x=-0.25000, y= 0.25000, z= 0.00000, O3 1a (x,y,z), x= 0.25000, y=-0.25000, z= 0.00000, O4 1a (x,y,z), x=-0.25000, y=-0.25000, z= 0.00000, O5 1a (x,y,z), x= 0.25000, y= 0.25000, z= 0.50000, O6 1a (x,y,z), x=-0.25000, y= 0.25000, z= 0.50000, O7 1a (x,y,z), x= 0.25000, y=-0.25000, z= 0.50000, O8 1a (x,y,z), x=-0.25000, y=-0.25000, z= 0.50000, O9 1a (x,y,z), x= 0.00000, y= 0.25000, z= 0.25000, O10 1a (x,y,z), x= 0.50000, y= 0.25000, z= 0.25000, O11 1a (x,y,z), x= 0.00000, y=-0.25000, z= 0.25000, O12 1a (x,y,z), x= 0.50000, y=-0.25000, z= 0.25000, O13 1a (x,y,z), x= 0.00000, y= 0.25000, z=-0.25000, O14 1a (x,y,z), x= 0.50000, y= 0.25000, z=-0.25000, O15 1a (x,y,z), x= 0.00000, y=-0.25000, z=-0.25000, O16 1a (x,y,z), x= 0.50000, y=-0.25000, z=-0.25000, O17 1a (x,y,z), x= 0.25000, y= 0.00000, z= 0.25000, O18 1a (x,y,z), x=-0.25000, y= 0.00000, z= 0.25000, O19 1a (x,y,z), x= 0.25000, y= 0.50000, z= 0.25000, O20 1a (x,y,z), x=-0.25000, y= 0.50000, z= 0.25000, O21 1a (x,y,z), x= 0.25000, y= 0.00000, z=-0.25000, O22 1a (x,y,z), x=-0.25000, y= 0.00000, z=-0.25000, O23 1a (x,y,z), x= 0.25000, y= 0.50000, z=-0.25000, O24 1a (x,y,z), x=-0.25000, y= 0.50000, z=-0.25000">
+<INPUT TYPE="radio" NAME="origintype" VALUE="isovizdistortion" CHECKED> Save interactive distortion
+<a href="isodistorthelp.php#savedist" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="isovizdiffraction"> Save interactive diffraction
+<a href="isodistorthelp.php#viewdiff" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="structurefile"> CIF file
+<a href="isodistorthelp.php#cifsub" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="distortionfile"> Distortion file
+<a href="isodistorthelp.php#dfile" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="domains"> Domains
+<a href="isodistorthelp.php#domains" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="primary"> Primary order parameters
+<a href="isodistorthelp.php#setsprimary" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="modesdetails"> Modes details
+<INPUT TYPE="radio" NAME="origintype" VALUE="completemodesdetails"> Complete modes details
+<a href="isodistorthelp.php#modesdetails" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="topas"> TOPAS.STR
+<a href="isodistorthelp.php#topas" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="fullprof"> FULLPROF.pcr
+<a href="isodistorthelp.php#fullprof" target="_blank"><img src=help.jpg></a>
+<INPUT TYPE="radio" NAME="origintype" VALUE="irreps"> IR matrices
+<INPUT TYPE="radio" NAME="origintype" VALUE="tree"> Subgroup tree
+<INPUT CLASS="btn btn-primary" TYPE="submit" VALUE="OK"><p>
+<INPUT TYPE="hidden" NAME="inputvalues" VALUE="true">
+Enter mode and strain amplitudes:
+<a href="isodistorthelp.php#modeamp" target="_blank"><img src=help.jpg></a><br>
+<p>
+Pm-3m[0,0,0]GM1+ (a) 221 Pm-3m, basis={(0,-1,0),(-1,0,0),(0,0,-1)}, origin=(0,0,0), s=1, i=1, k-active= (0,0,0)<br>
+<input type="text" class="span1" name="strain1" value=" 0.00000" size=9>strain(a)<br>
+<p>
+Pm-3m[0,0,0]GM3+ (a,b) 47 Pmmm, basis={(-1,0,0),(0,0,1),(0,1,0)}, origin=(0,0,0), s=1, i=6, k-active= (0,0,0)<br>
+<input type="text" class="span1" name="strain2" value=" 0.00000" size=9>strain(a)<br>
+<input type="text" class="span1" name="strain3" value=" 0.00000" size=9>strain(b)<br>
+<p>
+Pm-3m[0,0,0]GM5+ (a,b,c) 2 P-1, basis={(0,0,1),(0,1,0),(-1,0,0)}, origin=(0,0,0), s=1, i=24, k-active= (0,0,0)<br>
+<input type="text" class="span1" name="strain4" value=" 0.00000" size=9>strain(a)<br>
+<input type="text" class="span1" name="strain5" value=" 0.00000" size=9>strain(b)<br>
+<input type="text" class="span1" name="strain6" value=" 0.00000" size=9>strain(c)<br>
+<p>
+Pm-3m[0,0,0]GM4- (a,b,c) 1 P1, basis={(0,0,1),(0,1,0),(-1,0,0)}, origin=(0,0,0), s=1, i=48, ferroelectric, k-active= (0,0,0)<br>
+<input type="text" name="mode001001" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(a)<br>
+<input type="text" name="mode001002" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(b)<br>
+<input type="text" name="mode001003" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(c)<br>
+<input type="text" name="mode002001" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(a)<br>
+<input type="text" name="mode002002" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(b)<br>
+<input type="text" name="mode002003" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(c)<br>
+<input type="text" name="mode003001" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<input type="text" name="mode003002" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(b)<br>
+<input type="text" name="mode003003" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(c)<br>
+<input type="text" name="mode003004" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003005" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003006" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[0,0,0]GM5- (a,b,c) 1 P1, basis={(0,0,1),(0,1,0),(-1,0,0)}, origin=(0,0,0), s=1, i=48, k-active= (0,0,0)<br>
+<input type="text" name="mode003007" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003008" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003009" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R5+ (a,b,c) 2 P-1, basis={(-1,0,-1),(1,1,0),(1,-1,0)}, origin=(0,0,0), s=2, i=48, k-active= (1/2,1/2,1/2)<br>
+<input type="text" name="mode002004" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(a)<br>
+<input type="text" name="mode002005" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(b)<br>
+<input type="text" name="mode002006" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(c)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R2- (a) 225 Fm-3m, basis={(0,-2,0),(-2,0,0),(0,0,-2)}, origin=(-1/2,-1/2,-1/2), s=2, i=2, k-active= (1/2,1/2,1/2)<br>
+<input type="text" name="mode003010" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R3- (a,b) 69 Fmmm, basis={(2,0,0),(0,0,2),(0,-2,0)}, origin=(1/2,-1/2,1/2), s=2, i=12, k-active= (1/2,1/2,1/2)<br>
+<input type="text" name="mode003011" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<input type="text" name="mode003012" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(b)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R4- (a,b,c) 2 P-1, basis={(-1,0,-1),(1,1,0),(1,-1,0)}, origin=(0,1/2,0), s=2, i=48, k-active= (1/2,1/2,1/2)<br>
+<input type="text" name="mode001004" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(a)<br>
+<input type="text" name="mode001005" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(b)<br>
+<input type="text" name="mode001006" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(c)<br>
+<input type="text" name="mode003013" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003014" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003015" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R5- (a,b,c) 2 P-1, basis={(-1,0,-1),(1,1,0),(1,-1,0)}, origin=(0,1/2,0), s=2, i=48, k-active= (1/2,1/2,1/2)<br>
+<input type="text" name="mode003016" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003017" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003018" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[0,1/2,0]X1+ (a;b;c) 47 Pmmm, basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(0,0,0), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<input type="text" name="mode002007" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(a)<br>
+<input type="text" name="mode002008" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(b)<br>
+<input type="text" name="mode002009" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(c)<br>
+<input type="text" name="mode003019" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003020" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003021" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[0,1/2,0]X2+ (a;b;c) 47 Pmmm, basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(0,0,0), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<input type="text" name="mode003022" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003023" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003024" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[0,1/2,0]X5+ (a,b;c,d;e,f) 2 P-1, basis={(0,0,2),(0,2,0),(-2,0,0)}, origin=(0,0,0), s=8, i=192, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<input type="text" name="mode002010" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(a)<br>
+<input type="text" name="mode002011" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(b)<br>
+<input type="text" name="mode002012" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(c)<br>
+<input type="text" name="mode002013" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(d)<br>
+<input type="text" name="mode002014" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(e)<br>
+<input type="text" name="mode002015" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(f)<br>
+<input type="text" name="mode003025" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<input type="text" name="mode003026" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(b)<br>
+<input type="text" name="mode003027" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(c)<br>
+<input type="text" name="mode003028" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(d)<br>
+<input type="text" name="mode003029" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(e)<br>
+<input type="text" name="mode003030" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(f)<br>
+<input type="text" name="mode003031" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003032" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003033" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<input type="text" name="mode003034" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(d)<br>
+<input type="text" name="mode003035" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(e)<br>
+<input type="text" name="mode003036" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(f)<br>
+<p>
+Pm-3m[0,1/2,0]X3- (a;b;c) 47 Pmmm, basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(-1/2,1/2,1/2), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<input type="text" name="mode001007" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(a)<br>
+<input type="text" name="mode001008" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(b)<br>
+<input type="text" name="mode001009" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(c)<br>
+<input type="text" name="mode003037" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<input type="text" name="mode003038" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(b)<br>
+<input type="text" name="mode003039" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(c)<br>
+<p>
+Pm-3m[0,1/2,0]X5- (a,b;c,d;e,f) 2 P-1, basis={(0,0,2),(0,2,0),(-2,0,0)}, origin=(-1/2,1/2,1/2), s=8, i=192, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<input type="text" name="mode001010" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(a)<br>
+<input type="text" name="mode001011" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(b)<br>
+<input type="text" name="mode001012" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(c)<br>
+<input type="text" name="mode001013" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(d)<br>
+<input type="text" name="mode001014" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(e)<br>
+<input type="text" name="mode001015" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(f)<br>
+<input type="text" name="mode003040" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003041" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003042" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<input type="text" name="mode003043" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(d)<br>
+<input type="text" name="mode003044" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(e)<br>
+<input type="text" name="mode003045" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(f)<br>
+<p>
+Pm-3m[1/2,1/2,0]M1+ (a;b;c) 71 Immm, basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(0,0,0), s=4, i=24, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode003046" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003047" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003048" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[1/2,1/2,0]M2+ (a;b;c) 71 Immm, basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(0,0,0), s=4, i=24, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode003049" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003050" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003051" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<p>
+Pm-3m[1/2,1/2,0]M3+ (a;b;c) 71 Immm, basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(-1/2,1/2,-1/2), s=4, i=24, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode003052" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<input type="text" name="mode003053" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(b)<br>
+<input type="text" name="mode003054" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(c)<br>
+<p>
+Pm-3m[1/2,1/2,0]M4+ (a;b;c) 71 Immm, basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(-1/2,1/2,-1/2), s=4, i=24, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode003055" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<input type="text" name="mode003056" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(b)<br>
+<input type="text" name="mode003057" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(c)<br>
+<p>
+Pm-3m[1/2,1/2,0]M5+ (a,b;c,d;e,f) 2 P-1, basis={(1,1,1),(-1,-1,1),(1,-1,-1)}, origin=(0,0,0), s=4, i=96, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode003058" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003059" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003060" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<input type="text" name="mode003061" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(d)<br>
+<input type="text" name="mode003062" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(e)<br>
+<input type="text" name="mode003063" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(f)<br>
+<p>
+Pm-3m[1/2,1/2,0]M2- (a;b;c) 23 I222, basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(0,0,0), s=4, i=48, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode002016" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(a)<br>
+<input type="text" name="mode002017" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(b)<br>
+<input type="text" name="mode002018" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(c)<br>
+<input type="text" name="mode003064" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(a)<br>
+<input type="text" name="mode003065" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(b)<br>
+<input type="text" name="mode003066" value=" 0.00000" class="span1" size=9>[O1:c:dsp]A2u(c)<br>
+<p>
+Pm-3m[1/2,1/2,0]M3- (a;b;c) 23 I222, basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(-1/2,1/2,-1/2), s=4, i=48, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode001016" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(a)<br>
+<input type="text" name="mode001017" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(b)<br>
+<input type="text" name="mode001018" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(c)<br>
+<p>
+Pm-3m[1/2,1/2,0]M5- (a,b;c,d;e,f) 1 P1, basis={(1,1,1),(-1,-1,1),(1,-1,-1)}, origin=(0,0,0), s=4, i=192, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<input type="text" name="mode001019" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(a)<br>
+<input type="text" name="mode001020" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(b)<br>
+<input type="text" name="mode001021" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(c)<br>
+<input type="text" name="mode001022" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(d)<br>
+<input type="text" name="mode001023" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(e)<br>
+<input type="text" name="mode001024" value=" 0.00000" class="span1" size=9>[Y1:a:dsp]T1u(f)<br>
+<input type="text" name="mode002019" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(a)<br>
+<input type="text" name="mode002020" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(b)<br>
+<input type="text" name="mode002021" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(c)<br>
+<input type="text" name="mode002022" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(d)<br>
+<input type="text" name="mode002023" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(e)<br>
+<input type="text" name="mode002024" value=" 0.00000" class="span1" size=9>[Al1:b:dsp]T1u(f)<br>
+<input type="text" name="mode003067" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(a)<br>
+<input type="text" name="mode003068" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(b)<br>
+<input type="text" name="mode003069" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(c)<br>
+<input type="text" name="mode003070" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(d)<br>
+<input type="text" name="mode003071" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(e)<br>
+<input type="text" name="mode003072" value=" 0.00000" class="span1" size=9>[O1:c:dsp]Eu(f)<br>
+<p>
+Pm-3m[0,0,0]GM2+ (a) 200 Pm-3 , basis={(0,0,-1),(0,-1,0),(-1,0,0)}, origin=(0,0,0), s=1, i=2, k-active= (0,0,0)<br>
+<p>
+Pm-3m[0,0,0]GM4+ (a,b,c) 2 P-1 , basis={(0,0,1),(0,1,0),(-1,0,0)}, origin=(0,0,0), s=1, i=24, k-active= (0,0,0)<br>
+<p>
+Pm-3m[0,0,0]GM1- (a) 207 P432 , basis={(0,-1,0),(-1,0,0),(0,0,-1)}, origin=(0,0,0), s=1, i=2, k-active= (0,0,0)<br>
+<p>
+Pm-3m[0,0,0]GM2- (a) 215 P-43m , basis={(0,-1,0),(-1,0,0),(0,0,-1)}, origin=(0,0,0), s=1, i=2, k-active= (0,0,0)<br>
+<p>
+Pm-3m[0,0,0]GM3- (a,b) 16 P222 , basis={(-1,0,0),(0,0,1),(0,1,0)}, origin=(0,0,0), s=1, i=12, k-active= (0,0,0)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R1+ (a) 225 Fm-3m , basis={(0,-2,0),(-2,0,0),(0,0,-2)}, origin=(0,0,0), s=2, i=2, k-active= (1/2,1/2,1/2)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R2+ (a) 226 Fm-3c , basis={(0,-2,0),(-2,0,0),(0,0,-2)}, origin=(0,0,0), s=2, i=2, k-active= (1/2,1/2,1/2)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R3+ (a,b) 69 Fmmm , basis={(2,0,0),(0,0,2),(0,-2,0)}, origin=(0,0,0), s=2, i=12, k-active= (1/2,1/2,1/2)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R4+ (a,b,c) 2 P-1 , basis={(-1,0,-1),(1,1,0),(1,-1,0)}, origin=(0,0,0), s=2, i=48, k-active= (1/2,1/2,1/2)<br>
+<p>
+Pm-3m[1/2,1/2,1/2]R1- (a) 226 Fm-3c , basis={(0,-2,0),(-2,0,0),(0,0,-2)}, origin=(-1/2,-1/2,-1/2), s=2, i=2, k-active= (1/2,1/2,1/2)<br>
+<p>
+Pm-3m[0,1/2,0]X3+ (a;b;c) 48 Pnnn , basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(0,0,0), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<p>
+Pm-3m[0,1/2,0]X4+ (a;b;c) 48 Pnnn , basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(0,0,0), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<p>
+Pm-3m[0,1/2,0]X1- (a;b;c) 48 Pnnn , basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(1/2,-1/2,-1/2), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<p>
+Pm-3m[0,1/2,0]X2- (a;b;c) 48 Pnnn , basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(1/2,-1/2,-1/2), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<p>
+Pm-3m[0,1/2,0]X4- (a;b;c) 47 Pmmm , basis={(-2,0,0),(0,0,2),(0,2,0)}, origin=(-1/2,1/2,1/2), s=8, i=48, k-active= (0,1/2,0),(1/2,0,0),(0,0,1/2)<br>
+<p>
+Pm-3m[1/2,1/2,0]M1- (a;b;c) 23 I222 , basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(0,0,0), s=4, i=48, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<p>
+Pm-3m[1/2,1/2,0]M4- (a;b;c) 23 I222 , basis={(2,0,0),(0,0,-2),(0,2,0)}, origin=(-1/2,1/2,-1/2), s=4, i=48, k-active= (1/2,1/2,0),(1/2,0,1/2),(0,1/2,1/2)<br>
+<br><INPUT TYPE="checkbox" NAME="zeromodes" VALUE="true"> Zero all mode and strain amplitudes for all output from this page
+<p>Parameters:
+<a href="isodistorthelp.php#modeparams" target="_blank"><img src=help.jpg></a><br>
+"Interactive viewer":<br>
+Atomic radius:
+<input type="text" name="atomicradius" value="0.400" class="span1" size=5> Angstroms<br>
+Bond length: minimum
+<input type="text" name="bondlengthmin" value="0.000" class="span1" size=5>
+maximum
+<input type="text" name="bondlength" value="2.500" class="span1" size=5> Angstroms<br>
+Window width:
+<input type="text" name="appletwidth" value="1024" class="span1" size=5> pixels<br>
+Viewing range:
+xmin
+<input type="text" class="span1" name="supercellxmin" value="0.000" size=5>
+xmax
+<input type="text" class="span1" name="supercellxmax" value="1.000" size=5>
+ymin
+<input type="text" class="span1" name="supercellymin" value="0.000" size=5>
+ymax
+<input type="text" class="span1" name="supercellymax" value="1.000" size=5>
+zmin
+<input type="text" class="span1" name="supercellzmin" value="0.000" size=5>
+zmax
+<input type="text" class="span1" name="supercellzmax" value="1.000" size=5><br>
+Maximum displacement per mode:
+<input type="text" class="span1" name="modeamplitude" value="1.000" size=5> Angstroms<br>
+Maximum strain per mode:
+<input type="text" class="span1" name="strainamplitude" value="0.100" size=5><br>
+<br><INPUT TYPE="checkbox" NAME="topasstrain" VALUE="true">
+Include strain modes in TOPAS.STR<br>
+<br><INPUT TYPE="checkbox" NAME="treetopas" VALUE="true">
+Generate TOPAS.STR output for subgroup tree<br>
+<br><INPUT TYPE="checkbox" NAME="treecif" VALUE="true">
+Generate CIF output for subgroup tree<br>
+<br>Number of decimal places in CIF file:
+<SELECT NAME="cifdec" class="span1">
+<OPTION VALUE=" 5"> 5</OPTION>
+<OPTION VALUE=" 5"> 5</OPTION>
+<OPTION VALUE=" 6"> 6</OPTION>
+<OPTION VALUE=" 7"> 7</OPTION>
+<OPTION VALUE=" 8"> 8</OPTION>
+<OPTION VALUE=" 9"> 9</OPTION>
+<OPTION VALUE="10">10</OPTION>
+<OPTION VALUE="11">11</OPTION>
+<OPTION VALUE="12">12</OPTION>
+<OPTION VALUE="13">13</OPTION>
+<OPTION VALUE="14">14</OPTION>
+<OPTION VALUE="15">15</OPTION>
+<OPTION VALUE="16">16</OPTION>
+</SELECT><br>
+<br><INPUT TYPE="checkbox" NAME="nonstandardsetting" VALUE="true"> Use alternate (possibly nonstandard) setting in CIF output (matrix S<sup>-1t</sup>)<br>
+Relative to 
+<INPUT TYPE="radio" NAME="settingwrt" VALUE="parent" CHECKED> parent
+<INPUT TYPE="radio" NAME="settingwrt" VALUE="subgroup"> subgroup<br>
+Basis vectors of subgroup lattice (rational numbers):<br><table>
+<tr><td>a' = </td><td><INPUT TYPE="text" NAME="basist11" class="span1" SIZE=3 VALUE="2 ">a +</td><td><INPUT TYPE="text" NAME="basist12" class="span1" SIZE=3 VALUE="0">b +</td><td><INPUT TYPE="text" NAME="basist13" class="span1" SIZE=3 VALUE="0">c</td><td width="40%"></td></tr>
+<tr><td>b' = </td><td><INPUT TYPE="text" NAME="basist21" class="span1" SIZE=3 VALUE="0">a +</td><td><INPUT TYPE="text" NAME="basist22" class="span1" SIZE=3 VALUE="2 ">b +</td><td><INPUT TYPE="text" NAME="basist23" class="span1" SIZE=3 VALUE="0">c</td></tr>
+<tr><td>c' = </td><td><INPUT TYPE="text" NAME="basist31" class="span1" SIZE=3 VALUE="0">a +</td><td><INPUT TYPE="text" NAME="basist32" class="span1" SIZE=3 VALUE="0">b +</td><td><INPUT TYPE="text" NAME="basist33" class="span1" SIZE=3 VALUE="2 ">c</td></tr>
+<tr><td colspan=7>Origin of subgroup (either rational or decimal numbers):</td></tr>
+<tr><td>&#964;' = </td><td><INPUT TYPE="text" NAME="origint1" class="span1" SIZE=3 VALUE="0">a +</td><td><INPUT TYPE="text" NAME="origint2" class="span1" SIZE=3 VALUE="0">b +</td><td><INPUT TYPE="text" NAME="origint3" class="span1" SIZE=3 VALUE="0">c +</td></tr></table>
+<p>
+<br><INPUT TYPE="checkbox" NAME="cifmovie" VALUE="true"> Make CIF movie<br>
+<INPUT TYPE="radio" NAME="cifmoviezip" VALUE="true" CHECKED> separate CIF file for each frame or
+<INPUT TYPE="radio" NAME="cifmoviezip" VALUE="false"> one CIF file with multiple data blocks<br>
+minimum master amplitude:
+<input type="text" class="span1" name="ampmincifmovie" value="0" size=5><br>
+maximum master amplitude:
+<input type="text" class="span1" name="ampmaxcifmovie" value="1" size=5><br>
+number of frames:
+<input type="text" class="span1" name="nframescifmovie" value="10" size=5><br>
+variation of the master amplitude:
+<INPUT TYPE="radio" NAME="varcifmovie" VALUE="linear" CHECKED> linear
+<INPUT TYPE="radio" NAME="varcifmovie" VALUE="sine"> sine-wave<br>
+fractional number of complete periods:
+<input type="text" class="span1" name="periodscifmovie" value="1" size=5><br>
+</FORM><p>
+</div>
+<script src="jquery-1.7.2.js"></script>
+<script src="bootstrap.js"></script>
+</BODY>
+</HTML>
