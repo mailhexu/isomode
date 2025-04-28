@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Labeling Phonon Modes
+  #
+
+The label_phbst function and CLI allow you to label phonon modes from ABINIT PHBST calculations.
+
+  Python Function Usage
+  #
+
+
+  Basic Usage
+  #
+
+For basic usage with default parameters:
+from isomode.anamode import label_phbst
+
+label_phbst(&#39;run.abo_PHBST.nc&#39;, &#39;results.txt&#39;)
+
+  Advanced Usage
+  #
+
+For custom supercell and q-points:
+import numpy as np
+from isomode.anamode import label_phbst
+
+# Define a 3x3x3 supercell
+sc = np.eye(3) * 3
+
+# Specify q-points of interest
+qpts = {&#39;Gamma&#39;: [0,0,0], &#39;X&#39;: [0.5,0,0]}
+
+# Run the analysis
+label_phbst(&#39;phonons.nc&#39;, &#39;modes.txt&#39;, sc_mat=sc, qdict=qpts)
+
+  Command Line Interface
+  #
+
+The module provides a convenient CLI for easy usage:">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/phonon-modes/">
+  <meta property="og:site_name" content="IsoMode Documentation">
+  <meta property="og:title" content="Labeling Phonon Modes">
+  <meta property="og:description" content="Labeling Phonon Modes # The label_phbst function and CLI allow you to label phonon modes from ABINIT PHBST calculations.
+Python Function Usage # Basic Usage # For basic usage with default parameters:
+from isomode.anamode import label_phbst label_phbst(&#39;run.abo_PHBST.nc&#39;, &#39;results.txt&#39;) Advanced Usage # For custom supercell and q-points:
+import numpy as np from isomode.anamode import label_phbst # Define a 3x3x3 supercell sc = np.eye(3) * 3 # Specify q-points of interest qpts = {&#39;Gamma&#39;: [0,0,0], &#39;X&#39;: [0.5,0,0]} # Run the analysis label_phbst(&#39;phonons.nc&#39;, &#39;modes.txt&#39;, sc_mat=sc, qdict=qpts) Command Line Interface # The module provides a convenient CLI for easy usage:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+<title>Labeling Phonon Modes | IsoMode Documentation</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/phonon-modes/">
+<link rel="stylesheet" href="/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css" integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5&#43;NfY=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.3534f0187c0ad342e45ef728c8a88964b5c29f2f9b3ab433a3ef121c73412c50.js" integrity="sha256-NTTwGHwK00LkXvcoyKiJZLXCny&#43;bOrQzo&#43;8SHHNBLFA=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>IsoMode Documentation</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/installation/" class="">Installation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/phonon-modes/" class="active">Labeling Phonon Modes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/symmetry-analysis/" class="">Symmetry Analysis</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/generating-structures/" class="">Generating Distorted Structures</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Labeling Phonon Modes</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#python-function-usage">Python Function Usage</a>
+      <ul>
+        <li><a href="#basic-usage">Basic Usage</a></li>
+        <li><a href="#advanced-usage">Advanced Usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#command-line-interface">Command Line Interface</a>
+      <ul>
+        <li><a href="#basic-usage-1">Basic Usage</a></li>
+        <li><a href="#advanced-usage-1">Advanced Usage</a></li>
+        <li><a href="#cli-options">CLI Options</a></li>
+      </ul>
+    </li>
+    <li><a href="#output-format">Output Format</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="labeling-phonon-modes">
+  Labeling Phonon Modes
+  <a class="anchor" href="#labeling-phonon-modes">#</a>
+</h1>
+<p>The <code>label_phbst</code> function and CLI allow you to label phonon modes from ABINIT PHBST calculations.</p>
+<h2 id="python-function-usage">
+  Python Function Usage
+  <a class="anchor" href="#python-function-usage">#</a>
+</h2>
+<h3 id="basic-usage">
+  Basic Usage
+  <a class="anchor" href="#basic-usage">#</a>
+</h3>
+<p>For basic usage with default parameters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> isomode.anamode <span style="color:#f92672">import</span> label_phbst
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>label_phbst(<span style="color:#e6db74">&#39;run.abo_PHBST.nc&#39;</span>, <span style="color:#e6db74">&#39;results.txt&#39;</span>)
+</span></span></code></pre></div><h3 id="advanced-usage">
+  Advanced Usage
+  <a class="anchor" href="#advanced-usage">#</a>
+</h3>
+<p>For custom supercell and q-points:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> isomode.anamode <span style="color:#f92672">import</span> label_phbst
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define a 3x3x3 supercell</span>
+</span></span><span style="display:flex;"><span>sc <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>eye(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Specify q-points of interest</span>
+</span></span><span style="display:flex;"><span>qpts <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;Gamma&#39;</span>: [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#39;X&#39;</span>: [<span style="color:#ae81ff">0.5</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>]}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run the analysis</span>
+</span></span><span style="display:flex;"><span>label_phbst(<span style="color:#e6db74">&#39;phonons.nc&#39;</span>, <span style="color:#e6db74">&#39;modes.txt&#39;</span>, sc_mat<span style="color:#f92672">=</span>sc, qdict<span style="color:#f92672">=</span>qpts)
+</span></span></code></pre></div><h2 id="command-line-interface">
+  Command Line Interface
+  <a class="anchor" href="#command-line-interface">#</a>
+</h2>
+<p>The module provides a convenient CLI for easy usage:</p>
+<h3 id="basic-usage-1">
+  Basic Usage
+  <a class="anchor" href="#basic-usage-1">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python -m isomode.anamode input.nc output.txt
+</span></span></code></pre></div><h3 id="advanced-usage-1">
+  Advanced Usage
+  <a class="anchor" href="#advanced-usage-1">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python -m isomode.anamode input.nc output.txt <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --sc_mat <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --qpoints Gamma <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> X 0.5 <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><h3 id="cli-options">
+  CLI Options
+  <a class="anchor" href="#cli-options">#</a>
+</h3>
+<ul>
+<li><code>--tmpdir</code>: Temporary directory (default: auto-created)</li>
+<li><code>--sc_mat</code>: Supercell matrix as 3 integers (default: 2 2 2)
+<ul>
+<li>Note: Should be compatible with the qpoints</li>
+</ul>
+</li>
+<li><code>--qpoints</code>: Q-points as alternating labels and coordinates
+<ul>
+<li>Example: &ldquo;Gamma 0 0 0 X 0.5 0 0&rdquo;</li>
+</ul>
+</li>
+</ul>
+<h2 id="output-format">
+  Output Format
+  <a class="anchor" href="#output-format">#</a>
+</h2>
+<p>The output file follows this format:</p>
+<pre tabindex="0"><code># qname   id  freq(cm-1)  label  symmetry
+Gamma     0   100.0       GM1+   A1g
+Gamma     1   150.0       GM2-   Eg
+...
+</code></pre><p>Each line contains:</p>
+<ul>
+<li>qname: Name of the q-point</li>
+<li>id: Mode identifier</li>
+<li>freq: Frequency in cm⁻¹</li>
+<li>label: Mode label</li>
+<li>symmetry: Symmetry classification</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/yourname/isomode/edit/main/docs/content/content/docs/phonon-modes.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#python-function-usage">Python Function Usage</a>
+      <ul>
+        <li><a href="#basic-usage">Basic Usage</a></li>
+        <li><a href="#advanced-usage">Advanced Usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#command-line-interface">Command Line Interface</a>
+      <ul>
+        <li><a href="#basic-usage-1">Basic Usage</a></li>
+        <li><a href="#advanced-usage-1">Advanced Usage</a></li>
+        <li><a href="#cli-options">CLI Options</a></li>
+      </ul>
+    </li>
+    <li><a href="#output-format">Output Format</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

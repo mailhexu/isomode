@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "isomode"
-version = "0.2"
+version = "0.3"
 description = "Label/generate distorted structure from phonon/isodistort output"
 authors = [
     {name = "Xu He", email = "mailhexu@gmail.com"},

@@ -1,0 +1,21 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'IsoMode Documentation'
+theme = 'hugo-book'
+
+# Book theme specific configurations
+[params]
+  # Show table of contents by default
+  BookToC = true
+  
+  # Set source repository location
+  BookRepo = 'https://github.com/yourname/isomode'
+  
+  # Enable "Edit this page" links
+  BookEditPath = 'edit/main/docs/content'
+  
+  # Enable search
+  BookSearch = true
+  
+  # Set default dark/light theme
+  BookTheme = 'light'
