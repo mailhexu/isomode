@@ -33,6 +33,7 @@
 ### Labeling Phonon Modes
 
 The `label_phbst` function and CLI can be used to label phonon modes from ABINIT PHBST calculations.
+Exampe usage can be found in the `examples/label_phbst` directory.  
 
 #### Python Function Usage
 
