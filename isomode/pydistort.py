@@ -284,8 +284,6 @@ class isodistort(object):
             ret = requests.post(
                 "https://stokes.byu.edu/iso/isodistortform.php", data=data, allow_redirects=True)
             self.select_basis_text = ret.text
-            with open ('tmp/select_basis_result.txt', 'w') as myfile:
-                myfile.write(self.select_basis_text)
             logger.info("Basis selection completed")
         except requests.RequestException as e:
             logger.error(f"Network error during basis selection: {str(e)}")
@@ -342,8 +340,6 @@ class isodistort(object):
             ret = requests.post(
                 "https://stokes.byu.edu/iso/isodistortform.php", data=data, allow_redirects=True)
             text = ret.text
-            with open('tmp/mode_detail.html', 'w') as myfile:
-                myfile.write(text)
 
             
             p = re.compile(r'<pre>([\s|\S]*)<\/pre>', re.MULTILINE)
