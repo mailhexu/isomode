@@ -76,6 +76,11 @@ def view_distort(parent_fname, distorted_fname, out_fname):
         distorted_cif = os.path.join(tmpdir, 'distorted.cif')
         tocif(distorted_fname, outfname=distorted_cif)
 
+
+        atoms = read(distorted_cif) 
+
+        print(atoms.get_scaled_positions()) 
+
         logger.info("Getting distortion mode details")
         iso = isodistort(parent_cif=parent_sym_cif, distorted_cif=distorted_cif)
         ampt = iso.get_mode_amplitude_text()
@@ -235,7 +240,8 @@ class isodistort(object):
             inputs = soup.find_all('input')
             data = {i.get('name'): i.get('value') 
                    for i in inputs 
-                   if i.get('type') == 'hidden' and i.get('name')}
+                    #if i.get('name')}
+                    if i.get('type') == 'hidden' and i.get('name')}
 
             with open(self.distorted_cif, 'rb') as f:
                 files = {'toProcess': f}
@@ -250,7 +256,8 @@ class isodistort(object):
             inputs = soup.find_all('input')
             data = {i.get('name'): i.get('value') 
                    for i in inputs 
-                   if i.get('type') == 'hidden' and i.get('name')}
+                    #if i.get('type') == 'hidden' and i.get('name')}
+                    if i.get('name')}
             data['input'] = 'uploadsubgroupcif'
 
             ret = requests.post(

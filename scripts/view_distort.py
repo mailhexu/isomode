@@ -13,16 +13,17 @@ def main():
         default="mode_detail.txt")
     args = parser.parse_args()
 
+
+    raise NotImplementedError(
+        "This script is not working. "
+    )   
+
     mode_details=view_distort(
         parent_fname=args.parent,
         distorted_fname=args.distort,
         out_fname=args.output)
     
     print_summary(mode_details)
-    try:
-        view_spacegroup(args.distort)
-    except:
-        pass
 
 if __name__=='__main__':
     main()
