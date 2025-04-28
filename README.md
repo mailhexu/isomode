@@ -82,9 +82,6 @@ Gamma     1   150.0       GM2-   Eg
 
 ### Identify symmetry adapted modes from a high symmetry structure and a low symmetry structure.
 
-**This script stopped working and should be debugged**
-
-
 
 The command view_distort.py can be used for this purpose.
 

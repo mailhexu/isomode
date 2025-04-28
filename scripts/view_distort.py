@@ -14,9 +14,9 @@ def main():
     args = parser.parse_args()
 
 
-    raise NotImplementedError(
-        "This script is not working. "
-    )   
+    #raise NotImplementedError(
+    #    "This script is not working. "
+    #)   
 
     mode_details=view_distort(
         parent_fname=args.parent,

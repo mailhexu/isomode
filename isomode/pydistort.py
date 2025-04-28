@@ -113,12 +113,13 @@ class isocif(object):
             logger.info(f"Uploading CIF file: {self.fname}")
             data = {'input': 'uploadcif'}
             with open(self.fname, 'rb') as f:
-                files = {'toProcess': f}
+                files = {'toProcess': (self.fname, f)}  
                 ret = requests.post(
                     "https://stokes.byu.edu/iso/isocifuploadfile.php",
                     data=data,
                     files=files,
-                    allow_redirects=True)
+                    #allow_redirects=True
+                    )
             
             text = str(ret.text)
             logger.debug(f"Upload response: {text}")
@@ -208,12 +209,13 @@ class isodistort(object):
             logger.info(f"Uploading parent CIF: {self.parent_cif}")
             data = {'input': 'uploadparentcif'}
             with open(self.parent_cif, 'rb') as f:
-                files = {'toProcess': f}
+                files = {'toProcess': (self.parent_cif, f)} 
                 ret = requests.post(
                     "https://stokes.byu.edu/iso/isodistortuploadfile.php",
                     data=data,
                     files=files,
-                    allow_redirects=True)
+                    #allow_redirects=True
+                    )
             text = str(ret.text)
             logger.debug(f"Upload response: {text}")
 
@@ -222,7 +224,8 @@ class isodistort(object):
             ret = requests.post(
                 "https://stokes.byu.edu/iso/isodistortform.php",
                 data=data,
-                allow_redirects=True)
+                #allow_redirects=True
+                )
             self.upload_parent_cif_text = ret.text
             logger.info("Parent CIF uploaded successfully")
         except requests.RequestException as e:
@@ -244,12 +247,13 @@ class isodistort(object):
                     if i.get('type') == 'hidden' and i.get('name')}
 
             with open(self.distorted_cif, 'rb') as f:
-                files = {'toProcess': f}
+                files = {'toProcess': (self.distorted_cif, f)}
                 ret = requests.post(
                     "https://stokes.byu.edu/iso/isodistortuploadfile.php",
                     data=data,
                     files=files,
-                    allow_redirects=True)
+                    #allow_redirects=True
+                    )
             text = ret.text
 
             soup = BS(text, 'lxml')
@@ -284,13 +288,17 @@ class isodistort(object):
             options = soup.find_all('option')
             data["inputbasis"] = "list"
             data["basisselect"] = options[1].get('value')
-            data["chooseorigin"] = "false"
-            data["trynearest"] = "true"
+            data["chooseorigin"] = False
+            data["trynearest"] = True
             data["domapatoms"] = 0
+            data["zeromodes"] =  False
+            data['input'] = 'distort'
+            data['origintype'] = 'method4'
 
             ret = requests.post(
                 "https://stokes.byu.edu/iso/isodistortform.php", data=data, allow_redirects=True)
             self.select_basis_text = ret.text
+            print(self.select_basis_text)   
             logger.info("Basis selection completed")
         except requests.RequestException as e:
             logger.error(f"Network error during basis selection: {str(e)}")
@@ -336,16 +344,19 @@ class isodistort(object):
 
             #options = soup.find_all('option')
             data.update({
-                #"topasstrain": "false",
-                #"treetopas": "false",
-                #"cifmovie": "false",
-                #"nonstandardsetting": 'false',
+                "topasstrain": "false",
+                "treetopas": "false",
+                "cifmovie": "false",
+                "nonstandardsetting": 'false',
                 "origintype": "modesdetails",
-                #"varcifmovie": 'linear',
-                #"cifdec": " 5"
+                "varcifmovie": 'linear',
+                "zeromodes": 'false',   
+                "cifdec": " 5"
             })
             ret = requests.post(
-                "https://stokes.byu.edu/iso/isodistortform.php", data=data, allow_redirects=True)
+                "https://stokes.byu.edu/iso/isodistortform.php", data=data, 
+                #allow_redirects=True
+                )
             text = ret.text
 
             

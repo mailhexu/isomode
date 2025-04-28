@@ -6,11 +6,6 @@ Y1   1a     0.00000   0.00000   0.00000   1.00000
 Al1  1b     0.50000   0.50000   0.50000   1.00000
 O1   3c     0.00000   0.50000   0.50000   1.00000
 
-Subgroup setting
-Note that this file uses an alternate (possibly nonstandard) setting of the subgroup chosen by the user:
-basis={(1,0,0),(0,1,0),(0,0,1)}, origin=(0.00000,0.00000,0.00000) with respect to the subgroup space group
-Centering in new unit cell: (0,0,0) 
-
 Subgroup details
 1 P1, basis={(1,0,0),(0,1,0),(0,0,1)}, origin=(0,0,0), s=1, i=48
 
@@ -27,7 +22,7 @@ Distorted superstructure
 a=3.67267, b=3.67267, c=3.67267, alpha=90.00000, beta=90.00000, gamma=90.00000
 atom site    x         y         z         occ      displ  
 Y1   1a     0.00000   0.00000   0.00000   1.00000   0.00000  
-Al1  1a     0.50000   0.50000   0.50000   1.00000   0.00000  
+Al1  1a     0.50000   0.50000   0.55000   1.00000   0.18363  
 O2   1a     0.00000   0.50000   0.50000   1.00000   0.00000  
 O1   1a     0.50000   0.50000   0.00000   1.00000   0.00000  
 O3   1a     0.50000   0.00000   0.50000   1.00000   0.00000  
@@ -104,21 +99,21 @@ mode                                   As        Ap       dmax
 [0,0,0]GM4-(a,b,c)[Y1:a:dsp]T1u(c)    0.00000   0.00000   0.00000
 [0,0,0]GM4-(a,b,c)[Al1:b:dsp]T1u(a)   0.00000   0.00000   0.00000
 [0,0,0]GM4-(a,b,c)[Al1:b:dsp]T1u(b)   0.00000   0.00000   0.00000
-[0,0,0]GM4-(a,b,c)[Al1:b:dsp]T1u(c)   0.00000   0.00000   0.00000
+[0,0,0]GM4-(a,b,c)[Al1:b:dsp]T1u(c)   0.18363   0.18363   0.18363
 [0,0,0]GM4-(a,b,c)[O1:c:dsp]A2u(a)    0.00000   0.00000   0.00000
 [0,0,0]GM4-(a,b,c)[O1:c:dsp]A2u(b)    0.00000   0.00000   0.00000
 [0,0,0]GM4-(a,b,c)[O1:c:dsp]A2u(c)    0.00000   0.00000   0.00000
 [0,0,0]GM4-(a,b,c)[O1:c:dsp]Eu(a)     0.00000   0.00000   0.00000
 [0,0,0]GM4-(a,b,c)[O1:c:dsp]Eu(b)     0.00000   0.00000   0.00000
 [0,0,0]GM4-(a,b,c)[O1:c:dsp]Eu(c)     0.00000   0.00000   0.00000
-[0,0,0]GM4-(a,b,c)  all               0.00000   0.00000
+[0,0,0]GM4-(a,b,c)  all               0.18363   0.18363
 
 [0,0,0]GM5-(a,b,c)[O1:c:dsp]Eu(a)     0.00000   0.00000   0.00000
 [0,0,0]GM5-(a,b,c)[O1:c:dsp]Eu(b)     0.00000   0.00000   0.00000
 [0,0,0]GM5-(a,b,c)[O1:c:dsp]Eu(c)     0.00000   0.00000   0.00000
 [0,0,0]GM5-(a,b,c)  all               0.00000   0.00000
 
-Overall                               0.00000   0.00000
+Overall                               0.18363   0.18363
 
 Parent-cell strain mode definitions
     e1      e2      e3      e4      e5      e6
