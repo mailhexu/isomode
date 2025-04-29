@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://mailhexu.github.io/'
 languageCode = 'en-us'
 title = 'IsoMode Documentation'
 theme = 'hugo-book'
@@ -9,7 +9,7 @@ theme = 'hugo-book'
   BookToC = true
   
   # Set source repository location
-  BookRepo = 'https://github.com/yourname/isomode'
+  BookRepo = 'https://github.com/mailhexu/isomode'
   
   # Enable "Edit this page" links
   BookEditPath = 'edit/main/docs/content'
