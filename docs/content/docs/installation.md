@@ -5,19 +5,6 @@ weight: 1
 
 # Installation
 
-IsoMode has several dependencies that need to be installed:
-
-## Dependencies
-
-* ASE (atomic simulation environment)
-* numpy 
-* spglib (for space group)
-* abipy (for reading netcdf files)
-* request (for interacting with the findsym and isodistort server)
-* bs4 (for parsing the html pages)
-
-Optional dependencies:
-* anaddb compiled with netcdf (not needed by the package but required for generating *PHBST.nc files)
 
 ## Installation Methods
 
@@ -39,3 +26,20 @@ pip install -e . --user
 ```
 
 This method is useful if you want to modify the source code or contribute to development.
+
+
+### Dependencies
+  IsoMode has several dependencies that need to be installed, but they are automatically installed when you install IsoMode via pip. However, if you want to install them manually, they are listed below:
+
+## Dependencies
+
+* ASE (atomic simulation environment)
+* numpy 
+* spglib (for space group)
+* abipy (for reading netcdf files)
+* request (for interacting with the findsym and isodistort server)
+* bs4 (for parsing the html pages)
+
+Optional dependencies:
+* anaddb compiled with netcdf (not needed by the package but required for generating *PHBST.nc files)
+
