@@ -19,10 +19,10 @@ pip install isomode --user
 ### Install from Source
 
 To install from source:
-
+Download the source code, extract it to the isomode directory,
 ```bash
 cd isomode
-pip install -e . --user
+pip install . --user
 ```
 
 This method is useful if you want to modify the source code or contribute to development.
