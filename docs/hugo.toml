@@ -1,4 +1,4 @@
-baseURL = 'http://mailhexu.github.io/'
+baseURL = 'https://mailhexu.github.io/isomode/'
 languageCode = 'en-us'
 title = 'IsoMode Documentation'
 theme = 'hugo-book'
