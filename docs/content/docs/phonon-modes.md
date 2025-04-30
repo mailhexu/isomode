@@ -6,6 +6,9 @@ weight: 2
 # Labeling Phonon Modes
 
 The `label_phbst` function and CLI allow you to label phonon modes from ABINIT PHBST calculations.
+The function can label the modes for the selected q-points. Note that the qpoints should be included in the PHBST file, and
+the supercell matrix should be compatible with the qpoints.
+
 
 ## Python Function Usage
 
@@ -27,8 +30,8 @@ For custom supercell and q-points:
 import numpy as np
 from isomode.anamode import label_phbst
 
-# Define a 3x3x3 supercell
-sc = np.eye(3) * 3
+# Define a 2x2x2 supercell
+sc = np.eye(3) * 2
 
 # Specify q-points of interest
 qpts = {'Gamma': [0,0,0], 'X': [0.5,0,0]}
