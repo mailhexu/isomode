@@ -79,7 +79,6 @@ def view_distort(parent_fname, distorted_fname, out_fname):
 
         atoms = read(distorted_cif) 
 
-        print(atoms.get_scaled_positions()) 
 
         logger.info("Getting distortion mode details")
         iso = isodistort(parent_cif=parent_sym_cif, distorted_cif=distorted_cif)
@@ -298,7 +297,6 @@ class isodistort(object):
             ret = requests.post(
                 "https://stokes.byu.edu/iso/isodistortform.php", data=data, allow_redirects=True)
             self.select_basis_text = ret.text
-            print(self.select_basis_text)   
             logger.info("Basis selection completed")
         except requests.RequestException as e:
             logger.error(f"Network error during basis selection: {str(e)}")

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "isomode"
-version = "0.3"
+version = "0.3.1"
 description = "Label/generate distorted structure from phonon/isodistort output"
 authors = [
     {name = "Xu He", email = "mailhexu@gmail.com"},
@@ -15,12 +15,12 @@ classifiers = [
 ]
 dependencies = [
     "numpy==1.26.4",
-    "scipy",
+    "scipy<=1.16",
     "requests",
     "bs4",
     "ase",
     "spglib",
-    "abipy==0.9.7",
+    "abipy==0.9.8",
     "pymatgen==2025.4.20",
     "lxml",
 ]
