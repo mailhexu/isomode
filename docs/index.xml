@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on IsoMode Documentation</title><link>https://mailhexu.github.io/isomode/docs/</link><description>Recent content in Docs on IsoMode Documentation</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://mailhexu.github.io/isomode/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Installation</title><link>https://mailhexu.github.io/isomode/docs/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mailhexu.github.io/isomode/docs/installation/</guid><description>&lt;h1 id="installation">
+ Installation
+ &lt;a class="anchor" href="#installation">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="installation-methods">
+ Installation Methods
+ &lt;a class="anchor" href="#installation-methods">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="install-from-pypi-recommended">
+ Install from PyPI (Recommended)
+ &lt;a class="anchor" href="#install-from-pypi-recommended">#&lt;/a>
+&lt;/h3>
+&lt;p>The easiest way to install IsoMode is through pip:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pip install isomode --user
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="install-from-source">
+ Install from Source
+ &lt;a class="anchor" href="#install-from-source">#&lt;/a>
+&lt;/h3>
+&lt;p>To install from source:
+Download the source code, extract it to the isomode directory,&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd isomode
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip install . --user
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This method is useful if you want to modify the source code or contribute to development.&lt;/p>
+&lt;h3 id="dependencies">
+ Dependencies
+ &lt;a class="anchor" href="#dependencies">#&lt;/a>
+&lt;/h3>
+&lt;p>IsoMode has several dependencies that need to be installed, but they are automatically installed when you install IsoMode via pip. However, if you want to install them manually, they are listed below:&lt;/p></description></item><item><title>Labeling Phonon Modes</title><link>https://mailhexu.github.io/isomode/docs/phonon-modes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mailhexu.github.io/isomode/docs/phonon-modes/</guid><description>&lt;h1 id="labeling-phonon-modes">
+ Labeling Phonon Modes
+ &lt;a class="anchor" href="#labeling-phonon-modes">#&lt;/a>
+&lt;/h1>
+&lt;p>The &lt;code>label_phbst&lt;/code> function and CLI allow you to label phonon modes from ABINIT PHBST calculations.
+The function can label the modes for the selected q-points. Note that the qpoints should be included in the PHBST file, and
+the supercell matrix should be compatible with the qpoints.&lt;/p>
+&lt;h2 id="python-function-usage">
+ Python Function Usage
+ &lt;a class="anchor" href="#python-function-usage">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="basic-usage">
+ Basic Usage
+ &lt;a class="anchor" href="#basic-usage">#&lt;/a>
+&lt;/h3>
+&lt;p>For basic usage with default parameters:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> isomode.anamode &lt;span style="color:#f92672">import&lt;/span> label_phbst
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>label_phbst(&lt;span style="color:#e6db74">&amp;#39;run.abo_PHBST.nc&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;results.txt&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="advanced-usage">
+ Advanced Usage
+ &lt;a class="anchor" href="#advanced-usage">#&lt;/a>
+&lt;/h3>
+&lt;p>For custom supercell and q-points:&lt;/p></description></item><item><title>Symmetry Analysis</title><link>https://mailhexu.github.io/isomode/docs/symmetry-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mailhexu.github.io/isomode/docs/symmetry-analysis/</guid><description>&lt;h1 id="symmetry-analysis">
+ Symmetry Analysis
+ &lt;a class="anchor" href="#symmetry-analysis">#&lt;/a>
+&lt;/h1>
+&lt;p>IsoMode provides tools to identify symmetry-adapted modes by comparing a high-symmetry structure with a low-symmetry structure.&lt;/p>
+&lt;h2 id="using-view_distortpy">
+ Using view_distort.py
+ &lt;a class="anchor" href="#using-view_distortpy">#&lt;/a>
+&lt;/h2>
+&lt;p>The &lt;code>view_distort.py&lt;/code> command is the main tool for symmetry analysis. It takes a parent structure (high symmetry) and a distorted structure (low symmetry) as inputs and analyzes the symmetry-adapted modes that relate them.&lt;/p>
+&lt;h3 id="command-usage">
+ Command Usage
+ &lt;a class="anchor" href="#command-usage">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>view_distort.py -p PARENT -d DISTORT -o OUTPUT
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="command-options">
+ Command Options
+ &lt;a class="anchor" href="#command-options">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>-p&lt;/code>, &lt;code>--parent&lt;/code>: Parent (high symmetry) CIF file name&lt;/li>
+&lt;li>&lt;code>-d&lt;/code>, &lt;code>--distort&lt;/code>: Distorted (low symmetry) CIF file name&lt;/li>
+&lt;li>&lt;code>-o&lt;/code>, &lt;code>--output&lt;/code>: Output filename for mode details&lt;/li>
+&lt;/ul>
+&lt;h3 id="example-usage">
+ Example Usage
+ &lt;a class="anchor" href="#example-usage">#&lt;/a>
+&lt;/h3>
+&lt;p>Here&amp;rsquo;s an example analyzing a P21/c YNiO3 structure against its cubic parent:&lt;/p></description></item><item><title>Generating Distorted Structures</title><link>https://mailhexu.github.io/isomode/docs/generating-structures/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://mailhexu.github.io/isomode/docs/generating-structures/</guid><description>&lt;h1 id="generating-distorted-structures">
+ Generating Distorted Structures
+ &lt;a class="anchor" href="#generating-distorted-structures">#&lt;/a>
+&lt;/h1>
+&lt;p>IsoMode can generate distorted structures based on phonon calculations. This feature requires proper setup of phonon band structure calculations.&lt;/p>
+&lt;h2 id="prerequisites">
+ Prerequisites
+ &lt;a class="anchor" href="#prerequisites">#&lt;/a>
+&lt;/h2>
+&lt;p>You need a phonon band structure netcdf file that includes:&lt;/p>
+&lt;ul>
+&lt;li>Zone-center points&lt;/li>
+&lt;li>High-symmetry points&lt;/li>
+&lt;li>Symmetry equivalent qpoints&lt;/li>
+&lt;/ul>
+&lt;p>Important notes for phonon calculations:&lt;/p>
+&lt;ul>
+&lt;li>Symmetry equivalent qpoints must be included&lt;/li>
+&lt;li>Do not add points between high-symmetry points (set ndivsm to 2)&lt;/li>
+&lt;/ul>
+&lt;h3 id="example-anaddb-input">
+ Example ANADDB Input
+ &lt;a class="anchor" href="#example-anaddb-input">#&lt;/a>
+&lt;/h3>
+&lt;p>Here&amp;rsquo;s an example input for a Dion-Jacobson structure:&lt;/p></description></item></channel></rss>

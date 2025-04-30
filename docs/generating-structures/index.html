@@ -1,0 +1,84 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Generating Distorted Structures
+  #
+
+IsoMode can generate distorted structures based on phonon calculations. This feature requires proper setup of phonon band structure calculations.
+
+  Prerequisites
+  #
+
+You need a phonon band structure netcdf file that includes:
+
+Zone-center points
+High-symmetry points
+Symmetry equivalent qpoints
+
+Important notes for phonon calculations:
+
+Symmetry equivalent qpoints must be included
+Do not add points between high-symmetry points (set ndivsm to 2)
+
+
+  Example ANADDB Input
+  #
+
+Here&rsquo;s an example input for a Dion-Jacobson structure:"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://mailhexu.github.io/isomode/docs/generating-structures/"><meta property="og:site_name" content="IsoMode Documentation"><meta property="og:title" content="Generating Distorted Structures"><meta property="og:description" content="Generating Distorted Structures # IsoMode can generate distorted structures based on phonon calculations. This feature requires proper setup of phonon band structure calculations.
+Prerequisites # You need a phonon band structure netcdf file that includes:
+Zone-center points High-symmetry points Symmetry equivalent qpoints Important notes for phonon calculations:
+Symmetry equivalent qpoints must be included Do not add points between high-symmetry points (set ndivsm to 2) Example ANADDB Input # Here’s an example input for a Dion-Jacobson structure:"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>Generating Distorted Structures | IsoMode Documentation</title>
+<link rel=icon href=/isomode/favicon.png><link rel=manifest href=/isomode/manifest.json><link rel=canonical href=https://mailhexu.github.io/isomode/docs/generating-structures/><link rel=stylesheet href=/isomode/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5+NfY=" crossorigin=anonymous><script defer src=/isomode/fuse.min.js></script><script defer src=/isomode/en.search.min.a93ee1e8145a260c17a684e233912d9ec72b0ba0779a061a6b2fc4c0a39e0553.js integrity="sha256-qT7h6BRaJgwXpoTiM5EtnscrC6B3mgYaay/EwKOeBVM=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/isomode/><span>IsoMode Documentation</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/isomode/docs/installation/>Installation</a></li><li><a href=/isomode/docs/phonon-modes/>Labeling Phonon Modes</a></li><li><a href=/isomode/docs/symmetry-analysis/>Symmetry Analysis</a></li><li><a href=/isomode/docs/generating-structures/ class=active>Generating Distorted Structures</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/isomode/svg/menu.svg class=book-icon alt=Menu></label><h3>Generating Distorted Structures</h3><label for=toc-control><img src=/isomode/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#prerequisites>Prerequisites</a><ul><li><a href=#example-anaddb-input>Example ANADDB Input</a></li></ul></li><li><a href=#using-gen_allpy>Using gen_all.py</a><ul><li><a href=#example-script>Example Script</a></li><li><a href=#running-the-script>Running the Script</a></li></ul></li><li><a href=#output-files>Output Files</a><ul><li><a href=#parameters-explanation>Parameters Explanation</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=generating-distorted-structures>Generating Distorted Structures
+<a class=anchor href=#generating-distorted-structures>#</a></h1><p>IsoMode can generate distorted structures based on phonon calculations. This feature requires proper setup of phonon band structure calculations.</p><h2 id=prerequisites>Prerequisites
+<a class=anchor href=#prerequisites>#</a></h2><p>You need a phonon band structure netcdf file that includes:</p><ul><li>Zone-center points</li><li>High-symmetry points</li><li>Symmetry equivalent qpoints</li></ul><p>Important notes for phonon calculations:</p><ul><li>Symmetry equivalent qpoints must be included</li><li>Do not add points between high-symmetry points (set ndivsm to 2)</li></ul><h3 id=example-anaddb-input>Example ANADDB Input
+<a class=anchor href=#example-anaddb-input>#</a></h3><p>Here&rsquo;s an example input for a Dion-Jacobson structure:</p><pre tabindex=0><code># ANADB input for phonon bands and DOS
+ndivsm 2
+nqpath 8
+qpath
+   0.0    0.0    0.0 # Gamma
+   0.0    0.5    0.0 # Xy
+   0.5    0.0    0.0 # Xx
+   0.5    0.5    0.0 # M
+   0.5    0.0    0.5 # Rx
+   0.0    0.5    0.5 # Ry
+   0.5    0.5    0.5 # A
+   0.0    0.0    0.5 # Z
+asr 2
+ngqpt 2 2 2
+chneut 1
+dipdip 0
+ifcflag 1
+nqshft 1
+q1shft 0 0 0
+</code></pre><h2 id=using-gen_allpy>Using gen_all.py
+<a class=anchor href=#using-gen_allpy>#</a></h2><ol><li>Create a copy of <code>gen_all.py</code> from the template directory</li><li>Modify the parameters according to your needs</li><li>Run the script</li></ol><h3 id=example-script>Example Script
+<a class=anchor href=#example-script>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#!/usr/bin/env python</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> isomode.gen_all <span style=color:#f92672>import</span> run_all
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> __name__<span style=color:#f92672>==</span><span style=color:#e6db74>&#34;__main__&#34;</span>:
+</span></span><span style=display:flex><span>    run_all(
+</span></span><span style=display:flex><span>        fname<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;./run.abo_PHBST.nc&#39;</span>,  <span style=color:#75715e># phonon band netcdf file</span>
+</span></span><span style=display:flex><span>        qdict<span style=color:#f92672>=</span>{
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;Gamma&#39;</span>: [<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.0</span>],
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;Xy&#39;</span>: [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;Xx&#39;</span>: [<span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;M&#39;</span>: [<span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0</span>],
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;Rx&#39;</span>: [<span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.5</span>],
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;Ry&#39;</span>: [<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.5</span>],
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;A&#39;</span>: [<span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.5</span>],
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;Z&#39;</span>: [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0.5</span>]
+</span></span><span style=display:flex><span>        },  <span style=color:#75715e># qpoints in netcdf file</span>
+</span></span><span style=display:flex><span>        path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tmp&#39;</span>,  <span style=color:#75715e># temporary directory</span>
+</span></span><span style=display:flex><span>        supercell_matrix<span style=color:#f92672>=</span>np<span style=color:#f92672>.</span>eye(<span style=color:#ae81ff>3</span>) <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>,  <span style=color:#75715e># supercell matrix</span>
+</span></span><span style=display:flex><span>        max_freq<span style=color:#f92672>=</span><span style=color:#ae81ff>0.0</span>,  <span style=color:#75715e># maximum frequency (0.0 for only unstable modes)</span>
+</span></span><span style=display:flex><span>        amp<span style=color:#f92672>=</span><span style=color:#ae81ff>0.03</span>,  <span style=color:#75715e># amplitude of each mode</span>
+</span></span><span style=display:flex><span>        pickle_fname<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;all_modes.pickle&#39;</span>,  <span style=color:#75715e># output pickle file</span>
+</span></span><span style=display:flex><span>        cif_dir<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;all_modes&#39;</span>,  <span style=color:#75715e># output directory for CIF files</span>
+</span></span><span style=display:flex><span>        primitive<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>  <span style=color:#75715e># whether to make it primitive</span>
+</span></span><span style=display:flex><span>    )
+</span></span></code></pre></div><h3 id=running-the-script>Running the Script
+<a class=anchor href=#running-the-script>#</a></h3><p>To generate the structures:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>python gen_all.py
+</span></span></code></pre></div><h2 id=output-files>Output Files
+<a class=anchor href=#output-files>#</a></h2><p>The script generates several outputs:</p><ol><li><p><code>tmp/primitive.cif</code>: The primitive cell CIF file</p></li><li><p><code>all_modes.pickle</code>: Contains:</p><ul><li>Distorted structures (in ASE atoms format)</li><li>Mode amplitudes</li><li>Irreps labels</li><li>Spacegroups for each structure</li></ul></li><li><p><code>all_modes/</code> directory: Contains CIF files for all generated distorted structures</p></li></ol><h3 id=parameters-explanation>Parameters Explanation
+<a class=anchor href=#parameters-explanation>#</a></h3><ul><li><code>fname</code>: Path to the PHBST netcdf file</li><li><code>qdict</code>: Dictionary mapping q-point names to coordinates</li><li><code>path</code>: Directory for temporary files</li><li><code>supercell_matrix</code>: Matrix defining the supercell</li><li><code>max_freq</code>: Maximum frequency cutoff (0.0 for unstable modes only)</li><li><code>amp</code>: Amplitude for mode distortions</li><li><code>pickle_fname</code>: Output file for structural data</li><li><code>cif_dir</code>: Directory for output CIF files</li><li><code>primitive</code>: Whether to generate primitive cells</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/mailhexu/isomode/edit/main/docs/content/content/docs/generating-structures.md target=_blank rel=noopener><img src=/isomode/svg/edit.svg class=book-icon alt>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#prerequisites>Prerequisites</a><ul><li><a href=#example-anaddb-input>Example ANADDB Input</a></li></ul></li><li><a href=#using-gen_allpy>Using gen_all.py</a><ul><li><a href=#example-script>Example Script</a></li><li><a href=#running-the-script>Running the Script</a></li></ul></li><li><a href=#output-files>Output Files</a><ul><li><a href=#parameters-explanation>Parameters Explanation</a></li></ul></li></ul></nav></div></aside></main></body></html>

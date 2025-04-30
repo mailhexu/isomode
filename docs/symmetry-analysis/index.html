@@ -1,0 +1,59 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Symmetry Analysis
+  #
+
+IsoMode provides tools to identify symmetry-adapted modes by comparing a high-symmetry structure with a low-symmetry structure.
+
+  Using view_distort.py
+  #
+
+The view_distort.py command is the main tool for symmetry analysis. It takes a parent structure (high symmetry) and a distorted structure (low symmetry) as inputs and analyzes the symmetry-adapted modes that relate them.
+
+  Command Usage
+  #
+
+view_distort.py -p PARENT -d DISTORT -o OUTPUT
+
+  Command Options
+  #
+
+
+-p, --parent: Parent (high symmetry) CIF file name
+-d, --distort: Distorted (low symmetry) CIF file name
+-o, --output: Output filename for mode details
+
+
+  Example Usage
+  #
+
+Here&rsquo;s an example analyzing a P21/c YNiO3 structure against its cubic parent:"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://mailhexu.github.io/isomode/docs/symmetry-analysis/"><meta property="og:site_name" content="IsoMode Documentation"><meta property="og:title" content="Symmetry Analysis"><meta property="og:description" content="Symmetry Analysis # IsoMode provides tools to identify symmetry-adapted modes by comparing a high-symmetry structure with a low-symmetry structure.
+Using view_distort.py # The view_distort.py command is the main tool for symmetry analysis. It takes a parent structure (high symmetry) and a distorted structure (low symmetry) as inputs and analyzes the symmetry-adapted modes that relate them.
+Command Usage # view_distort.py -p PARENT -d DISTORT -o OUTPUT Command Options # -p, --parent: Parent (high symmetry) CIF file name -d, --distort: Distorted (low symmetry) CIF file name -o, --output: Output filename for mode details Example Usage # Here’s an example analyzing a P21/c YNiO3 structure against its cubic parent:"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>Symmetry Analysis | IsoMode Documentation</title>
+<link rel=icon href=/isomode/favicon.png><link rel=manifest href=/isomode/manifest.json><link rel=canonical href=https://mailhexu.github.io/isomode/docs/symmetry-analysis/><link rel=stylesheet href=/isomode/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5+NfY=" crossorigin=anonymous><script defer src=/isomode/fuse.min.js></script><script defer src=/isomode/en.search.min.a93ee1e8145a260c17a684e233912d9ec72b0ba0779a061a6b2fc4c0a39e0553.js integrity="sha256-qT7h6BRaJgwXpoTiM5EtnscrC6B3mgYaay/EwKOeBVM=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/isomode/><span>IsoMode Documentation</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=/isomode/docs/installation/>Installation</a></li><li><a href=/isomode/docs/phonon-modes/>Labeling Phonon Modes</a></li><li><a href=/isomode/docs/symmetry-analysis/ class=active>Symmetry Analysis</a></li><li><a href=/isomode/docs/generating-structures/>Generating Distorted Structures</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/isomode/svg/menu.svg class=book-icon alt=Menu></label><h3>Symmetry Analysis</h3><label for=toc-control><img src=/isomode/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#using-view_distortpy>Using view_distort.py</a><ul><li><a href=#command-usage>Command Usage</a></li><li><a href=#command-options>Command Options</a></li><li><a href=#example-usage>Example Usage</a></li><li><a href=#understanding-the-output>Understanding the Output</a></li><li><a href=#important-notes>Important Notes</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=symmetry-analysis>Symmetry Analysis
+<a class=anchor href=#symmetry-analysis>#</a></h1><p>IsoMode provides tools to identify symmetry-adapted modes by comparing a high-symmetry structure with a low-symmetry structure.</p><h2 id=using-view_distortpy>Using view_distort.py
+<a class=anchor href=#using-view_distortpy>#</a></h2><p>The <code>view_distort.py</code> command is the main tool for symmetry analysis. It takes a parent structure (high symmetry) and a distorted structure (low symmetry) as inputs and analyzes the symmetry-adapted modes that relate them.</p><h3 id=command-usage>Command Usage
+<a class=anchor href=#command-usage>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>view_distort.py -p PARENT -d DISTORT -o OUTPUT
+</span></span></code></pre></div><h3 id=command-options>Command Options
+<a class=anchor href=#command-options>#</a></h3><ul><li><code>-p</code>, <code>--parent</code>: Parent (high symmetry) CIF file name</li><li><code>-d</code>, <code>--distort</code>: Distorted (low symmetry) CIF file name</li><li><code>-o</code>, <code>--output</code>: Output filename for mode details</li></ul><h3 id=example-usage>Example Usage
+<a class=anchor href=#example-usage>#</a></h3><p>Here&rsquo;s an example analyzing a P21/c YNiO3 structure against its cubic parent:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>view_distort.py -p cubic_std.cif -d P21c.cif -o mode_details.txt
+</span></span></code></pre></div><h3 id=understanding-the-output>Understanding the Output
+<a class=anchor href=#understanding-the-output>#</a></h3><p>The command outputs mode amplitudes and their relative contributions. Example output:</p><pre tabindex=0><code>[1/2,1/2,1/2]R5-:  2.9567  0.7392
+  [1/2,1/2,0]M2+:  2.2424  0.5606
+    [0,1/2,0]X5-:  1.6549  0.4137
+[1/2,1/2,1/2]R4-:  0.4241  0.1060
+[1/2,1/2,1/2]R2-:  0.2839  0.0710
+  [1/2,1/2,0]M3+:  0.1099  0.0275
+  [1/2,1/2,0]M5+:  0.0695  0.0174
+[1/2,1/2,1/2]R3-:  0.0199  0.0050
+     [0,0,0]GM4-:  0.0006  0.0001
+     [0,0,0]GM5-:  0.0004  0.0001
+    [0,1/2,0]X1+:  0.0004  0.0001
+    [0,1/2,0]X5+:  0.0003  0.0001
+  [1/2,1/2,0]M5-:  0.0003  0.0001
+           Total:  4.0971  1.0243
+      SPACEGROUP: P2_1/c (14)
+</code></pre><p>The output format is:</p><pre tabindex=0><code>[qpoint]label: amplitude_in_supercell amplitude_in_primitive(parent)_cell
+</code></pre><h3 id=important-notes>Important Notes
+<a class=anchor href=#important-notes>#</a></h3><ol><li><p>Small Amplitudes: Some modes may show very small non-zero amplitudes (like GM4-, GM5-, X1+, X5+, M5- in the example) due to numerical errors. These should typically be ignored.</p></li><li><p>Internet Requirement: This tool requires internet access as it uses the ISODISTORT server (<a href=http://stokes.byu.edu/iso/isodistortform.php>http://stokes.byu.edu/iso/isodistortform.php</a>) for calculations.</p></li><li><p>Output File Details: The detailed output file (specified by <code>-o</code>) contains comprehensive mode decomposition information. The format follows the specification described at <a href=http://stokes.byu.edu/iso/isodistorthelp.php>http://stokes.byu.edu/iso/isodistorthelp.php</a></p></li></ol></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/mailhexu/isomode/edit/main/docs/content/content/docs/symmetry-analysis.md target=_blank rel=noopener><img src=/isomode/svg/edit.svg class=book-icon alt>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#using-view_distortpy>Using view_distort.py</a><ul><li><a href=#command-usage>Command Usage</a></li><li><a href=#command-options>Command Options</a></li><li><a href=#example-usage>Example Usage</a></li><li><a href=#understanding-the-output>Understanding the Output</a></li><li><a href=#important-notes>Important Notes</a></li></ul></li></ul></nav></div></aside></main></body></html>

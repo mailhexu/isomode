@@ -1,0 +1,15 @@
+{
+  "name": "IsoMode Documentation",
+  "short_name": "IsoMode Documentation",
+  "start_url": "/isomode/",
+  "scope": "/isomode/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/isomode/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}
